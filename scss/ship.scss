@@ -1,0 +1,281 @@
+#ship {
+    width: 80px;
+    height: 120px;
+    // border: 1px solid red;
+    position: absolute;
+    bottom: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+
+
+}
+
+.ship-body {
+    height: 100%;
+    width: 100%;
+    background-color: $ship;
+    clip-path: polygon(50% 0%, 100% 85%, 82% 100%, 18% 100%, 0 85%);
+    box-shadow: inset 45px 2px 0px -4px darken($ship, 10%);
+    transition: all 0.4s;
+}
+
+.ship-cockpit {
+    height: 40%;
+    width: 50%;
+    position: absolute;
+    bottom: 20%;
+    background-color: darken($ship, 70%);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: none;
+    transition: all 0.4s;
+
+    &::after {
+        content: "";
+        width: 70%;
+        height: 80%;
+        background-color: darken($ship, 60%);
+        clip-path: polygon(50% 0%, 50% 100%, 100% 100%);
+        position: absolute;
+        transition: all 0.4s;
+    }
+}
+
+.ship-R-wing {
+    width: 80%;
+    height: 40%;
+    background-color: $ship;
+    position: absolute;
+    bottom: 5%;
+    right: -65%;
+    clip-path: polygon(-20% 0, 12% 100%, 100% 100%);
+    transition: all 0.4s;
+    z-index: -1;
+}
+
+.ship-L-wing {
+    width: 80%;
+    height: 40%;
+    background-color: darken($ship, 10%);
+    position: absolute;
+    bottom: 5%;
+    left: -65%;
+    clip-path: polygon(-20% 0, 12% 100%, 100% 100%);
+    transform: scaleX(-1);
+    transition: all 0.4s;
+    z-index: -1;
+}
+
+.ship-fire {
+    height: 30%;
+    width: 30%;
+    background-color: $fire;
+    position: absolute;
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+    bottom: -30%;
+    display: flex;
+    justify-content: center;
+    transition: all 0.4s;
+    animation: fire 0.1s  infinite;
+    transform-origin: top center;
+
+    &::after {
+        content: "";
+        width: 50%;
+        height: 60%;
+        background-color: $yellow;
+        position: absolute;
+        clip-path: polygon(50% 100%, 0 0, 100% 0);
+        transition: all 0.4s;
+    }
+}
+
+
+.shoot{
+    position: absolute;
+    height: 60px;
+    width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    align-self: flex-start;
+    bottom: 25vh;
+    left: 0;
+    // animation: shoot 0.4s both;
+
+
+    &::after{
+        content: '';
+        width: 100%;
+        height: 100%;
+        background-color: darken($ship, 5%);
+        position: absolute;
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    }
+
+    &::before{
+        content: '';
+        width: 100%;
+        height: 100%;
+        background-color: darken($ship, 5%);
+        position: absolute;
+        background-color: $ship;
+        border-radius: 100%;
+        filter: blur(10px);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+//------------- Vira para a esquerda --------------------------
+.turn-L {
+    
+    &::after{
+        content: '';
+        height: 90%;
+        width: 150%;
+        position: absolute;
+        right: -90%;
+        background-color: $ship;
+        background: linear-gradient(90deg, rgba($ship, 0.1) 0%,  rgba($ship, 0) 100%);
+        z-index: -1;
+        transform-origin: center left;
+        animation: speed 0.6s;
+        transition: all 0.2s;
+    }
+
+    .ship-body {
+        width: 95%;
+        box-shadow: inset 30px 2px 0px -4px #b1b1b1;
+        clip-path: polygon(40% 0%, 100% 85%, 76% 100%, 35% 115%, 10% 80%);
+        transition: all 0.4s;
+    }
+    .ship-cockpit {
+        width: 30%;
+        margin-left: -40%;
+        clip-path: polygon(60% 0%, 0% 100%, 100% 100%);
+        transition: all 0.4s;
+
+        &::after{
+            clip-path: polygon(57% 0%, 31% 100%, 100% 100%);
+            height: 85%;
+            width: 100%;
+        }
+    }
+
+    .ship-R-wing {
+        width: 50%;
+        height: 50%;
+        background-color: #cacaca;
+        right: -20%;
+        transition: all 0.4s;
+
+        
+    
+    }
+    .ship-L-wing {
+        width: 30%;
+        height: 30%;
+        bottom: 5%;
+        left: -9%;
+        clip-path: polygon(-21% 0, 2% 100%, 88% 100%);
+        transition: all 0.4s;
+        background-color: darken($ship, 10%);
+    }
+
+    .ship-fire {
+        height: 30%;
+        width: 30%;
+        bottom: -30%;
+        margin-left: 10%;
+        transition: all 0.4s;
+
+    }
+}
+
+//-------------  Vira para a direita ====> ------------------------------------
+.turn-R {
+
+    &::after{
+        content: '';
+        height: 90%;
+        width: 150%;
+        position: absolute;
+        left: -90%;
+        background-color: $ship;
+        background: linear-gradient(90deg, rgba($ship, 0) 0%,  rgba($ship, 0.1) 100%);
+        z-index: -1;
+        transform-origin: center right;
+        animation: speed 0.6s;
+        transition: all 0.2s;
+    }
+
+    
+    .ship-body {
+        width: 95%;
+        box-shadow: inset 60px 2px 0px -4px #b1b1b1;
+        clip-path: polygon(60% 0%, 100% 85%, 76% 100%, 35% 115%, 10% 80%);
+        // clip-path: polygon(50% 0%, 100% 85%, 76% 100%, 35% 115%, 10% 80%);
+        transition: all 0.4s;
+    }
+    .ship-cockpit {
+        width: 30%;
+        margin-right: -50%;
+        clip-path: polygon(35% 0%, 0% 100%, 100% 100%);
+        transition: all 0.4s;
+
+
+        &::after{
+            clip-path: polygon(35% 0%, 50% 100%, 100% 100%);
+            height: 85%;
+            width: 100%;
+        }
+    }
+
+    .ship-R-wing {
+
+        width: 30%;
+        height: 30%;
+        bottom: 5%;
+        right: -13%;
+        clip-path: polygon(-21% 0, 2% 100%, 88% 100%);
+        transition: all 0.4s;
+        background-color: $ship;
+
+
+        
+    
+    }
+    .ship-L-wing {
+        width: 50%;
+        height: 50%;
+        background-color: #cacaca;
+        left: -20%;
+        transition: all 0.4s;
+        background-color: darken($ship, 10%);
+    }
+
+    .ship-fire {
+        height: 30%;
+        width: 30%;
+        bottom: -30%;
+        margin-right: 10%;
+        transition: all 0.4s;
+
+    }
+}

@@ -1,0 +1,314 @@
+@keyframes fire {
+  from {
+    transform: scaleY(1); }
+  to {
+    transform: scaleY(0.6); } }
+@keyframes speed {
+  from {
+    transform: scaleX(0); }
+  to {
+    transform: scaleX(1); } }
+@keyframes shoot {
+  from {
+    bottom: 25vh; }
+  to {
+    bottom: 105vh; } }
+.game-container {
+  background-color: #2D2D47;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: -5; }
+
+* {
+  margin: 0;
+  padding: 0; }
+
+#hud {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 40px;
+  width: 100%;
+  background-color: #0f0f18;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.hud-life {
+  height: 60%;
+  min-width: 6%;
+  background-color: #2D2D47;
+  position: absolute;
+  left: 3%;
+  border-radius: 5px;
+  display: flex;
+  justify-content: left;
+  align-items: center; }
+  .hud-life::after {
+    content: '\f004';
+    font-family: "Font Awesome 5 Free";
+    font-size: 1.2em;
+    font-weight: 900;
+    color: white;
+    position: absolute;
+    right: 105%; }
+
+.hud-life-piece {
+  height: 70%;
+  width: 20px;
+  background-color: #18ffff;
+  margin: 5px; }
+
+.hud-collor {
+  height: 60%;
+  width: 10%;
+  background-color: #2D2D47;
+  position: absolute;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center; }
+  .hud-collor .red {
+    background-color: #ff4747; }
+  .hud-collor .yellow {
+    background-color: #fff347; }
+  .hud-collor .green {
+    background-color: #47ff56; }
+  .hud-collor .blue {
+    background-color: #47bbff; }
+
+.hud-collor-ball {
+  width: 10px;
+  height: 10px;
+  border-radius: 20px; }
+
+.hud-score {
+  height: 60%;
+  min-width: 7%;
+  background-color: #2D2D47;
+  position: absolute;
+  right: 3%;
+  border-radius: 5px;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .hud-score::after {
+    content: '\f091';
+    font-family: "Font Awesome 5 Free";
+    font-size: 1.2em;
+    font-weight: 900;
+    color: white;
+    position: absolute;
+    left: 105%; }
+
+#ship {
+  width: 80px;
+  height: 120px;
+  position: absolute;
+  bottom: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.ship-body {
+  height: 100%;
+  width: 100%;
+  background-color: #cacaca;
+  clip-path: polygon(50% 0%, 100% 85%, 82% 100%, 18% 100%, 0 85%);
+  box-shadow: inset 45px 2px 0px -4px #b1b1b1;
+  transition: all 0.4s; }
+
+.ship-cockpit {
+  height: 40%;
+  width: 50%;
+  position: absolute;
+  bottom: 20%;
+  background-color: #181818;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: none;
+  transition: all 0.4s; }
+  .ship-cockpit::after {
+    content: "";
+    width: 70%;
+    height: 80%;
+    background-color: #313131;
+    clip-path: polygon(50% 0%, 50% 100%, 100% 100%);
+    position: absolute;
+    transition: all 0.4s; }
+
+.ship-R-wing {
+  width: 80%;
+  height: 40%;
+  background-color: #cacaca;
+  position: absolute;
+  bottom: 5%;
+  right: -65%;
+  clip-path: polygon(-20% 0, 12% 100%, 100% 100%);
+  transition: all 0.4s;
+  z-index: -1; }
+
+.ship-L-wing {
+  width: 80%;
+  height: 40%;
+  background-color: #b1b1b1;
+  position: absolute;
+  bottom: 5%;
+  left: -65%;
+  clip-path: polygon(-20% 0, 12% 100%, 100% 100%);
+  transform: scaleX(-1);
+  transition: all 0.4s;
+  z-index: -1; }
+
+.ship-fire {
+  height: 30%;
+  width: 30%;
+  background-color: #ffaf47;
+  position: absolute;
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
+  bottom: -30%;
+  display: flex;
+  justify-content: center;
+  transition: all 0.4s;
+  animation: fire 0.1s  infinite;
+  transform-origin: top center; }
+  .ship-fire::after {
+    content: "";
+    width: 50%;
+    height: 60%;
+    background-color: #fff347;
+    position: absolute;
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+    transition: all 0.4s; }
+
+.shoot {
+  position: absolute;
+  height: 60px;
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  align-self: flex-start;
+  bottom: 25vh;
+  left: 0; }
+  .shoot::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: #bdbdbd;
+    position: absolute;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
+  .shoot::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: #bdbdbd;
+    position: absolute;
+    background-color: #cacaca;
+    border-radius: 100%;
+    filter: blur(10px); }
+
+.turn-L::after {
+  content: '';
+  height: 90%;
+  width: 150%;
+  position: absolute;
+  right: -90%;
+  background-color: #cacaca;
+  background: linear-gradient(90deg, rgba(202, 202, 202, 0.1) 0%, rgba(202, 202, 202, 0) 100%);
+  z-index: -1;
+  transform-origin: center left;
+  animation: speed 0.6s;
+  transition: all 0.2s; }
+.turn-L .ship-body {
+  width: 95%;
+  box-shadow: inset 30px 2px 0px -4px #b1b1b1;
+  clip-path: polygon(40% 0%, 100% 85%, 76% 100%, 35% 115%, 10% 80%);
+  transition: all 0.4s; }
+.turn-L .ship-cockpit {
+  width: 30%;
+  margin-left: -40%;
+  clip-path: polygon(60% 0%, 0% 100%, 100% 100%);
+  transition: all 0.4s; }
+  .turn-L .ship-cockpit::after {
+    clip-path: polygon(57% 0%, 31% 100%, 100% 100%);
+    height: 85%;
+    width: 100%; }
+.turn-L .ship-R-wing {
+  width: 50%;
+  height: 50%;
+  background-color: #cacaca;
+  right: -20%;
+  transition: all 0.4s; }
+.turn-L .ship-L-wing {
+  width: 30%;
+  height: 30%;
+  bottom: 5%;
+  left: -9%;
+  clip-path: polygon(-21% 0, 2% 100%, 88% 100%);
+  transition: all 0.4s;
+  background-color: #b1b1b1; }
+.turn-L .ship-fire {
+  height: 30%;
+  width: 30%;
+  bottom: -30%;
+  margin-left: 10%;
+  transition: all 0.4s; }
+
+.turn-R::after {
+  content: '';
+  height: 90%;
+  width: 150%;
+  position: absolute;
+  left: -90%;
+  background-color: #cacaca;
+  background: linear-gradient(90deg, rgba(202, 202, 202, 0) 0%, rgba(202, 202, 202, 0.1) 100%);
+  z-index: -1;
+  transform-origin: center right;
+  animation: speed 0.6s;
+  transition: all 0.2s; }
+.turn-R .ship-body {
+  width: 95%;
+  box-shadow: inset 60px 2px 0px -4px #b1b1b1;
+  clip-path: polygon(60% 0%, 100% 85%, 76% 100%, 35% 115%, 10% 80%);
+  transition: all 0.4s; }
+.turn-R .ship-cockpit {
+  width: 30%;
+  margin-right: -50%;
+  clip-path: polygon(35% 0%, 0% 100%, 100% 100%);
+  transition: all 0.4s; }
+  .turn-R .ship-cockpit::after {
+    clip-path: polygon(35% 0%, 50% 100%, 100% 100%);
+    height: 85%;
+    width: 100%; }
+.turn-R .ship-R-wing {
+  width: 30%;
+  height: 30%;
+  bottom: 5%;
+  right: -13%;
+  clip-path: polygon(-21% 0, 2% 100%, 88% 100%);
+  transition: all 0.4s;
+  background-color: #cacaca; }
+.turn-R .ship-L-wing {
+  width: 50%;
+  height: 50%;
+  background-color: #cacaca;
+  left: -20%;
+  transition: all 0.4s;
+  background-color: #b1b1b1; }
+.turn-R .ship-fire {
+  height: 30%;
+  width: 30%;
+  bottom: -30%;
+  margin-right: 10%;
+  transition: all 0.4s; }
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,93 @@
+#hud{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 40px;
+    width: 100%;
+    background-color: darken($bg, 15%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.hud-life{
+    height: 60%;
+    min-width: 6%;
+    background-color: $bg;
+    position: absolute;
+    left: 3%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+    &::after{
+        content: '\f004';
+        font-family: "Font Awesome 5 Free";
+        font-size: 1.2em;
+        font-weight: 900;
+        color: white;
+        position: absolute;
+        right: 105%;
+
+    }
+   
+}
+
+.hud-life-piece{
+    height: 70%;
+    width: 20px;
+    background-color: $neon-blue;
+    margin: 5px;
+}
+
+.hud-collor{
+    height: 60%;
+    width: 10%;
+    background-color: $bg;
+    position: absolute;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    .red{background-color: $red;}
+    .yellow{background-color: $yellow;}
+    .green{background-color: $green;}
+    .blue{background-color: $blue;}
+   
+}
+
+.hud-collor-ball{
+    width: 10px;
+    height: 10px;
+    border-radius: 20px;
+    
+}
+
+
+.hud-score{
+    height: 60%;
+    min-width: 7%;
+    background-color: $bg;
+    position: absolute;
+    right: 3%;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::after{
+        content: '\f091';
+        font-family: "Font Awesome 5 Free";
+        font-size: 1.2em;
+        font-weight: 900;
+        color: white;
+        position: absolute;
+        left: 105%;
+
+    }
+}
