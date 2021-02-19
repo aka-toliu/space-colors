@@ -2,13 +2,14 @@
 
 1. **Install Node JS local**
 
-  https://nodejs.org/
+    https://nodejs.org/
 
 
 2. **Install the dependencies on terminal**
 
-``npm i``
+   ``npm i``
 
 
 3. **run**
-`grunt`
+
+   `grunt`
