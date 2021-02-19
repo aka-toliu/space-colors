@@ -8,5 +8,5 @@ https://nodejs.org/
 npm i
 
 
-2. **run**
+3. **run**
 grunt
