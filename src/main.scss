@@ -97,6 +97,7 @@ html[color="green"] {
     position: absolute;
     z-index: -5;
     overflow: hidden;
+    box-sizing: border-box;
 }
 
 *{

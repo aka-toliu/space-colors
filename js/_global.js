@@ -1,6 +1,7 @@
 var ship = document.querySelector('#ship');
 var hud = document.querySelector('#hud');
 var container = document.querySelector('.game-container');
+var points = hud.querySelector('.hud-score');
 
 var colors = ['red', 'yellow', 'blue', 'green']
 

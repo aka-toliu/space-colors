@@ -104,7 +104,8 @@ html[color="green"] .shoot::before {
   width: 100%;
   position: absolute;
   z-index: -5;
-  overflow: hidden; }
+  overflow: hidden;
+  box-sizing: border-box; }
 
 * {
   margin: 0;

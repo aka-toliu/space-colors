@@ -44,6 +44,7 @@ function shootCollider(shoot) {
                     if(shoot.classList.contains('shoot-' + colors[game.color]) 
                     && element.classList.contains(colors[game.color])){
                         element.remove();
+                        pointsUP(10);
                        
                     }
                     
