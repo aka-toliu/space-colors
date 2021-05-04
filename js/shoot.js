@@ -31,10 +31,18 @@ function shootMove(shoot) {
 
     var init = 25;
 
-    setInterval(() => {
+  var shootUpdate =  setInterval(() => {
         init += 5;
 
-        shoot.style.bottom = init + 'vh'
+        shoot.style.bottom = init + 'vh';
+
+        shootCollider(shoot);
     }, 20);
+
+    shootUpdate;
+
+    setTimeout(() => {
+        clearInterval(shootUpdate);
+    }, 450);
     
 }

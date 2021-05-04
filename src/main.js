@@ -88,6 +88,95 @@ document.addEventListener("keydown", event => {
 
 });
  
+function shootCollider(shoot) {
+
+    console.log(shoot);
+    var meteorites = document.querySelectorAll('.meteorite');
+
+
+    meteorites.forEach(element => {
+
+        var meteorCollider = element.getBoundingClientRect();
+        var shootCollider = shoot.getBoundingClientRect();
+
+
+        var pontos_shoot = [
+
+            { x: shootCollider.left, y: shootCollider.top },
+            { x: shootCollider.left + shootCollider.width, y: shootCollider.top },
+            { x: shootCollider.left + shootCollider.width, y: shootCollider.top + shootCollider.height },
+            { x: shootCollider.left, y: shootCollider.top + shootCollider.heigt }
+        ]
+
+        var pontos_meteorites = [
+
+            { x: meteorCollider.left, y: meteorCollider.top },
+            { x: meteorCollider.left + meteorCollider.width, y: meteorCollider.top },
+            { x: meteorCollider.left + meteorCollider.width, y: meteorCollider.top + meteorCollider.height },
+            { x: meteorCollider.left, y: meteorCollider.top + meteorCollider.heigt }
+        ]
+
+
+
+        for (let i = 0; i < 3; i++) {
+            if   ((pontos_shoot[i].x >= meteorCollider.left &&
+                   pontos_shoot[i].x <= meteorCollider.left+meteorCollider.width &&
+                   pontos_shoot[i].y >= meteorCollider.top &&
+                   pontos_shoot[i].y <= meteorCollider.top+meteorCollider.height) ||
+              
+                  (pontos_meteorites[i].x >= shootCollider.left &&
+                   pontos_meteorites[i].x <= shootCollider.left+shootCollider.width &&
+                   pontos_meteorites[i].y >= shootCollider.top &&
+                   pontos_meteorites[i].y <= shootCollider.top+shootCollider.height)){
+
+                    console.log('colidiu');
+                    element.remove();
+
+                    
+        }      
+    }
+
+
+    });
+
+
+
+}
+
+ 
+function createMeteorites() {
+    var posX = Math.round(Math.random() * (10 - 1)) * 10 + "%";
+    var numColor = Math.round(Math.random() * (3 - 0));
+
+    var meteorite = document.createElement('DIV');
+    meteorite.classList.add('meteorite');
+    container.appendChild(meteorite);
+    meteorite.classList.add(colors[numColor])
+    meteorite.style.left = posX;
+
+    setTimeout(() => {
+        meteorite.remove();
+    }, 9000);
+    console.log(numColor);
+
+}
+
+setInterval(createMeteorites, 2000);
+
+
+function fallEnemies(object, time) {
+
+    var init = 0;
+
+    setInterval(() => {
+        init += 5;
+
+        object.style.top = init + 'vh';
+
+    }, time);
+
+}
+ 
 
 var j;
 var updateL;
@@ -206,10 +295,18 @@ function shootMove(shoot) {
 
     var init = 25;
 
-    setInterval(() => {
+  var shootUpdate =  setInterval(() => {
         init += 5;
 
-        shoot.style.bottom = init + 'vh'
+        shoot.style.bottom = init + 'vh';
+
+        shootCollider(shoot);
     }, 20);
+
+    shootUpdate;
+
+    setTimeout(() => {
+        clearInterval(shootUpdate);
+    }, 450);
     
 }

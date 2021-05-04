@@ -24,6 +24,12 @@
         height: 15px;
     }
 }
+
+
+@keyframes meteor{
+    from{top: -10vh;}
+    to{top: 110vh;}
+}
  
 $bg: #2d2d47;
 $ship: rgb(202, 202, 202);
@@ -98,6 +104,17 @@ html[color="green"] {
     padding: 0;
 }
  
+.meteorite{
+    width: 50px;
+    height: 50px;
+    background-color: $red;
+    position: absolute;
+    top: 0vh;
+    clip-path: polygon(46% 0, 88% 10%, 100% 39%, 96% 84%, 58% 99%, 15% 91%, 0 57%, 6% 19%);
+    // justify-self: center;
+    animation: meteor 10s;
+}
+ 
 #hud{
     position: fixed;
     bottom: 0;
@@ -153,13 +170,14 @@ html[color="green"] {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-
-    .red{background-color: $red;}
-    .yellow{background-color: $yellow;}
-    .green{background-color: $green;}
-    .blue{background-color: $blue;}
    
 }
+
+
+.red{background-color: $red;}
+.yellow{background-color: $yellow;}
+.green{background-color: $green;}
+.blue{background-color: $blue;}
 
 .hud-color-ball{
     width: 10px;

@@ -53,13 +53,14 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-
-    .red{background-color: $red;}
-    .yellow{background-color: $yellow;}
-    .green{background-color: $green;}
-    .blue{background-color: $blue;}
    
 }
+
+
+.red{background-color: $red;}
+.yellow{background-color: $yellow;}
+.green{background-color: $green;}
+.blue{background-color: $blue;}
 
 .hud-color-ball{
     width: 10px;
