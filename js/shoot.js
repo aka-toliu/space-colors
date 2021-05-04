@@ -10,7 +10,7 @@ if (event.keyCode === 32 && event.repeat == false) {
     var shootPosX = shipInfo.left + 30;
 
     var shoot = document.createElement('DIV');
-    shoot.classList.add('shoot');
+    shoot.classList.add('shoot', 'shoot-' + colors[game.color]);
     container.appendChild(shoot);
     shoot.style.transform = 'translateX(' + shootPosX + 'px)';
 

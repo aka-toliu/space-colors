@@ -130,7 +130,13 @@ function shootCollider(shoot) {
                    pontos_meteorites[i].y <= shootCollider.top+shootCollider.height)){
 
                     console.log('colidiu');
-                    element.remove();
+
+                    if(shoot.classList.contains('shoot-' + colors[game.color]) 
+                    && element.classList.contains(colors[game.color])){
+                        element.remove();
+                       
+                    }
+                    
 
                     
         }      
@@ -178,7 +184,6 @@ function fallEnemies(object, time) {
 }
  
 
-var j;
 var updateL;
 var updateR;
 var posX = 0;
@@ -189,8 +194,9 @@ let widthScreen = document.body.clientWidth;
 
 
 function turnR() {
-
-  if(posX < (widthScreen/2 - 20)){
+  console.log(posX);
+  if(posX < widthScreen/2 - 20){
+    // console.log('Turn-R');
     newPosX = posX += 7;
   }
 
@@ -202,6 +208,7 @@ function turnR() {
 function turnL() {
 
   if(posX > (widthScreen/2 - 20) * -1){
+    // console.log('Turn-R');
   newPosX = posX -= 7;
   }
 
@@ -211,26 +218,29 @@ function turnL() {
 
 document.addEventListener("keydown", event => {
 
-  
+
     // ------------ Right -------------------------------
-    if (event.which === 39 && event.repeat == false && !ship.classList.contains('turn-L')) {
+    if (event.which === 39 && event.repeat === false && !ship.classList.contains('turn-L')) {
 
 
       ship.classList.add("turn-R");
       console.log(event);
+      console.log('R-down');
       clearInterval(updateL);
       updateR = setInterval(turnR, 10);
 
       }
     
       // ------------ Left -------------------------------
-      if (event.keyCode  === 37 && event.repeat == false && !ship.classList.contains('turn-R')) {
+      if (event.keyCode  === 37 && event.repeat === false && !ship.classList.contains('turn-R')) {
     
         ship.classList.add("turn-L");
         console.log('L-down');
         clearInterval(updateR);
         updateL = setInterval(turnL, 10);
+
       }
+    
 
 });
 
@@ -239,15 +249,13 @@ document.addEventListener("keydown", event => {
 
 document.addEventListener("keyup", event => {
 
-
     // -------- Right ------------
     if (event.which === 39) {
   
       ship.classList.remove("turn-R");
       console.log('R-up');
-      clearInterval(updateR);
       clearInterval(updateL);
-  
+      clearInterval(updateR);
     }
   
     // -------- Left ------------
@@ -257,8 +265,8 @@ document.addEventListener("keyup", event => {
         console.log('L-up');
         clearInterval(updateL);
         clearInterval(updateR);
-
       }
+    
 });
 
  
@@ -274,7 +282,7 @@ if (event.keyCode === 32 && event.repeat == false) {
     var shootPosX = shipInfo.left + 30;
 
     var shoot = document.createElement('DIV');
-    shoot.classList.add('shoot');
+    shoot.classList.add('shoot', 'shoot-' + colors[game.color]);
     container.appendChild(shoot);
     shoot.style.transform = 'translateX(' + shootPosX + 'px)';
 

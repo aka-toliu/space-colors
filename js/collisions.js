@@ -40,7 +40,13 @@ function shootCollider(shoot) {
                    pontos_meteorites[i].y <= shootCollider.top+shootCollider.height)){
 
                     console.log('colidiu');
-                    element.remove();
+
+                    if(shoot.classList.contains('shoot-' + colors[game.color]) 
+                    && element.classList.contains(colors[game.color])){
+                        element.remove();
+                       
+                    }
+                    
 
                     
         }      
