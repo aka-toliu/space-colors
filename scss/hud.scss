@@ -13,10 +13,11 @@
 
 .hud-life{
     height: 60%;
-    min-width: 6%;
+    width: fit-content;
     background-color: $bg;
     position: absolute;
     left: 3%;
+    padding: 0 2px 0 2px;
     border-radius: 5px;
     display: flex;
     justify-content: left;
@@ -25,11 +26,11 @@
     &::after{
         content: '\f004';
         font-family: "Font Awesome 5 Free";
-        font-size: 1.2em;
+        font-size: 1.1em;
         font-weight: 900;
         color: white;
         position: absolute;
-        right: 105%;
+        left: -23px;
 
     }
    
@@ -37,14 +38,15 @@
 
 .hud-life-piece{
     height: 70%;
-    width: 20px;
+    width: 10px;
+    border-radius: 2px;
     background-color: $neon-blue;
-    margin: 5px;
+    margin: 3px;
 }
 
-.hud-collor{
+.hud-color{
     height: 60%;
-    width: 10%;
+    width: 7%;
     background-color: $bg;
     position: absolute;
     border-radius: 5px;
@@ -59,11 +61,18 @@
    
 }
 
-.hud-collor-ball{
+.hud-color-ball{
     width: 10px;
-    height: 10px;
+    height: 7px;
     border-radius: 20px;
     
+}
+
+.hud-color-ball--selected{
+    width: 15px;
+    height: 15px;
+    // animation: ballSelected 0.4s;
+    // transition: all 0.2s;
 }
 
 

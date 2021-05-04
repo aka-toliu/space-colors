@@ -1,6 +1,7 @@
 
-var updateR;
+var j;
 var updateL;
+var updateR;
 var posX = 0;
 
 
@@ -10,7 +11,7 @@ let widthScreen = document.body.clientWidth;
 
 function turnR() {
 
-  if(posX < (widthScreen/2 - 100)){
+  if(posX < (widthScreen/2 - 20)){
     newPosX = posX += 7;
   }
 
@@ -21,7 +22,7 @@ function turnR() {
 
 function turnL() {
 
-  if(posX > (widthScreen/2 - 100) * -1){
+  if(posX > (widthScreen/2 - 20) * -1){
   newPosX = posX -= 7;
   }
 

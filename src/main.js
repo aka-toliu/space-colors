@@ -1,9 +1,97 @@
 var ship = document.querySelector('#ship');
+var hud = document.querySelector('#hud');
 var container = document.querySelector('.game-container');
+
+var colors = ['red', 'yellow', 'blue', 'green']
+
+var game = {
+
+    life: 3,
+    color: -1,
+    points: 0,
+    powerUp: 0,
+    speed: 0,
+    wave: 0
+
+}
+ 
+var ballsHud = hud.querySelectorAll('.hud-color-ball');
+// clearAndChangeHud();
+// changeShipcolor();
+
+// ----------- limpa as cores selecionadas na HUD e muda para a próxima -----
+function clearAndChangeHud() {
+    for (let i = 0; i < ballsHud.length; i++) {
+        ballsHud[i].classList.remove('hud-color-ball--selected');
+    }
+
+    ballsHud[game.color].classList.add('hud-color-ball--selected');
+}
+
+
+
+function changeShipColor() {
+
+    // for (let i = 0; i < ballsHud.length; i++) {
+    //     // ship.classList.remove('ship-' + colors[i]);
+        
+        
+    // }
+    document.documentElement.setAttribute('color', colors[game.color]);
+    // ship.classList.add('ship-' + colors[game.color]);
+    
+}
+
+
+
+
+
+
+document.addEventListener("keydown", event => {
+
+
+    // ------------ UP -------------------------------
+    if (event.which === 38) {
+
+        console.log('up');
+
+
+        if(game.color < ballsHud.length - 1){
+            game.color += 1;
+           
+        }else{
+            game.color = 0;
+           
+        }
+        clearAndChangeHud();
+        changeShipColor();
+
+        console.log(game.color);
+
+    }
+
+    // ------------ DOWN -------------------------------
+    if (event.which === 40) {
+
+        console.log('down');
+
+        if(game.color > 0){
+            game.color += -1;
+           
+        }else{
+            game.color = ballsHud.length - 1;
+        }
+        clearAndChangeHud();
+        changeShipColor();
+        console.log(game.color);
+    }
+
+});
  
 
-var updateR;
+var j;
 var updateL;
+var updateR;
 var posX = 0;
 
 
@@ -13,7 +101,7 @@ let widthScreen = document.body.clientWidth;
 
 function turnR() {
 
-  if(posX < (widthScreen/2 - 100)){
+  if(posX < (widthScreen/2 - 20)){
     newPosX = posX += 7;
   }
 
@@ -24,7 +112,7 @@ function turnR() {
 
 function turnL() {
 
-  if(posX > (widthScreen/2 - 100) * -1){
+  if(posX > (widthScreen/2 - 20) * -1){
   newPosX = posX -= 7;
   }
 

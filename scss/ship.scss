@@ -7,19 +7,26 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
-
-
-
 }
+
 
 .ship-body {
     height: 100%;
     width: 100%;
     background-color: $ship;
     clip-path: polygon(50% 0%, 100% 85%, 82% 100%, 18% 100%, 0 85%);
-    box-shadow: inset 45px 2px 0px -4px darken($ship, 10%);
+    // box-shadow: inset 45px 2px 0px -4px var(--ship-shadow);
     transition: all 0.4s;
+
+    &::after{
+        content: '';
+        height: 100%;
+        width: 50%;
+        background-color: darken($ship, 10%);
+        position: absolute;
+        left: 0px;
+        transition: all 0.4s;
+    }
 }
 
 .ship-cockpit {
@@ -81,7 +88,7 @@
     display: flex;
     justify-content: center;
     transition: all 0.4s;
-    animation: fire 0.1s  infinite;
+    animation: fire 0.1s infinite;
     transform-origin: top center;
 
     &::after {
@@ -95,8 +102,7 @@
     }
 }
 
-
-.shoot{
+.shoot {
     position: absolute;
     height: 60px;
     width: 20px;
@@ -109,9 +115,8 @@
     left: 0;
     // animation: shoot 0.4s both;
 
-
-    &::after{
-        content: '';
+    &::after {
+        content: "";
         width: 100%;
         height: 100%;
         background-color: darken($ship, 5%);
@@ -119,8 +124,8 @@
         clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     }
 
-    &::before{
-        content: '';
+    &::before {
+        content: "";
         width: 100%;
         height: 100%;
         background-color: darken($ship, 5%);
@@ -131,29 +136,17 @@
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
 //------------- Vira para a esquerda --------------------------
 .turn-L {
-    
-    &::after{
-        content: '';
+    &::after {
+        content: "";
         height: 90%;
         width: 150%;
         position: absolute;
         right: -90%;
         background-color: $ship;
-        background: linear-gradient(90deg, rgba($ship, 0.1) 0%,  rgba($ship, 0) 100%);
-        z-index: -1;
+        background: linear-gradient(90deg, rgba($ship, 0.1) 0%, rgba($ship, 0) 100%);
+        z-index: -2;
         transform-origin: center left;
         animation: speed 0.6s;
         transition: all 0.2s;
@@ -161,9 +154,13 @@
 
     .ship-body {
         width: 95%;
-        box-shadow: inset 30px 2px 0px -4px #b1b1b1;
+        // box-shadow: inset 30px 2px 0px -4px var(--ship-shadow);
         clip-path: polygon(40% 0%, 100% 85%, 76% 100%, 35% 115%, 10% 80%);
         transition: all 0.4s;
+        &::after{
+            width: 35%;
+            transition: all 0.4s;
+        }
     }
     .ship-cockpit {
         width: 30%;
@@ -171,7 +168,7 @@
         clip-path: polygon(60% 0%, 0% 100%, 100% 100%);
         transition: all 0.4s;
 
-        &::after{
+        &::after {
             clip-path: polygon(57% 0%, 31% 100%, 100% 100%);
             height: 85%;
             width: 100%;
@@ -184,9 +181,6 @@
         background-color: #cacaca;
         right: -20%;
         transition: all 0.4s;
-
-        
-    
     }
     .ship-L-wing {
         width: 30%;
@@ -204,34 +198,36 @@
         bottom: -30%;
         margin-left: 10%;
         transition: all 0.4s;
-
     }
 }
 
 //-------------  Vira para a direita ====> ------------------------------------
 .turn-R {
-
-    &::after{
-        content: '';
+    &::after {
+        content: "";
         height: 90%;
         width: 150%;
         position: absolute;
         left: -90%;
         background-color: $ship;
-        background: linear-gradient(90deg, rgba($ship, 0) 0%,  rgba($ship, 0.1) 100%);
-        z-index: -1;
+        background: linear-gradient(90deg, rgba($ship, 0) 0%, rgba($ship, 0.1) 100%);
+        z-index: -2;
         transform-origin: center right;
         animation: speed 0.6s;
         transition: all 0.2s;
     }
 
-    
     .ship-body {
         width: 95%;
-        box-shadow: inset 60px 2px 0px -4px #b1b1b1;
+        // box-shadow: inset 60px 2px 0px -4px darken($ship, 10%);
         clip-path: polygon(60% 0%, 100% 85%, 76% 100%, 35% 115%, 10% 80%);
         // clip-path: polygon(50% 0%, 100% 85%, 76% 100%, 35% 115%, 10% 80%);
         transition: all 0.4s;
+
+        &::after{
+            width: 70%;
+            transition: all 0.4s;
+        }
     }
     .ship-cockpit {
         width: 30%;
@@ -239,8 +235,7 @@
         clip-path: polygon(35% 0%, 0% 100%, 100% 100%);
         transition: all 0.4s;
 
-
-        &::after{
+        &::after {
             clip-path: polygon(35% 0%, 50% 100%, 100% 100%);
             height: 85%;
             width: 100%;
@@ -248,7 +243,6 @@
     }
 
     .ship-R-wing {
-
         width: 30%;
         height: 30%;
         bottom: 5%;
@@ -256,10 +250,6 @@
         clip-path: polygon(-21% 0, 2% 100%, 88% 100%);
         transition: all 0.4s;
         background-color: $ship;
-
-
-        
-    
     }
     .ship-L-wing {
         width: 50%;
@@ -276,6 +266,5 @@
         bottom: -30%;
         margin-right: 10%;
         transition: all 0.4s;
-
     }
 }

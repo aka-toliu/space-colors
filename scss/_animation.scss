@@ -13,3 +13,14 @@
     from{bottom: 25vh;}
     to{bottom: 105vh;}
 }
+
+@keyframes ballSelected{
+    from{
+        width: 10px;
+        height: 7px;
+    }
+    to{
+        width: 15px;
+        height: 15px;
+    }
+}

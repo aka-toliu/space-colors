@@ -13,15 +13,74 @@
     from{bottom: 25vh;}
     to{bottom: 105vh;}
 }
+
+@keyframes ballSelected{
+    from{
+        width: 10px;
+        height: 7px;
+    }
+    to{
+        width: 15px;
+        height: 15px;
+    }
+}
  
-$bg: #2D2D47;
+$bg: #2d2d47;
 $ship: rgb(202, 202, 202);
 $neon-blue: #18ffff;
 $red: rgb(255, 71, 71);
-$yellow: rgb(255, 243, 71);
-$green: rgb(71, 255, 86);
+$yellow: rgb(241, 217, 81);
+$green: rgb(78, 235, 91);
 $blue: rgb(71, 187, 255);
 $fire: rgb(255, 175, 71);
+
+:root {
+    --ship-shadow: darken(rgb(202, 202, 202), 10%);
+}
+
+@mixin colorShip($main, $fireColor) {
+    .ship-body {
+        background-color: $main;
+        &::after {
+            background-color: darken($main, 10%);
+        }
+    }
+    .ship-R-wing {
+        background-color: $main !important;
+    }
+    .ship-L-wing {
+        background-color: darken($main, 10%) !important;
+    }
+    .ship-fire {
+        background-color: $fireColor;
+        &::after {
+            background-color: lighten($fireColor, 10%);
+        }
+    }
+
+    .shoot{
+        &::after{
+            background-color: lighten($main, 5%);
+        }
+        &::before{
+            background-color: lighten($main, 5%);
+        }
+    }
+}
+
+html[color="red"] {
+    @include colorShip($red, #00DB36);
+}
+html[color="yellow"] {
+    @include colorShip($yellow, #00A8DB);
+}
+html[color="blue"] {
+    @include colorShip($blue, $fire);
+}
+html[color="green"] {
+    @include colorShip($green, #FF1962);
+}
+
  
 .game-container{
     background-color: $bg;
@@ -31,6 +90,7 @@ $fire: rgb(255, 175, 71);
     width: 100%;
     position: absolute;
     z-index: -5;
+    overflow: hidden;
 }
 
 *{
@@ -53,10 +113,11 @@ $fire: rgb(255, 175, 71);
 
 .hud-life{
     height: 60%;
-    min-width: 6%;
+    width: fit-content;
     background-color: $bg;
     position: absolute;
     left: 3%;
+    padding: 0 2px 0 2px;
     border-radius: 5px;
     display: flex;
     justify-content: left;
@@ -65,11 +126,11 @@ $fire: rgb(255, 175, 71);
     &::after{
         content: '\f004';
         font-family: "Font Awesome 5 Free";
-        font-size: 1.2em;
+        font-size: 1.1em;
         font-weight: 900;
         color: white;
         position: absolute;
-        right: 105%;
+        left: -23px;
 
     }
    
@@ -77,14 +138,15 @@ $fire: rgb(255, 175, 71);
 
 .hud-life-piece{
     height: 70%;
-    width: 20px;
+    width: 10px;
+    border-radius: 2px;
     background-color: $neon-blue;
-    margin: 5px;
+    margin: 3px;
 }
 
-.hud-collor{
+.hud-color{
     height: 60%;
-    width: 10%;
+    width: 7%;
     background-color: $bg;
     position: absolute;
     border-radius: 5px;
@@ -99,11 +161,18 @@ $fire: rgb(255, 175, 71);
    
 }
 
-.hud-collor-ball{
+.hud-color-ball{
     width: 10px;
-    height: 10px;
+    height: 7px;
     border-radius: 20px;
     
+}
+
+.hud-color-ball--selected{
+    width: 15px;
+    height: 15px;
+    // animation: ballSelected 0.4s;
+    // transition: all 0.2s;
 }
 
 
@@ -142,19 +211,26 @@ $fire: rgb(255, 175, 71);
     display: flex;
     align-items: center;
     justify-content: center;
-
-
-
-
 }
+
 
 .ship-body {
     height: 100%;
     width: 100%;
     background-color: $ship;
     clip-path: polygon(50% 0%, 100% 85%, 82% 100%, 18% 100%, 0 85%);
-    box-shadow: inset 45px 2px 0px -4px darken($ship, 10%);
+    // box-shadow: inset 45px 2px 0px -4px var(--ship-shadow);
     transition: all 0.4s;
+
+    &::after{
+        content: '';
+        height: 100%;
+        width: 50%;
+        background-color: darken($ship, 10%);
+        position: absolute;
+        left: 0px;
+        transition: all 0.4s;
+    }
 }
 
 .ship-cockpit {
@@ -216,7 +292,7 @@ $fire: rgb(255, 175, 71);
     display: flex;
     justify-content: center;
     transition: all 0.4s;
-    animation: fire 0.1s  infinite;
+    animation: fire 0.1s infinite;
     transform-origin: top center;
 
     &::after {
@@ -230,8 +306,7 @@ $fire: rgb(255, 175, 71);
     }
 }
 
-
-.shoot{
+.shoot {
     position: absolute;
     height: 60px;
     width: 20px;
@@ -244,9 +319,8 @@ $fire: rgb(255, 175, 71);
     left: 0;
     // animation: shoot 0.4s both;
 
-
-    &::after{
-        content: '';
+    &::after {
+        content: "";
         width: 100%;
         height: 100%;
         background-color: darken($ship, 5%);
@@ -254,8 +328,8 @@ $fire: rgb(255, 175, 71);
         clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     }
 
-    &::before{
-        content: '';
+    &::before {
+        content: "";
         width: 100%;
         height: 100%;
         background-color: darken($ship, 5%);
@@ -266,29 +340,17 @@ $fire: rgb(255, 175, 71);
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
 //------------- Vira para a esquerda --------------------------
 .turn-L {
-    
-    &::after{
-        content: '';
+    &::after {
+        content: "";
         height: 90%;
         width: 150%;
         position: absolute;
         right: -90%;
         background-color: $ship;
-        background: linear-gradient(90deg, rgba($ship, 0.1) 0%,  rgba($ship, 0) 100%);
-        z-index: -1;
+        background: linear-gradient(90deg, rgba($ship, 0.1) 0%, rgba($ship, 0) 100%);
+        z-index: -2;
         transform-origin: center left;
         animation: speed 0.6s;
         transition: all 0.2s;
@@ -296,9 +358,13 @@ $fire: rgb(255, 175, 71);
 
     .ship-body {
         width: 95%;
-        box-shadow: inset 30px 2px 0px -4px #b1b1b1;
+        // box-shadow: inset 30px 2px 0px -4px var(--ship-shadow);
         clip-path: polygon(40% 0%, 100% 85%, 76% 100%, 35% 115%, 10% 80%);
         transition: all 0.4s;
+        &::after{
+            width: 35%;
+            transition: all 0.4s;
+        }
     }
     .ship-cockpit {
         width: 30%;
@@ -306,7 +372,7 @@ $fire: rgb(255, 175, 71);
         clip-path: polygon(60% 0%, 0% 100%, 100% 100%);
         transition: all 0.4s;
 
-        &::after{
+        &::after {
             clip-path: polygon(57% 0%, 31% 100%, 100% 100%);
             height: 85%;
             width: 100%;
@@ -319,9 +385,6 @@ $fire: rgb(255, 175, 71);
         background-color: #cacaca;
         right: -20%;
         transition: all 0.4s;
-
-        
-    
     }
     .ship-L-wing {
         width: 30%;
@@ -339,34 +402,36 @@ $fire: rgb(255, 175, 71);
         bottom: -30%;
         margin-left: 10%;
         transition: all 0.4s;
-
     }
 }
 
 //-------------  Vira para a direita ====> ------------------------------------
 .turn-R {
-
-    &::after{
-        content: '';
+    &::after {
+        content: "";
         height: 90%;
         width: 150%;
         position: absolute;
         left: -90%;
         background-color: $ship;
-        background: linear-gradient(90deg, rgba($ship, 0) 0%,  rgba($ship, 0.1) 100%);
-        z-index: -1;
+        background: linear-gradient(90deg, rgba($ship, 0) 0%, rgba($ship, 0.1) 100%);
+        z-index: -2;
         transform-origin: center right;
         animation: speed 0.6s;
         transition: all 0.2s;
     }
 
-    
     .ship-body {
         width: 95%;
-        box-shadow: inset 60px 2px 0px -4px #b1b1b1;
+        // box-shadow: inset 60px 2px 0px -4px darken($ship, 10%);
         clip-path: polygon(60% 0%, 100% 85%, 76% 100%, 35% 115%, 10% 80%);
         // clip-path: polygon(50% 0%, 100% 85%, 76% 100%, 35% 115%, 10% 80%);
         transition: all 0.4s;
+
+        &::after{
+            width: 70%;
+            transition: all 0.4s;
+        }
     }
     .ship-cockpit {
         width: 30%;
@@ -374,8 +439,7 @@ $fire: rgb(255, 175, 71);
         clip-path: polygon(35% 0%, 0% 100%, 100% 100%);
         transition: all 0.4s;
 
-
-        &::after{
+        &::after {
             clip-path: polygon(35% 0%, 50% 100%, 100% 100%);
             height: 85%;
             width: 100%;
@@ -383,7 +447,6 @@ $fire: rgb(255, 175, 71);
     }
 
     .ship-R-wing {
-
         width: 30%;
         height: 30%;
         bottom: 5%;
@@ -391,10 +454,6 @@ $fire: rgb(255, 175, 71);
         clip-path: polygon(-21% 0, 2% 100%, 88% 100%);
         transition: all 0.4s;
         background-color: $ship;
-
-
-        
-    
     }
     .ship-L-wing {
         width: 50%;
@@ -411,6 +470,5 @@ $fire: rgb(255, 175, 71);
         bottom: -30%;
         margin-right: 10%;
         transition: all 0.4s;
-
     }
 }

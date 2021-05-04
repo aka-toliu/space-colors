@@ -1,8 +1,55 @@
-$bg: #2D2D47;
+$bg: #2d2d47;
 $ship: rgb(202, 202, 202);
 $neon-blue: #18ffff;
 $red: rgb(255, 71, 71);
-$yellow: rgb(255, 243, 71);
-$green: rgb(71, 255, 86);
+$yellow: rgb(241, 217, 81);
+$green: rgb(78, 235, 91);
 $blue: rgb(71, 187, 255);
 $fire: rgb(255, 175, 71);
+
+:root {
+    --ship-shadow: darken(rgb(202, 202, 202), 10%);
+}
+
+@mixin colorShip($main, $fireColor) {
+    .ship-body {
+        background-color: $main;
+        &::after {
+            background-color: darken($main, 10%);
+        }
+    }
+    .ship-R-wing {
+        background-color: $main !important;
+    }
+    .ship-L-wing {
+        background-color: darken($main, 10%) !important;
+    }
+    .ship-fire {
+        background-color: $fireColor;
+        &::after {
+            background-color: lighten($fireColor, 10%);
+        }
+    }
+
+    .shoot{
+        &::after{
+            background-color: lighten($main, 5%);
+        }
+        &::before{
+            background-color: lighten($main, 5%);
+        }
+    }
+}
+
+html[color="red"] {
+    @include colorShip($red, #00DB36);
+}
+html[color="yellow"] {
+    @include colorShip($yellow, #00A8DB);
+}
+html[color="blue"] {
+    @include colorShip($blue, $fire);
+}
+html[color="green"] {
+    @include colorShip($green, #FF1962);
+}
