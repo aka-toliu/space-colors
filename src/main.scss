@@ -27,9 +27,99 @@
 
 
 @keyframes meteor{
-    from{top: -10vh;}
-    to{top: 110vh;}
+    from{
+        top: -10vh;
+        transform: rotate(0deg);
+    }
+    to{
+        top: 110vh;
+        transform: rotate(360deg);
+    }
 }
+
+@keyframes explodeMeteor {
+            0%{
+                width: 10%;
+                height: 10%;
+                transform: scale(0.1);
+                opacity: 1;
+                box-shadow: 
+                0px 0px 1px 20px white, 
+                0px 0px 1px 20px white, 
+                0px 0px 1px 20px white, 
+                0px 0px 1px 20px white, 
+                0px 0px 1px 20px white,
+                0px 0px 1px 20px white, 
+                0px 0px 1px 20px white, 
+                0px 0px 1px 20px white,
+                0px 0px 1px 20px white,
+                0px 0px 1px 20px white,
+                0px 0px 1px 20px white,
+                0px 0px 1px 20px white;
+            }
+          
+            // 50%{
+            //     opacity: 0.5;
+            //     box-shadow: 
+            //     -38px 0px 1px -15px white, 
+            //     38px 0px 1px -15px white, 
+            //     0px 38px 1px -15px white, 
+            //     0px -38px 1px -15px white, 
+            //     28px -30px 1px -15px white,
+            //     28px 30px 1px -15px white, 
+            //     -28px -30px 1px -15px white, 
+            //     -28px 30px 1px -15px white;
+            // }
+            80%{
+                width: 40%;
+                height: 40%;
+                transform: scale(1.1);
+                opacity: 1;
+                box-shadow: 
+                -38px 0px 1px -10px white,
+                38px 0px 1px -10px white, 
+                0px 38px 1px -10px white, 
+                0px -38px 1px -10px white, 
+                28px -30px 1px -10px white,
+                28px 30px 1px -10px white, 
+                -30px -32px 1px -10px white, 
+                -30px 32px 1px -10px white,
+                -18px 20px 1px -20px white,
+                18px -20px 1px -17px white,
+                -18px -20px 1px -20px white,
+                18px 20px 1px -17px white;
+            }
+
+            100%{
+                width: 10%;
+                height: 10%;
+                transform: scale(1.5);
+                opacity: 0;
+                box-shadow: 
+                -38px 0px 1px -10px white,
+                38px 0px 1px -10px white, 
+                0px 38px 1px -10px white, 
+                0px -38px 1px -10px white, 
+                28px -30px 1px -10px white,
+                28px 30px 1px -10px white, 
+                -30px -32px 1px -10px white, 
+                -30px 32px 1px -10px white,
+                -18px 20px 1px -20px white,
+                18px -20px 1px -17px white,
+                -18px -20px 1px -20px white,
+                18px 20px 1px -17px white;
+            }
+        }
+
+
+        @keyframes fadeOut{
+            0%{
+                opacity: 1;
+            }
+            100%{
+                opacity: 0;
+            }
+        }
  
 $bg: #2d2d47;
 $ship: rgb(202, 202, 202);
@@ -105,16 +195,120 @@ html[color="green"] {
     padding: 0;
 }
  
-.meteorite{
+.meteorite {
     width: 50px;
     height: 50px;
-    background-color: $red;
-    position: absolute;
-    top: 0vh;
-    clip-path: polygon(46% 0, 88% 10%, 100% 39%, 96% 84%, 58% 99%, 15% 91%, 0 57%, 6% 19%);
-    // justify-self: center;
+    top: 10vh;
     animation: meteor 10s;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        clip-path: polygon(46% 0, 88% 10%, 100% 39%, 96% 84%, 58% 99%, 15% 91%, 0 57%, 6% 19%);
+        // justify-self: center;
+    }
 }
+
+.explode-meteorite {
+    &::after {
+        // opacity: 0;
+        animation: fadeOut 0.4s both;
+        // clip-path: polygon(
+        //     1% 16%,
+        //     12% 5%,
+        //     22% 13%,
+        //     26% 33%,
+        //     43% 33%,
+        //     43% 1%,
+        //     61% 1%,
+        //     71% 18%,
+        //     63% 27%,
+        //     44% 23%,
+        //     44% 31%,
+        //     69% 33%,
+        //     77% 19%,
+        //     78% 8%,
+        //     93% 9%,
+        //     99% 19%,
+        //     91% 23%,
+        //     77% 19%,
+        //     69% 34%,
+        //     86% 44%,
+        //     100% 62%,
+        //     94% 73%,
+        //     80% 76%,
+        //     59% 73%,
+        //     58% 57%,
+        //     68% 39%,
+        //     69% 33%,
+        //     46% 31%,
+        //     34% 46%,
+        //     39% 76%,
+        //     54% 83%,
+        //     62% 93%,
+        //     59% 100%,
+        //     41% 100%,
+        //     25% 97%,
+        //     20% 84%,
+        //     39% 75%,
+        //     34% 47%,
+        //     45% 31%,
+        //     26% 34%,
+        //     21% 55%,
+        //     14% 68%,
+        //     0 56%
+        // );
+    }
+    &::before {
+        content: "";
+        width: 30%;
+        height: 30%;
+        border-radius: 50px;
+        position: absolute;
+        background-color: white;
+        box-shadow: 
+        -38px 0px 1px -5px white, 
+        38px 0px 1px -5px white, 
+        0px 38px 1px -5px white, 
+        0px -38px 1px -5px white, 
+        28px -30px 1px -5px white,
+        28px 30px 1px -5px white, 
+        -28px -30px 1px -5px white, 
+        -28px 30px 1px -5px white;
+        z-index: 2;
+        animation: explodeMeteor 0.6s both;
+    }
+}
+
+.meteor {
+    &-red {
+        &::after {
+            background-color: $red;
+        }
+    }
+    &-yellow {
+        &::after {
+            background-color: $yellow;
+        }
+    }
+    &-green {
+        &::after {
+            background-color: $green;
+        }
+    }
+    &-blue {
+        &::after {
+            background-color: $blue;
+        }
+    }
+}
+
  
 #hud{
     position: fixed;

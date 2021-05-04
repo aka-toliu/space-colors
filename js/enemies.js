@@ -5,7 +5,7 @@ function createMeteorites() {
     var meteorite = document.createElement('DIV');
     meteorite.classList.add('meteorite');
     container.appendChild(meteorite);
-    meteorite.classList.add(colors[numColor])
+    meteorite.classList.add('meteor-' + colors[numColor])
     meteorite.style.left = posX;
 
     setTimeout(() => {

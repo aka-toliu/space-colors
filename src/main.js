@@ -133,8 +133,13 @@ function shootCollider(shoot) {
                     console.log('colidiu');
 
                     if(shoot.classList.contains('shoot-' + colors[game.color]) 
-                    && element.classList.contains(colors[game.color])){
-                        element.remove();
+                    && element.classList.contains('meteor-' + colors[game.color])){
+
+                        element.classList.add('explode-meteorite');
+                        setTimeout(() => {
+                            element.remove();
+                        }, 900);
+                        
                         pointsUP(10);
                        
                     }
@@ -159,7 +164,7 @@ function createMeteorites() {
     var meteorite = document.createElement('DIV');
     meteorite.classList.add('meteorite');
     container.appendChild(meteorite);
-    meteorite.classList.add(colors[numColor])
+    meteorite.classList.add('meteor-' + colors[numColor])
     meteorite.style.left = posX;
 
     setTimeout(() => {
