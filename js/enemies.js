@@ -11,7 +11,7 @@ function createMeteorites() {
     setTimeout(() => {
         meteorite.remove();
     }, 9000);
-    console.log(numColor);
+    // console.log(numColor);
 
 }
 
