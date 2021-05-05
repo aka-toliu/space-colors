@@ -19,9 +19,11 @@
 }
 
 .explode-meteorite {
+  
     &::after {
+        
         // opacity: 0;
-        animation: fadeOut 0.4s both;
+        animation: fadeOut 0.2s both;
         // clip-path: polygon(
         //     1% 16%,
         //     12% 5%,
@@ -69,6 +71,7 @@
         // );
     }
     &::before {
+        
         content: "";
         width: 30%;
         height: 30%;

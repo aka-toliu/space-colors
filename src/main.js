@@ -2,6 +2,7 @@ var ship = document.querySelector('#ship');
 var hud = document.querySelector('#hud');
 var container = document.querySelector('.game-container');
 var points = hud.querySelector('.hud-score');
+var lifeHud = hud.querySelector('.hud-life');
 
 var colors = ['red', 'yellow', 'blue', 'green']
 
@@ -91,7 +92,6 @@ document.addEventListener("keydown", event => {
  
 function shootCollider(shoot) {
 
-    console.log(shoot);
     var meteorites = document.querySelectorAll('.meteorite');
 
 
@@ -120,34 +120,34 @@ function shootCollider(shoot) {
 
 
         for (let i = 0; i < 3; i++) {
-            if   ((pontos_shoot[i].x >= meteorCollider.left &&
-                   pontos_shoot[i].x <= meteorCollider.left+meteorCollider.width &&
-                   pontos_shoot[i].y >= meteorCollider.top &&
-                   pontos_shoot[i].y <= meteorCollider.top+meteorCollider.height) ||
-              
-                  (pontos_meteorites[i].x >= shootCollider.left &&
-                   pontos_meteorites[i].x <= shootCollider.left+shootCollider.width &&
-                   pontos_meteorites[i].y >= shootCollider.top &&
-                   pontos_meteorites[i].y <= shootCollider.top+shootCollider.height)){
+            if ((pontos_shoot[i].x >= meteorCollider.left &&
+                pontos_shoot[i].x <= meteorCollider.left + meteorCollider.width &&
+                pontos_shoot[i].y >= meteorCollider.top &&
+                pontos_shoot[i].y <= meteorCollider.top + meteorCollider.height) ||
 
-                    console.log('colidiu');
+                (pontos_meteorites[i].x >= shootCollider.left &&
+                    pontos_meteorites[i].x <= shootCollider.left + shootCollider.width &&
+                    pontos_meteorites[i].y >= shootCollider.top &&
+                    pontos_meteorites[i].y <= shootCollider.top + shootCollider.height)) {
 
-                    if(shoot.classList.contains('shoot-' + colors[game.color]) 
-                    && element.classList.contains('meteor-' + colors[game.color])){
+                console.log('colidiu');
 
-                        element.classList.add('explode-meteorite');
-                        setTimeout(() => {
-                            element.remove();
-                        }, 900);
-                        
-                        pointsUP(10);
-                       
-                    }
-                    
+                if (shoot.classList.contains('shoot-' + colors[game.color])
+                    && element.classList.contains('meteor-' + colors[game.color])) {
 
-                    
-        }      
-    }
+                    element.classList.add('explode-meteorite');
+                    setTimeout(() => {
+                        element.remove();
+                    }, 900);
+
+                    pointsUP(10);
+
+                }
+
+
+
+            }
+        }
 
 
     });
@@ -155,7 +155,82 @@ function shootCollider(shoot) {
 
 
 }
+setInterval(shipCollider, 30);
 
+function shipCollider() {
+    var meteorites = document.querySelectorAll('.meteorite');
+
+
+    if (!ship.classList.contains('damage')) {
+
+        meteorites.forEach(element => {
+
+            var meteorCollider = element.getBoundingClientRect();
+            var shipCollider = ship.getBoundingClientRect();
+
+
+            var pontos_ship = [
+
+                { x: shipCollider.left, y: shipCollider.top },
+                { x: shipCollider.left + shipCollider.width, y: shipCollider.top },
+                { x: shipCollider.left + shipCollider.width, y: shipCollider.top + shipCollider.height },
+                { x: shipCollider.left, y: shipCollider.top + shipCollider.heigt }
+            ]
+
+            var pontos_meteorites = [
+
+                { x: meteorCollider.left, y: meteorCollider.top },
+                { x: meteorCollider.left + meteorCollider.width, y: meteorCollider.top },
+                { x: meteorCollider.left + meteorCollider.width, y: meteorCollider.top + meteorCollider.height },
+                { x: meteorCollider.left, y: meteorCollider.top + meteorCollider.heigt }
+            ]
+
+
+            if (!element.classList.contains('explode-meteorite')) {
+
+
+                for (let i = 0; i < 3; i++) {
+                    if ((pontos_ship[i].x >= meteorCollider.left &&
+                        pontos_ship[i].x <= meteorCollider.left + meteorCollider.width &&
+                        pontos_ship[i].y >= meteorCollider.top &&
+                        pontos_ship[i].y <= meteorCollider.top + meteorCollider.height) ||
+
+                        (pontos_meteorites[i].x >= shipCollider.left &&
+                            pontos_meteorites[i].x <= shipCollider.left + shipCollider.width &&
+                            pontos_meteorites[i].y >= shipCollider.top &&
+                            pontos_meteorites[i].y <= shipCollider.top + shipCollider.height)
+                        && !ship.classList.contains('damage')) {
+
+
+
+                            element.classList.add('explode-meteorite');
+
+
+                        ship.classList.add('damage');
+                        life(-1);
+                        console.log('dano');
+
+                        setTimeout(() => {
+                            ship.classList.remove('damage');
+                        }, 2000);
+
+
+
+
+
+
+
+                    }
+
+
+
+                }
+            }
+
+        });
+
+    }
+}
  
 function createMeteorites() {
     var posX = Math.round(Math.random() * (10 - 1)) * 10 + "%";
@@ -300,6 +375,22 @@ pointsUP(0);
 function pointsUP(num) {
     game.points += num;
     points.textContent = game.points + 'pts';
+}
+
+
+function life(num) {
+
+    var lifePiece = lifeHud.querySelector('.hud-life-piece');
+
+
+    game.life += num;
+    
+
+
+    if(num == -1 && game.life > 0){
+        lifeHud.removeChild(lifePiece)
+    }
+    
 }
  
 

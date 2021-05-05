@@ -31,13 +31,13 @@
   0% {
     width: 10%;
     height: 10%;
-    transform: scale(0.1);
+    transform: scale(0.1) translateY(0px);
     opacity: 1;
     box-shadow: 0px 0px 1px 20px white, 0px 0px 1px 20px white,  0px 0px 1px 20px white,  0px 0px 1px 20px white,  0px 0px 1px 20px white, 0px 0px 1px 20px white,  0px 0px 1px 20px white,  0px 0px 1px 20px white, 0px 0px 1px 20px white, 0px 0px 1px 20px white, 0px 0px 1px 20px white, 0px 0px 1px 20px white; }
   80% {
     width: 40%;
     height: 40%;
-    transform: scale(1.1);
+    transform: scale(1.1) translateY(50px);
     opacity: 1;
     box-shadow: -38px 0px 1px -10px white, 38px 0px 1px -10px white, 0px 38px 1px -10px white,  0px -38px 1px -10px white,  28px -30px 1px -10px white, 28px 30px 1px -10px white,  -30px -32px 1px -10px white,  -30px 32px 1px -10px white, -18px 20px 1px -20px white, 18px -20px 1px -17px white, -18px -20px 1px -20px white, 18px 20px 1px -17px white; }
   100% {
@@ -48,9 +48,18 @@
     box-shadow: -38px 0px 1px -10px white, 38px 0px 1px -10px white, 0px 38px 1px -10px white,  0px -38px 1px -10px white,  28px -30px 1px -10px white, 28px 30px 1px -10px white,  -30px -32px 1px -10px white,  -30px 32px 1px -10px white, -18px 20px 1px -20px white, 18px -20px 1px -17px white, -18px -20px 1px -20px white, 18px 20px 1px -17px white; } }
 @keyframes fadeOut {
   0% {
-    opacity: 1; }
+    opacity: 1;
+    transform: translateY(0px); }
   100% {
-    opacity: 0; } }
+    opacity: 0;
+    transform: translateY(80px); } }
+@keyframes damage {
+  0% {
+    opacity: 1;
+    bottom: 15vh; }
+  100% {
+    opacity: 0.3;
+    bottom: 14vh; } }
 :root {
   --ship-shadow: darken(rgb(202, 202, 202), 10%); }
 
@@ -154,7 +163,7 @@ html[color="green"] .shoot::before {
     clip-path: polygon(46% 0, 88% 10%, 100% 39%, 96% 84%, 58% 99%, 15% 91%, 0 57%, 6% 19%); }
 
 .explode-meteorite::after {
-  animation: fadeOut 0.4s both; }
+  animation: fadeOut 0.2s both; }
 .explode-meteorite::before {
   content: "";
   width: 30%;
@@ -188,7 +197,7 @@ html[color="green"] .shoot::before {
 
 .hud-life {
   height: 60%;
-  width: fit-content;
+  min-width: 50px;
   background-color: #2d2d47;
   position: absolute;
   left: 3%;
@@ -273,6 +282,16 @@ html[color="green"] .shoot::before {
   display: flex;
   align-items: center;
   justify-content: center; }
+
+.damage {
+  animation: damage 0.2s infinite alternate; }
+
+.ship-collision-area {
+  width: 200%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  border: 1px solid red; }
 
 .ship-body {
   height: 100%;

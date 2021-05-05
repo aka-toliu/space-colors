@@ -13,7 +13,7 @@
 
 .hud-life{
     height: 60%;
-    width: fit-content;
+    min-width: 50px;
     background-color: $bg;
     position: absolute;
     left: 3%;

@@ -39,9 +39,10 @@
 
 @keyframes explodeMeteor {
             0%{
+                
                 width: 10%;
                 height: 10%;
-                transform: scale(0.1);
+                transform: scale(0.1) translateY(0px);
                 opacity: 1;
                 box-shadow: 
                 0px 0px 1px 20px white, 
@@ -71,9 +72,10 @@
             //     -28px 30px 1px -15px white;
             // }
             80%{
+                
                 width: 40%;
                 height: 40%;
-                transform: scale(1.1);
+                transform: scale(1.1) translateY(50px);
                 opacity: 1;
                 box-shadow: 
                 -38px 0px 1px -10px white,
@@ -115,8 +117,22 @@
         @keyframes fadeOut{
             0%{
                 opacity: 1;
+                transform: translateY(0px);
             }
             100%{
                 opacity: 0;
+                transform: translateY(80px);
+            }
+        }
+
+
+        @keyframes damage{
+            0%{
+                opacity: 1;
+                bottom: 15vh;
+            }
+            100%{
+                opacity: 0.3;
+                bottom: 14vh;
             }
         }
