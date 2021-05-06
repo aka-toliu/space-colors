@@ -286,7 +286,7 @@ html[color="green"] {
  
 #hud{
     position: fixed;
-    bottom: 0;
+    top: 0;
     left: 0;
     height: 40px;
     width: 100%;
@@ -294,6 +294,7 @@ html[color="green"] {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 5;
 }
 
 
