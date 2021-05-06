@@ -41,14 +41,15 @@ function shootCollider(shoot) {
                 console.log('colidiu');
 
                 if (shoot.classList.contains('shoot-' + colors[game.color])
-                    && element.classList.contains('meteor-' + colors[game.color])) {
+                    && element.classList.contains('meteor-' + colors[game.color]) 
+                    && !element.classList.contains('explode-meteorite')) {
 
                     element.classList.add('explode-meteorite');
                     setTimeout(() => {
                         element.remove();
                     }, 900);
 
-                    pointsUP(10);
+                        pointsUP(10);
 
                 }
 
