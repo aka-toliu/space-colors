@@ -268,7 +268,7 @@ function fallEnemies(object, time) {
 
 var updateL;
 var updateR;
-let updateMove;
+var updateMove;
 var side;
 var posX = 0;
 var move = false;
@@ -280,19 +280,19 @@ let widthScreen = document.body.clientWidth;
 
 
 function turnShip() {
+  console.log('ta rodando');
   if(side == "R" &&  move == true && posX < (widthScreen / 2 - 50)){
-    var newPosR = posX += 7;
+    var newPosR = posX += 10;
     ship.style.transform = "translateX(" + newPosR + "px)";
 
   }
   else if(side == "L" && move == true && posX > (widthScreen / 2 - 50) * -1){
-    var newPosL = posX += -7;
+    var newPosL = posX += -10;
     ship.style.transform = "translateX(" + newPosL + "px)";
 
   }else{
     // updateMove = '';
     clearInterval(updateMove);
-    console.log('ta rodando ainda');
 
   }
 }
@@ -317,9 +317,9 @@ function turnShip() {
 // }
 
 document.addEventListener("keydown", event => {
-  
+  // console.log(event);
   // ------------ Right -------------------------------
-  if (event.which === 39 && event.repeat === false && !ship.classList.contains('turn-L')) {
+  if (event.key === 'ArrowRight' && event.repeat === false && !ship.classList.contains('turn-L')) {
 
     
     ship.classList.add("turn-R");
@@ -327,20 +327,26 @@ document.addEventListener("keydown", event => {
     // clearInterval(updateMove);
     move = true;
     side = "R";
-    updateMove = setInterval(turnShip, 10);
+    updateMove = setInterval(turnShip, 20);
+    
 
   }
 
   // ------------ Left -------------------------------
-  if (event.keyCode === 37 && event.repeat === false && !ship.classList.contains('turn-R')) {
+  if (event.key === 'ArrowLeft' && event.repeat === false && !ship.classList.contains('turn-R')) {
 
     ship.classList.add("turn-L");
     console.log('L-down');
     move = true;
     side = "L";
-    updateMove = setInterval(turnShip, 10);
+    updateMove = setInterval(turnShip, 20);
+
 
   }
+
+  // if (event.key === 'ArrowRight' && event.key === 'ArrowRight') {
+  //   clearInterval(updateMove);
+  // }
 
 
   // ------------ Right -------------------------------
@@ -374,8 +380,13 @@ document.addEventListener("keydown", event => {
 
 
 document.addEventListener("keyup", event => {
+
+  if (event.key === 'ArrowRight' && event.key === 'ArrowRight') {
+    clearInterval(updateMove);
+  }
+
   // -------- Right ------------
-  if (event.which === 39) {
+  if (event.key === 'ArrowRight') {
     move = false;
     ship.classList.remove("turn-R");
     clearInterval(updateMove);
@@ -383,7 +394,7 @@ document.addEventListener("keyup", event => {
   }
 
   // -------- Left ------------
-  if (event.keyCode === 37) {
+  if (event.key === 'ArrowLeft') {
     move = false;
     ship.classList.remove("turn-L");
     clearInterval(updateMove);
