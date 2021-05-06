@@ -66,7 +66,7 @@ function moveShip() {
   let widthScreen = document.body.clientWidth;
 
   if (side == 'R' && move == true && posX < (widthScreen / 2 - 50)) {
-    console.log('turning-R');
+    // console.log('turning-R');
     moving = setTimeout(moveShip, 20); 7
 
     var newPosR = posX += 15;
@@ -77,7 +77,7 @@ function moveShip() {
   }
 
   if (side == 'L' && move == true && posX > (widthScreen / 2 - 50) * -1) {
-    console.log('turning-L');
+    // console.log('turning-L');
     moving = setTimeout(moveShip, 20);
 
     var newPosL = posX += -15;

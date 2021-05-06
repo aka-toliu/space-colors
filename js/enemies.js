@@ -1,5 +1,7 @@
 function createMeteorites() {
     var posX = Math.round(Math.random() * (10 - 1)) * 10 + "%";
+    var size = Math.round(Math.random() * (8 - 4)) + 5  + "0px";
+    console.log(size);
     var numColor = Math.round(Math.random() * (3 - 0));
 
     var meteorite = document.createElement('DIV');
@@ -7,6 +9,8 @@ function createMeteorites() {
     container.appendChild(meteorite);
     meteorite.classList.add('meteor-' + colors[numColor])
     meteorite.style.left = posX;
+    meteorite.style.width = size;
+    meteorite.style.height = size;
 
     setTimeout(() => {
         meteorite.remove();

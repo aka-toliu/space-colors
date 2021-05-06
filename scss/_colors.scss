@@ -52,4 +52,5 @@ html[color="blue"] {
 }
 html[color="green"] {
     @include colorShip($green, #FF1962);
+    
 }

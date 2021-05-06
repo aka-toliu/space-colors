@@ -38,7 +38,7 @@ function shootCollider(shoot) {
                     pontos_meteorites[i].y >= shootCollider.top &&
                     pontos_meteorites[i].y <= shootCollider.top + shootCollider.height)) {
 
-                console.log('colidiu');
+                // console.log('colidiu');
 
                 if (shoot.classList.contains('shoot-' + colors[game.color])
                     && element.classList.contains('meteor-' + colors[game.color]) 

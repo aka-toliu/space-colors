@@ -130,7 +130,7 @@ function shootCollider(shoot) {
                     pontos_meteorites[i].y >= shootCollider.top &&
                     pontos_meteorites[i].y <= shootCollider.top + shootCollider.height)) {
 
-                console.log('colidiu');
+                // console.log('colidiu');
 
                 if (shoot.classList.contains('shoot-' + colors[game.color])
                     && element.classList.contains('meteor-' + colors[game.color]) 
@@ -235,6 +235,8 @@ function shipCollider() {
  
 function createMeteorites() {
     var posX = Math.round(Math.random() * (10 - 1)) * 10 + "%";
+    var size = Math.round(Math.random() * (8 - 4)) + 5  + "0px";
+    console.log(size);
     var numColor = Math.round(Math.random() * (3 - 0));
 
     var meteorite = document.createElement('DIV');
@@ -242,6 +244,8 @@ function createMeteorites() {
     container.appendChild(meteorite);
     meteorite.classList.add('meteor-' + colors[numColor])
     meteorite.style.left = posX;
+    meteorite.style.width = size;
+    meteorite.style.height = size;
 
     setTimeout(() => {
         meteorite.remove();
@@ -334,7 +338,7 @@ function moveShip() {
   let widthScreen = document.body.clientWidth;
 
   if (side == 'R' && move == true && posX < (widthScreen / 2 - 50)) {
-    console.log('turning-R');
+    // console.log('turning-R');
     moving = setTimeout(moveShip, 20); 7
 
     var newPosR = posX += 15;
@@ -345,7 +349,7 @@ function moveShip() {
   }
 
   if (side == 'L' && move == true && posX > (widthScreen / 2 - 50) * -1) {
-    console.log('turning-L');
+    // console.log('turning-L');
     moving = setTimeout(moveShip, 20);
 
     var newPosL = posX += -15;
