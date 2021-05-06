@@ -69,7 +69,7 @@ function moveShip() {
     console.log('turning-R');
     moving = setTimeout(moveShip, 20); 7
 
-    var newPosR = posX += 10;
+    var newPosR = posX += 15;
     ship.style.transform = "translateX(" + newPosR + "px)";
   }else{
     ship.classList.remove("turn-R");
@@ -80,7 +80,7 @@ function moveShip() {
     console.log('turning-L');
     moving = setTimeout(moveShip, 20);
 
-    var newPosL = posX += -10;
+    var newPosL = posX += -15;
     ship.style.transform = "translateX(" + newPosL + "px)";
   }else{
     ship.classList.remove("turn-L");

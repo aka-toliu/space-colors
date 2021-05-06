@@ -218,7 +218,7 @@ html[color="green"] .shoot::before {
     left: -23px; }
 
 .hud-life-piece {
-  height: 70%;
+  height: 60%;
   width: 10px;
   border-radius: 2px;
   background-color: #18ffff;
