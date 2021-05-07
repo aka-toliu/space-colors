@@ -8,7 +8,6 @@
     align-items: center;
     justify-content: center;
 
-
     &::after {
         content: "";
         width: 100%;
@@ -20,28 +19,18 @@
 }
 
 .explode-meteorite {
-  
     &::after {
-        
         animation: fadeOut 0.2s both;
     }
     &::before {
-        
         content: "";
         width: 30%;
         height: 30%;
         border-radius: 50px;
         position: absolute;
         background-color: white;
-        box-shadow: 
-        -38px 0px 1px -5px white, 
-        38px 0px 1px -5px white, 
-        0px 38px 1px -5px white, 
-        0px -38px 1px -5px white, 
-        28px -30px 1px -5px white,
-        28px 30px 1px -5px white, 
-        -28px -30px 1px -5px white, 
-        -28px 30px 1px -5px white;
+        box-shadow: -38px 0px 1px -5px white, 38px 0px 1px -5px white, 0px 38px 1px -5px white, 0px -38px 1px -5px white,
+            28px -30px 1px -5px white, 28px 30px 1px -5px white, -28px -30px 1px -5px white, -28px 30px 1px -5px white;
         z-index: 2;
         animation: explodeMeteor 0.6s both;
     }
@@ -68,4 +57,234 @@
             background-color: $blue;
         }
     }
+}
+
+.laser-container {
+    width: 100%;
+    height: 150px;
+    position: absolute;
+    top: 100px;
+    display: flex;
+    align-items: center;
+    animation: laserContainer 10s linear both;
+}
+
+.obstacle-70 {
+    width: 70%;
+    height: 100%;
+    background-color: darken($bg, 30%);
+    clip-path: polygon(
+        100% 100%,
+        89% 100%,
+        85% 90%,
+        80% 91%,
+        79% 100%,
+        69% 100%,
+        68% 90%,
+        54% 90%,
+        53% 100%,
+        39% 100%,
+        37% 90%,
+        24% 91%,
+        23% 100%,
+        8% 100%,
+        7% 90%,
+        0 90%,
+        0% 18%,
+        9% 17%,
+        9% 1%,
+        26% 0%,
+        30% 17%,
+        44% 16%,
+        45% 0%,
+        66% 0%,
+        70% 18%,
+        79% 17%,
+        84% 0%,
+        92% 0,
+        97% 20%,
+        100% 20%
+    );
+    position: relative;
+}
+.obstacle-30-R {
+    width: 35%;
+    height: 100%;
+    background-color: darken($bg, 30%);
+    clip-path: polygon(
+        100% 100%,
+        89% 100%,
+        85% 90%,
+        80% 91%,
+        79% 100%,
+        69% 100%,
+        68% 90%,
+        54% 90%,
+        53% 100%,
+        39% 100%,
+        37% 90%,
+        24% 91%,
+        23% 100%,
+        8% 100%,
+        7% 90%,
+        0 90%,
+        0% 18%,
+        9% 17%,
+        9% 1%,
+        26% 0%,
+        30% 17%,
+        44% 16%,
+        45% 0%,
+        66% 0%,
+        70% 18%,
+        79% 17%,
+        84% 0%,
+        92% 0,
+        97% 20%,
+        100% 20%
+    );
+    position: relative;
+}
+
+.obstacle-30-L {
+    width: 35%;
+    height: 100%;
+    background-color: darken($bg, 30%);
+    clip-path: polygon(
+        100% 100%,
+        89% 100%,
+        85% 90%,
+        80% 91%,
+        79% 100%,
+        69% 100%,
+        68% 90%,
+        54% 90%,
+        53% 100%,
+        39% 100%,
+        37% 90%,
+        24% 91%,
+        23% 100%,
+        8% 100%,
+        7% 90%,
+        0 90%,
+        0% 18%,
+        9% 17%,
+        9% 1%,
+        26% 0%,
+        30% 17%,
+        44% 16%,
+        45% 0%,
+        66% 0%,
+        70% 18%,
+        79% 17%,
+        84% 0%,
+        92% 0,
+        97% 20%,
+        100% 20%
+    );
+    position: relative;
+    transform: scaleX(-1);
+}
+
+.laser {
+    width: 30%;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    &::after {
+        content: "";
+        width: 100%;
+        height: 30%;
+        background-color: white;
+        position: absolute;
+    }
+
+    &::before {
+        content: "";
+        width: 100%;
+        height: 80%;
+        background-color: white;
+        filter: blur(10px);
+        z-index: -1;
+        position: absolute;
+    }
+}
+
+.laser-fx {
+    height: 200%;
+    width: 30px;
+    background-color: white;
+    position: absolute;
+    clip-path: polygon(
+        100% 19%,
+        66% 0,
+        85% 18%,
+        0 0,
+        69% 20%,
+        0 19%,
+        85% 26%,
+        53% 32%,
+        81% 35%,
+        20% 48%,
+        81% 41%,
+        0 67%,
+        85% 50%,
+        28% 74%,
+        85% 57%,
+        20% 100%,
+        81% 73%,
+        65% 100%,
+        90% 70%,
+        82% 100%,
+        92% 81%,
+        100% 100%
+    );
+    animation: laser1 0.1s infinite;
+}
+
+.enemy-laser-container {
+    width: 40%;
+    height: 50px;
+    position: absolute;
+    bottom: 30%;
+    display: flex;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    animation: enemyLaser 25s linear infinite;
+    transform-origin: center center;
+
+    .laser {
+        width: 90%;
+    }
+}
+
+@mixin enemyLaser {
+    height: 100%;
+    width: 5%;
+    background-color: darken($bg, 30%);
+    position: absolute;
+
+    &::after {
+        content: "";
+        width: 100%;
+        height: 50%;
+        background-color: darken($bg, 30%);
+        position: absolute;
+        top: -50%;
+        clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    }
+}
+
+.enemy-laser-L {
+    @include enemyLaser();
+    left: 0;
+}
+
+.enemy-laser-R {
+    @include enemyLaser();
+    right: 0;
+    transform: scaleY(-1);
 }

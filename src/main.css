@@ -33,19 +33,19 @@
     height: 10%;
     transform: scale(0.1) translateY(0px);
     opacity: 1;
-    box-shadow: 0px 0px 1px 20px white, 0px 0px 1px 20px white,  0px 0px 1px 20px white,  0px 0px 1px 20px white,  0px 0px 1px 20px white, 0px 0px 1px 20px white,  0px 0px 1px 20px white,  0px 0px 1px 20px white, 0px 0px 1px 20px white, 0px 0px 1px 20px white, 0px 0px 1px 20px white, 0px 0px 1px 20px white; }
+    box-shadow: 0px 0px 1px 20px white, 0px 0px 1px 20px white, 0px 0px 1px 20px white, 0px 0px 1px 20px white, 0px 0px 1px 20px white, 0px 0px 1px 20px white, 0px 0px 1px 20px white, 0px 0px 1px 20px white, 0px 0px 1px 20px white, 0px 0px 1px 20px white, 0px 0px 1px 20px white, 0px 0px 1px 20px white; }
   80% {
     width: 40%;
     height: 40%;
     transform: scale(1.1) translateY(50px);
     opacity: 1;
-    box-shadow: -38px 0px 1px -10px white, 38px 0px 1px -10px white, 0px 38px 1px -10px white,  0px -38px 1px -10px white,  28px -30px 1px -10px white, 28px 30px 1px -10px white,  -30px -32px 1px -10px white,  -30px 32px 1px -10px white, -18px 20px 1px -20px white, 18px -20px 1px -17px white, -18px -20px 1px -20px white, 18px 20px 1px -17px white; }
+    box-shadow: -38px 0px 1px -10px white, 38px 0px 1px -10px white, 0px 38px 1px -10px white, 0px -38px 1px -10px white, 28px -30px 1px -10px white, 28px 30px 1px -10px white, -30px -32px 1px -10px white, -30px 32px 1px -10px white, -18px 20px 1px -20px white, 18px -20px 1px -17px white, -18px -20px 1px -20px white, 18px 20px 1px -17px white; }
   100% {
     width: 10%;
     height: 10%;
     transform: scale(1.5);
     opacity: 0;
-    box-shadow: -38px 0px 1px -10px white, 38px 0px 1px -10px white, 0px 38px 1px -10px white,  0px -38px 1px -10px white,  28px -30px 1px -10px white, 28px 30px 1px -10px white,  -30px -32px 1px -10px white,  -30px 32px 1px -10px white, -18px 20px 1px -20px white, 18px -20px 1px -17px white, -18px -20px 1px -20px white, 18px 20px 1px -17px white; } }
+    box-shadow: -38px 0px 1px -10px white, 38px 0px 1px -10px white, 0px 38px 1px -10px white, 0px -38px 1px -10px white, 28px -30px 1px -10px white, 28px 30px 1px -10px white, -30px -32px 1px -10px white, -30px 32px 1px -10px white, -18px 20px 1px -20px white, 18px -20px 1px -17px white, -18px -20px 1px -20px white, 18px 20px 1px -17px white; } }
 @keyframes fadeOut {
   0% {
     opacity: 1;
@@ -61,6 +61,30 @@
   100% {
     opacity: 0.2;
     bottom: 14vh; } }
+@keyframes smoke {
+  0% {
+    box-shadow: 0px 0px 0 0px #383737, 0px 0px 0 0px #383737, 0px 0px 0px 0px #383737, 0px 0px 1px 0px #383737,  0px 0px 0 0px #383737; }
+  70% {
+    box-shadow: 6px 14px 0 -4px #1b1a1a, -4px 21px 0 -5px #1b1a1a,  -4px 46px 0px -8px #1b1a1a, -2px 34px 1px -5px #1b1a1a,  1px 55px 0 -10px #1b1a1a; }
+  100% {
+    box-shadow: 7px 24px 0 -14px #1b1a1a, -5px 31px 0 -10px #1b1a1a,  -5px 56px 0px -18px #1b1a1a, 1px 44px 1px -10px #1b1a1a,  1px 65px 0 -20px #1b1a1a; } }
+@keyframes laserContainer {
+  0% {
+    top: -20vh; }
+  100% {
+    top: 110vh; } }
+@keyframes laser1 {
+  0% {
+    clip-path: polygon(100% 19%, 66% 0, 85% 18%, 0 0, 69% 20%, 0 19%, 85% 26%, 53% 32%, 81% 35%, 20% 48%, 81% 41%, 0 67%, 85% 50%, 28% 74%, 85% 57%, 20% 100%, 81% 73%, 65% 100%, 90% 70%, 82% 100%, 92% 81%, 100% 100%); }
+  100% {
+    clip-path: polygon(100% 19%, 86% 0, 98% 26%, 61% 9%, 91% 29%, 57% 20%, 94% 35%, 71% 33%, 100% 43%, 67% 41%, 94% 47%, 78% 51%, 94% 58%, 71% 64%, 88% 64%, 68% 76%, 81% 73%, 65% 88%, 94% 68%, 80% 91%, 96% 76%, 100% 100%); } }
+@keyframes enemyLaser {
+  0% {
+    left: -50vw;
+    transform: rotate(0deg); }
+  100% {
+    left: 150vw;
+    transform: rotate(720deg); } }
 :root {
   --ship-shadow: darken(rgb(202, 202, 202), 10%); }
 
@@ -172,7 +196,7 @@ html[color="green"] .shoot::before {
   border-radius: 50px;
   position: absolute;
   background-color: white;
-  box-shadow: -38px 0px 1px -5px white, 38px 0px 1px -5px white,  0px 38px 1px -5px white,  0px -38px 1px -5px white,  28px -30px 1px -5px white, 28px 30px 1px -5px white,  -28px -30px 1px -5px white,  -28px 30px 1px -5px white;
+  box-shadow: -38px 0px 1px -5px white, 38px 0px 1px -5px white, 0px 38px 1px -5px white, 0px -38px 1px -5px white, 28px -30px 1px -5px white, 28px 30px 1px -5px white, -28px -30px 1px -5px white, -28px 30px 1px -5px white;
   z-index: 2;
   animation: explodeMeteor 0.6s both; }
 
@@ -184,6 +208,111 @@ html[color="green"] .shoot::before {
   background-color: #4eeb5b; }
 .meteor-blue::after {
   background-color: #47bbff; }
+
+.laser-container {
+  width: 100%;
+  height: 150px;
+  position: absolute;
+  top: 100px;
+  display: flex;
+  align-items: center;
+  animation: laserContainer 10s linear both; }
+
+.obstacle-70 {
+  width: 70%;
+  height: 100%;
+  background-color: black;
+  clip-path: polygon(100% 100%, 89% 100%, 85% 90%, 80% 91%, 79% 100%, 69% 100%, 68% 90%, 54% 90%, 53% 100%, 39% 100%, 37% 90%, 24% 91%, 23% 100%, 8% 100%, 7% 90%, 0 90%, 0% 18%, 9% 17%, 9% 1%, 26% 0%, 30% 17%, 44% 16%, 45% 0%, 66% 0%, 70% 18%, 79% 17%, 84% 0%, 92% 0, 97% 20%, 100% 20%);
+  position: relative; }
+
+.obstacle-30-R {
+  width: 35%;
+  height: 100%;
+  background-color: black;
+  clip-path: polygon(100% 100%, 89% 100%, 85% 90%, 80% 91%, 79% 100%, 69% 100%, 68% 90%, 54% 90%, 53% 100%, 39% 100%, 37% 90%, 24% 91%, 23% 100%, 8% 100%, 7% 90%, 0 90%, 0% 18%, 9% 17%, 9% 1%, 26% 0%, 30% 17%, 44% 16%, 45% 0%, 66% 0%, 70% 18%, 79% 17%, 84% 0%, 92% 0, 97% 20%, 100% 20%);
+  position: relative; }
+
+.obstacle-30-L {
+  width: 35%;
+  height: 100%;
+  background-color: black;
+  clip-path: polygon(100% 100%, 89% 100%, 85% 90%, 80% 91%, 79% 100%, 69% 100%, 68% 90%, 54% 90%, 53% 100%, 39% 100%, 37% 90%, 24% 91%, 23% 100%, 8% 100%, 7% 90%, 0 90%, 0% 18%, 9% 17%, 9% 1%, 26% 0%, 30% 17%, 44% 16%, 45% 0%, 66% 0%, 70% 18%, 79% 17%, 84% 0%, 92% 0, 97% 20%, 100% 20%);
+  position: relative;
+  transform: scaleX(-1); }
+
+.laser {
+  width: 30%;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  position: relative; }
+  .laser::after {
+    content: "";
+    width: 100%;
+    height: 30%;
+    background-color: white;
+    position: absolute; }
+  .laser::before {
+    content: "";
+    width: 100%;
+    height: 80%;
+    background-color: white;
+    filter: blur(10px);
+    z-index: -1;
+    position: absolute; }
+
+.laser-fx {
+  height: 200%;
+  width: 30px;
+  background-color: white;
+  position: absolute;
+  clip-path: polygon(100% 19%, 66% 0, 85% 18%, 0 0, 69% 20%, 0 19%, 85% 26%, 53% 32%, 81% 35%, 20% 48%, 81% 41%, 0 67%, 85% 50%, 28% 74%, 85% 57%, 20% 100%, 81% 73%, 65% 100%, 90% 70%, 82% 100%, 92% 81%, 100% 100%);
+  animation: laser1 0.1s infinite; }
+
+.enemy-laser-container {
+  width: 40%;
+  height: 50px;
+  position: absolute;
+  bottom: 30%;
+  display: flex;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  animation: enemyLaser 25s linear infinite;
+  transform-origin: center center; }
+  .enemy-laser-container .laser {
+    width: 90%; }
+
+.enemy-laser-L {
+  height: 100%;
+  width: 5%;
+  background-color: black;
+  position: absolute;
+  left: 0; }
+  .enemy-laser-L::after {
+    content: "";
+    width: 100%;
+    height: 50%;
+    background-color: black;
+    position: absolute;
+    top: -50%;
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%); }
+
+.enemy-laser-R {
+  height: 100%;
+  width: 5%;
+  background-color: black;
+  position: absolute;
+  right: 0;
+  transform: scaleY(-1); }
+  .enemy-laser-R::after {
+    content: "";
+    width: 100%;
+    height: 50%;
+    background-color: black;
+    position: absolute;
+    top: -50%;
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%); }
 
 #hud {
   position: fixed;
@@ -502,5 +631,17 @@ html[color="green"] .shoot::before {
   bottom: -30%;
   margin-right: 10%;
   transition: all 0.4s; }
+
+.danger {
+  width: 30px;
+  height: 30px;
+  background-color: #1b1a1a;
+  border-radius: 30px;
+  z-index: -1;
+  left: 10px;
+  bottom: 0px;
+  position: absolute;
+  box-shadow: 7px 14px 0 -4px #383737, -5px 21px 0 -5px #383737,  -5px 46px 0px -8px #383737,  1px 34px 1px -5px #383737,  1px 55px 0 -10px #383737;
+  animation: smoke 0.3s infinite linear; }
 
 /*# sourceMappingURL=main.css.map */

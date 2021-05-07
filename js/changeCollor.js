@@ -33,8 +33,17 @@ function changeShipColor() {
 document.addEventListener("keydown", event => {
 
 
+
     // ------------ UP -------------------------------
     if (event.which === 38) {
+
+        var colorSound = document.createElement("audio");
+        colorSound.src = "./audio/change_color.flac";
+        colorSound.play();
+
+        setTimeout(() => {
+            colorSound.remove();
+        }, 1000);
 
         console.log('up');
 
@@ -56,7 +65,13 @@ document.addEventListener("keydown", event => {
     // ------------ DOWN -------------------------------
     if (event.which === 40) {
 
+        var colorSound = document.createElement("audio");
+        colorSound.src = "./audio/change_color.flac";
+        colorSound.play();
         console.log('down');
+        setTimeout(() => {
+            colorSound.remove();
+        }, 1000);
 
         if(game.color > 0){
             game.color += -1;

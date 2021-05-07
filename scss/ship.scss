@@ -283,3 +283,27 @@
         transition: all 0.4s;
     }
 }
+
+
+
+
+.danger{
+    width: 30px;
+    height: 30px;
+    background-color: #1b1a1a;
+    border-radius: 30px;
+    z-index: -1;
+    left: 10px;
+    bottom: 0px;
+   position: absolute;
+    // box-shadow: 14px ​19px 0 -6px $smoke;
+    box-shadow: 
+    7px 14px 0 -4px #383737, 
+    -5px 21px 0 -5px #383737, 
+    -5px 46px 0px -8px #383737, 
+    1px 34px 1px -5px #383737, 
+    1px 55px 0 -10px #383737;
+
+
+    animation: smoke 0.3s infinite linear;
+}

@@ -1,139 +1,225 @@
-@keyframes fire{
-    from{transform:scaleY(1)}
-    to{transform:scaleY(0.6)}
+@keyframes fire {
+    from {
+        transform: scaleY(1);
+    }
+    to {
+        transform: scaleY(0.6);
+    }
 }
 
-
-@keyframes speed{
-    from{transform:scaleX(0)}
-    to{transform:scaleX(1)}
+@keyframes speed {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
 }
 
-@keyframes shoot{
-    from{bottom: 25vh;}
-    to{bottom: 105vh;}
+@keyframes shoot {
+    from {
+        bottom: 25vh;
+    }
+    to {
+        bottom: 105vh;
+    }
 }
 
-@keyframes ballSelected{
-    from{
+@keyframes ballSelected {
+    from {
         width: 10px;
         height: 7px;
     }
-    to{
+    to {
         width: 15px;
         height: 15px;
     }
 }
 
-
-@keyframes meteor{
-    from{
+@keyframes meteor {
+    from {
         top: -10vh;
         transform: rotate(0deg);
     }
-    to{
+    to {
         top: 110vh;
         transform: rotate(360deg);
     }
 }
 
 @keyframes explodeMeteor {
-            0%{
-                
-                width: 10%;
-                height: 10%;
-                transform: scale(0.1) translateY(0px);
-                opacity: 1;
-                box-shadow: 
-                0px 0px 1px 20px white, 
-                0px 0px 1px 20px white, 
-                0px 0px 1px 20px white, 
-                0px 0px 1px 20px white, 
-                0px 0px 1px 20px white,
-                0px 0px 1px 20px white, 
-                0px 0px 1px 20px white, 
-                0px 0px 1px 20px white,
-                0px 0px 1px 20px white,
-                0px 0px 1px 20px white,
-                0px 0px 1px 20px white,
-                0px 0px 1px 20px white;
-            }
-          
-            // 50%{
-            //     opacity: 0.5;
-            //     box-shadow: 
-            //     -38px 0px 1px -15px white, 
-            //     38px 0px 1px -15px white, 
-            //     0px 38px 1px -15px white, 
-            //     0px -38px 1px -15px white, 
-            //     28px -30px 1px -15px white,
-            //     28px 30px 1px -15px white, 
-            //     -28px -30px 1px -15px white, 
-            //     -28px 30px 1px -15px white;
-            // }
-            80%{
-                
-                width: 40%;
-                height: 40%;
-                transform: scale(1.1) translateY(50px);
-                opacity: 1;
-                box-shadow: 
-                -38px 0px 1px -10px white,
-                38px 0px 1px -10px white, 
-                0px 38px 1px -10px white, 
-                0px -38px 1px -10px white, 
-                28px -30px 1px -10px white,
-                28px 30px 1px -10px white, 
-                -30px -32px 1px -10px white, 
-                -30px 32px 1px -10px white,
-                -18px 20px 1px -20px white,
-                18px -20px 1px -17px white,
-                -18px -20px 1px -20px white,
-                18px 20px 1px -17px white;
-            }
+    0% {
+        width: 10%;
+        height: 10%;
+        transform: scale(0.1) translateY(0px);
+        opacity: 1;
+        box-shadow: 0px 0px 1px 20px white, 0px 0px 1px 20px white, 0px 0px 1px 20px white, 0px 0px 1px 20px white,
+            0px 0px 1px 20px white, 0px 0px 1px 20px white, 0px 0px 1px 20px white, 0px 0px 1px 20px white,
+            0px 0px 1px 20px white, 0px 0px 1px 20px white, 0px 0px 1px 20px white, 0px 0px 1px 20px white;
+    }
 
-            100%{
-                width: 10%;
-                height: 10%;
-                transform: scale(1.5);
-                opacity: 0;
-                box-shadow: 
-                -38px 0px 1px -10px white,
-                38px 0px 1px -10px white, 
-                0px 38px 1px -10px white, 
-                0px -38px 1px -10px white, 
-                28px -30px 1px -10px white,
-                28px 30px 1px -10px white, 
-                -30px -32px 1px -10px white, 
-                -30px 32px 1px -10px white,
-                -18px 20px 1px -20px white,
-                18px -20px 1px -17px white,
-                -18px -20px 1px -20px white,
-                18px 20px 1px -17px white;
-            }
-        }
+    // 50%{
+    //     opacity: 0.5;
+    //     box-shadow:
+    //     -38px 0px 1px -15px white,
+    //     38px 0px 1px -15px white,
+    //     0px 38px 1px -15px white,
+    //     0px -38px 1px -15px white,
+    //     28px -30px 1px -15px white,
+    //     28px 30px 1px -15px white,
+    //     -28px -30px 1px -15px white,
+    //     -28px 30px 1px -15px white;
+    // }
+    80% {
+        width: 40%;
+        height: 40%;
+        transform: scale(1.1) translateY(50px);
+        opacity: 1;
+        box-shadow: -38px 0px 1px -10px white, 38px 0px 1px -10px white, 0px 38px 1px -10px white,
+            0px -38px 1px -10px white, 28px -30px 1px -10px white, 28px 30px 1px -10px white,
+            -30px -32px 1px -10px white, -30px 32px 1px -10px white, -18px 20px 1px -20px white,
+            18px -20px 1px -17px white, -18px -20px 1px -20px white, 18px 20px 1px -17px white;
+    }
+
+    100% {
+        width: 10%;
+        height: 10%;
+        transform: scale(1.5);
+        opacity: 0;
+        box-shadow: -38px 0px 1px -10px white, 38px 0px 1px -10px white, 0px 38px 1px -10px white,
+            0px -38px 1px -10px white, 28px -30px 1px -10px white, 28px 30px 1px -10px white,
+            -30px -32px 1px -10px white, -30px 32px 1px -10px white, -18px 20px 1px -20px white,
+            18px -20px 1px -17px white, -18px -20px 1px -20px white, 18px 20px 1px -17px white;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(80px);
+        clip-path: polygon(
+            0% 16%,
+            17% 0%,
+            33% 6%,
+            29% 13%,
+            19% 20%,
+            31% 32%,
+            42% 24%,
+            47% 16%,
+            60% 19%,
+            64% 27%,
+            62% 39%,
+            80% 29%,
+            77% 11%,
+            74% 6%,
+            91% 0%,
+            100% 11%,
+            100% 26%,
+            93% 36%,
+            82% 28%,
+            61% 40%,
+            79% 54%,
+            97% 56%,
+            100% 61%,
+            100% 76%,
+            92% 94%,
+            78% 95%,
+            66% 82%,
+            72% 66%,
+            75% 51%,
+            62% 41%,
+            47% 75%,
+            29% 66%,
+            32% 48%,
+            33% 39%,
+            32% 32%,
+            17% 46%,
+            18% 69%,
+            29% 84%,
+            28% 99%,
+            13% 98%,
+            3% 89%,
+            9% 79%,
+            18% 65%,
+            17% 47%,
+            6% 41%,
+            6% 33%,
+            17% 29%,
+            23% 24%,
+            18% 21%
+        );
+    }
+}
+
+@keyframes damage {
+    0% {
+        opacity: 0.7;
+        bottom: 15vh;
+    }
+    100% {
+        opacity: 0.2;
+        bottom: 14vh;
+    }
+}
+
+@keyframes smoke {
+    0% {
+        box-shadow: 
+        0px 0px 0 0px #383737,
+        0px 0px 0 0px #383737, 
+        0px 0px 0px 0px #383737,
+        0px 0px 1px 0px #383737, 
+        0px 0px 0 0px #383737;
+    }
+
+    70% {
+        box-shadow: 
+        6px 14px 0 -4px #1b1a1a, 
+        -4px 21px 0 -5px #1b1a1a, 
+        -4px 46px 0px -8px #1b1a1a,
+        -2px 34px 1px -5px #1b1a1a, 
+        1px 55px 0 -10px #1b1a1a;
+    }
+    100% {
+        box-shadow: 
+        7px 24px 0 -14px #1b1a1a, 
+        -5px 31px 0 -10px #1b1a1a, 
+        -5px 56px 0px -18px #1b1a1a,
+        1px 44px 1px -10px #1b1a1a, 
+        1px 65px 0 -20px #1b1a1a;
+    }
+}
 
 
-        @keyframes fadeOut{
-            0%{
-                opacity: 1;
-                transform: translateY(0px);
-            }
-            100%{
-                opacity: 0;
-                transform: translateY(80px);
-                clip-path: polygon(0% 16%, 17% 0%, 33% 6%, 29% 13%, 19% 20%, 31% 32%, 42% 24%, 47% 16%, 60% 19%, 64% 27%, 62% 39%, 80% 29%, 77% 11%, 74% 6%, 91% 0%, 100% 11%, 100% 26%, 93% 36%, 82% 28%, 61% 40%, 79% 54%, 97% 56%, 100% 61%, 100% 76%, 92% 94%, 78% 95%, 66% 82%, 72% 66%, 75% 51%, 62% 41%, 47% 75%, 29% 66%, 32% 48%, 33% 39%, 32% 32%, 17% 46%, 18% 69%, 29% 84%, 28% 99%, 13% 98%, 3% 89%, 9% 79%, 18% 65%, 17% 47%, 6% 41%, 6% 33%, 17% 29%, 23% 24%, 18% 21%);
-            }
-        }
+
+@keyframes laserContainer {
+    0%{top: -20vh;}
+    100%{top: 110vh;}
+}
 
 
-        @keyframes damage{
-            0%{
-                opacity: 0.7;
-                bottom: 15vh;
-            }
-            100%{
-                opacity: 0.2;
-                bottom: 14vh;
-            }
-        }
+@keyframes laser1{
+    0%{
+        clip-path: polygon(100% 19%, 66% 0, 85% 18%, 0 0, 69% 20%, 0 19%, 85% 26%, 53% 32%, 81% 35%, 20% 48%, 81% 41%, 0 67%, 85% 50%, 28% 74%, 85% 57%, 20% 100%, 81% 73%, 65% 100%, 90% 70%, 82% 100%, 92% 81%, 100% 100%);
+    }
+    100%{
+        clip-path: polygon(100% 19%, 86% 0, 98% 26%, 61% 9%, 91% 29%, 57% 20%, 94% 35%, 71% 33%, 100% 43%, 67% 41%, 94% 47%, 78% 51%, 94% 58%, 71% 64%, 88% 64%, 68% 76%, 81% 73%, 65% 88%, 94% 68%, 80% 91%, 96% 76%, 100% 100%);
+    }
+}
+
+
+
+@keyframes enemyLaser{
+    0%{
+        left: -50vw;
+        transform: rotate(0deg);
+    }
+    100%{
+        left: 150vw;
+        transform: rotate(720deg);
+    }
+}

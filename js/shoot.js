@@ -1,4 +1,4 @@
-
+// shootSound = new Audio("./audio/shoot.mp3");
 
 
 
@@ -16,8 +16,13 @@ if (event.keyCode === 32 && event.repeat == false) {
 
     shootMove(shoot);
 
+    var shootSound = document.createElement("audio");
+    shootSound.src = "./audio/shoot.mp3";
+    shootSound.play();
+    
     setTimeout(() => {
         shoot.remove();
+        shootSound.remove();
     }, 450);
 
 
