@@ -85,6 +85,62 @@
   100% {
     left: 150vw;
     transform: rotate(720deg); } }
+@keyframes appearsBoss {
+  0% {
+    top: -50vh; }
+  100% {
+    top: 6vh; } }
+@keyframes turningLightsOn {
+  0% {
+    opacity: 1; }
+  60% {
+    opacity: 0; }
+  70% {
+    opacity: 1; }
+  80% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+@keyframes laserOpen1 {
+  0% {
+    height: 100%; }
+  100% {
+    height: 94vh; } }
+@keyframes laserOpen2 {
+  0% {
+    width: 100%; }
+  100% {
+    width: 100vw; } }
+@keyframes laserMove1 {
+  0% {
+    transform: translateX(0vw); }
+  20% {
+    transform: translateX(-50vw); }
+  80% {
+    transform: translateX(50vw); }
+  100% {
+    transform: translateX(0vw); } }
+@keyframes laserMove2 {
+  0% {
+    transform: translateY(0vh); }
+  10% {
+    transform: translateY(-20vh); }
+  60% {
+    transform: translateY(80vh); }
+  100% {
+    transform: translateY(0vh); } }
+@keyframes rotateBossShield {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+@keyframes brokenShield {
+  0% {
+    clip-path: polygon(0 100%, 0 0, 100% 0, 62% 39%, 70% 74%, 35% 67%); }
+  99% {
+    clip-path: polygon(0 100%, 0 54%, 31% 67%, 0% 32%, 1% 1%, 15% 10%, 0 31%, 23% 45%, 57% 54%, 20% 24%, 51% 15%, 34% 0, 77% 0%, 63% 22%, 49% 13%, 46% 33%, 54% 53%, 77% 58%, 90% 61%, 93% 82%, 82% 69%, 76% 84%, 60% 92%, 54% 83%, 76% 83%, 56% 50%, 29% 66%, 27% 84%, 13% 79%);
+    height: 80px;
+    width: 80px; } }
 :root {
   --ship-shadow: darken(rgb(202, 202, 202), 10%); }
 
@@ -170,6 +226,238 @@ html[color="green"] .shoot::before {
 * {
   margin: 0;
   padding: 0; }
+
+.boss-container {
+  height: 40vh;
+  width: 40vh;
+  position: absolute;
+  top: 6vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: appearsBoss 10s both; }
+  .boss-container .boss-center {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    background-color: black;
+    z-index: 3; }
+  .boss-container .boss-lasers-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .boss-container .boss-lasers-container .laser-move-1 {
+      height: 94vh !important;
+      animation: laserMove1 15s linear infinite !important; }
+    .boss-container .boss-lasers-container .laser-move-2 {
+      width: 100vw !important;
+      animation: laserMove2 15s linear infinite !important; }
+    .boss-container .boss-lasers-container .laser-open-1 {
+      animation: laserOpen1 7s both; }
+    .boss-container .boss-lasers-container .laser-open-2 {
+      animation: laserOpen2 7s both; }
+    .boss-container .boss-lasers-container .laser-row-1 {
+      height: 100%;
+      width: 50px;
+      position: absolute;
+      z-index: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      top: 0; }
+      .boss-container .boss-lasers-container .laser-row-1 .laser {
+        height: 100%;
+        width: 40%;
+        justify-content: center;
+        margin: 50px 0 50px 0; }
+        .boss-container .boss-lasers-container .laser-row-1 .laser::after {
+          height: 100%;
+          width: 40%; }
+      .boss-container .boss-lasers-container .laser-row-1 .laser-box:nth-child(1) {
+        width: 50px;
+        height: 50px;
+        background-color: black;
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        transform: rotate(0deg);
+        position: absolute;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        top: 0; }
+        .boss-container .boss-lasers-container .laser-row-1 .laser-box:nth-child(1)::after {
+          content: '';
+          width: 55%;
+          height: 5px;
+          position: absolute;
+          background-color: white;
+          bottom: 0; }
+      .boss-container .boss-lasers-container .laser-row-1 .laser-box:nth-child(2) {
+        width: 50px;
+        height: 50px;
+        background-color: black;
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        transform: rotate(180deg);
+        position: absolute;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        bottom: 0; }
+        .boss-container .boss-lasers-container .laser-row-1 .laser-box:nth-child(2)::after {
+          content: '';
+          width: 55%;
+          height: 5px;
+          position: absolute;
+          background-color: white;
+          bottom: 0; }
+    .boss-container .boss-lasers-container .laser-row-2 {
+      width: 100%;
+      height: 50px;
+      position: absolute;
+      z-index: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      .boss-container .boss-lasers-container .laser-row-2 .laser {
+        width: 100%;
+        margin: 0 50px 0 50px; }
+      .boss-container .boss-lasers-container .laser-row-2 .laser-box:nth-child(1) {
+        width: 50px;
+        height: 50px;
+        background-color: black;
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        transform: rotate(-90deg);
+        position: absolute;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        left: 0; }
+        .boss-container .boss-lasers-container .laser-row-2 .laser-box:nth-child(1)::after {
+          content: '';
+          width: 55%;
+          height: 5px;
+          position: absolute;
+          background-color: white;
+          bottom: 0; }
+      .boss-container .boss-lasers-container .laser-row-2 .laser-box:nth-child(2) {
+        width: 50px;
+        height: 50px;
+        background-color: black;
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        transform: rotate(90deg);
+        position: absolute;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        right: 0; }
+        .boss-container .boss-lasers-container .laser-row-2 .laser-box:nth-child(2)::after {
+          content: '';
+          width: 55%;
+          height: 5px;
+          position: absolute;
+          background-color: white;
+          bottom: 0; }
+  .boss-container .no-lights .boss-shield-red::after {
+    background-color: #0e0f30 !important; }
+  .boss-container .no-lights .boss-shield-yellow::after {
+    background-color: #0e0f30 !important; }
+  .boss-container .no-lights .boss-shield-green::after {
+    background-color: #0e0f30 !important; }
+  .boss-container .no-lights .boss-shield-blue::after {
+    background-color: #0e0f30 !important; }
+  .boss-container .boss-shield-container {
+    width: 55%;
+    height: 55%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .boss-container .boss-shield-container .boss-shield-red {
+      width: 60px;
+      height: 60px;
+      background-color: black;
+      position: absolute;
+      clip-path: polygon(0 100%, 0 0, 100% 0, 62% 39%, 70% 74%, 35% 67%);
+      top: 0;
+      left: 0; }
+      .boss-container .boss-shield-container .boss-shield-red::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-color: #ff4747;
+        top: 0;
+        clip-path: polygon(0 0, 0 70%, 70% 0);
+        animation: turningLightsOn 0.4s both;
+        animation-delay: 10s; }
+    .boss-container .boss-shield-container .boss-shield-yellow {
+      width: 60px;
+      height: 60px;
+      background-color: black;
+      position: absolute;
+      clip-path: polygon(0 100%, 0 0, 100% 0, 62% 39%, 70% 74%, 35% 67%);
+      top: 0;
+      right: 0;
+      transform: rotate(90deg); }
+      .boss-container .boss-shield-container .boss-shield-yellow::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-color: #f1d951;
+        top: 0;
+        clip-path: polygon(0 0, 0 70%, 70% 0);
+        animation: turningLightsOn 0.4s both;
+        animation-delay: 10s; }
+    .boss-container .boss-shield-container .boss-shield-green {
+      width: 60px;
+      height: 60px;
+      background-color: black;
+      position: absolute;
+      clip-path: polygon(0 100%, 0 0, 100% 0, 62% 39%, 70% 74%, 35% 67%);
+      bottom: 0;
+      left: 0;
+      transform: rotate(-90deg); }
+      .boss-container .boss-shield-container .boss-shield-green::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-color: #4eeb5b;
+        top: 0;
+        clip-path: polygon(0 0, 0 70%, 70% 0);
+        animation: turningLightsOn 0.4s both;
+        animation-delay: 10s; }
+    .boss-container .boss-shield-container .boss-shield-blue {
+      width: 60px;
+      height: 60px;
+      background-color: black;
+      position: absolute;
+      clip-path: polygon(0 100%, 0 0, 100% 0, 62% 39%, 70% 74%, 35% 67%);
+      bottom: 0;
+      right: 0;
+      transform: rotate(180deg); }
+      .boss-container .boss-shield-container .boss-shield-blue::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-color: #47bbff;
+        top: 0;
+        clip-path: polygon(0 0, 0 70%, 70% 0);
+        animation: turningLightsOn 0.4s both;
+        animation-delay: 10s; }
+
+.boss-damage {
+  background-color: white !important; }
+  .boss-damage::after {
+    background-color: white !important; }
+
+.shield-broken {
+  animation: brokenShield 0.4s both; }
 
 .meteorite {
   width: 50px;

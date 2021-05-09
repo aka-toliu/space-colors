@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,31 +8,58 @@
 
     <link rel="stylesheet" href="src/main.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-   integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
     <title>Space Collors</title>
 </head>
 
 <body>
-<div class="game-container">
+    <div class="game-container">
 
-    <div class="enemy-laser-container">
+        <div class="boss-container">
+
+            <div class="boss-center"></div>
+
+            <div class="boss-lasers-container">
+               <div class="laser-row-1">
+                   <div class="laser-box"></div>
+                   <div class="laser-box"></div>
+                   <div class="laser yellow"></div>
+                   
+               </div>
+               <div class="laser-row-2">
+                <div class="laser-box"></div>
+                <div class="laser-box"></div>
+                <div class="laser red"></div>
+
+               </div>
+            </div>
+
+            <div class="boss-shield-container no-lights">
+                <div class="boss-shield boss-shield-red" id="10"></div>
+                <div class="boss-shield boss-shield-yellow" id="10"></div>
+                <div class="boss-shield boss-shield-green" id="10"></div>
+                <div class="boss-shield boss-shield-blue" id="10"></div>
+            </div>
+        </div>
+
+        <!-- <div class="enemy-laser-container">
         <div class="enemy-laser-L"></div>
         
         <div class="laser yellow">
             <div class="laser-fx"></div>
         </div>
         <div class="enemy-laser-R"></div>
-    </div>
+    </div> -->
 
-    <!-- <div class="laser-container">
+        <!-- <div class="laser-container">
         <div class="laser yellow">
             <div class="laser-fx"></div>
         </div>
         <div class="obstacle-70"></div>
     </div> -->
 
-    <!-- <div class="laser-container">
+        <!-- <div class="laser-container">
         <div class="obstacle-30-L"></div>
         <div class="laser yellow">
         </div>
@@ -40,35 +68,36 @@
 
 
 
-    <div id="ship">
-        <!-- <div class="ship-collision-area"></div> -->
-        <!-- <div class="danger"></div> -->
-        <div class="ship-body"></div>
-        <div class="ship-cockpit"></div>
-        <div class="ship-L-wing"></div>
-        <div class="ship-R-wing"></div>
-        <div class="ship-fire"></div>
-    </div>
+        <div id="ship">
+            <!-- <div class="ship-collision-area"></div> -->
+            <!-- <div class="danger"></div> -->
+            <div class="ship-body"></div>
+            <div class="ship-cockpit"></div>
+            <div class="ship-L-wing"></div>
+            <div class="ship-R-wing"></div>
+            <div class="ship-fire"></div>
+        </div>
 
 
-    <div id="hud">
-        <div class="hud-life">
-            <div class="hud-life-piece"></div>
-            <div class="hud-life-piece"></div>
-            <div class="hud-life-piece"></div>
-        </div>
-        <div class="hud-color">
-            <div class="hud-color-ball red"></div>
-            <div class="hud-color-ball yellow"></div>
-            <div class="hud-color-ball blue"></div>
-            <div class="hud-color-ball green"></div>
-        </div>
-        <div class="hud-score">
-            0 pts
+        <div id="hud">
+            <div class="hud-life">
+                <div class="hud-life-piece"></div>
+                <div class="hud-life-piece"></div>
+                <div class="hud-life-piece"></div>
+            </div>
+            <div class="hud-color">
+                <div class="hud-color-ball red"></div>
+                <div class="hud-color-ball yellow"></div>
+                <div class="hud-color-ball blue"></div>
+                <div class="hud-color-ball green"></div>
+            </div>
+            <div class="hud-score">
+                0 pts
+            </div>
         </div>
     </div>
-</div>
 </body>
 
 <script src="src/main.js"></script>
+
 </html>

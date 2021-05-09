@@ -1,3 +1,8 @@
+// setInterval(createMeteorites, 2000);
+// setInterval(createLasers, 15000);
+
+
+
 function createMeteorites() {
     var posX = Math.round(Math.random() * (10 - 1)) * 10 + "%";
     var size = Math.round(Math.random() * (7 - 3)) + 5  + "0px";
@@ -19,7 +24,7 @@ function createMeteorites() {
 
 }
 
-setInterval(createMeteorites, 2000);
+
 
 
 function fallEnemies(object, time) {
@@ -36,7 +41,7 @@ function fallEnemies(object, time) {
 }
 
 
-setInterval(createLasers, 15000);
+
 
 function createLasers() {
     var laserContainer = document.createElement('DIV');

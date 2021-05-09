@@ -1,0 +1,243 @@
+.boss-container {
+    height: 40vh;
+    width: 40vh;
+    // border: 1px solid red;
+    position: absolute;
+    top: 6vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // transform: rotate(135deg);
+    animation: appearsBoss 10s both;
+
+
+    .boss-center {
+        width: 100px;
+        height: 100px;
+        border-radius: 100px;
+        background-color: darken($bg, 30%);
+        z-index: 3;
+    }
+  
+
+    .boss-lasers-container {
+        width: 100%;
+        height: 100%;
+        // border: 1px solid green;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       
+
+        @mixin bossLaser($angle) {
+            width: 50px;
+            height: 50px;
+            background-color: darken($bg, 30%);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            transform: rotate($angle);
+            // #{side}: 0;
+            position: absolute;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            
+
+            &::after{
+                content: '';
+                width: 55%;
+                height: 5px;
+                position: absolute;
+                background-color: rgb(255, 255, 255);
+                bottom: 0;
+            }
+        }
+
+
+.laser-move-1{
+    height: 94vh!important;
+    animation: laserMove1 15s linear infinite !important;
+}
+
+.laser-move-2{
+    width: 100vw!important;
+    animation: laserMove2 15s linear infinite !important;
+}
+
+.laser-open-1{
+ animation: laserOpen1 7s both;
+}
+
+.laser-open-2{
+    animation: laserOpen2 7s both;
+   }
+   
+
+        .laser-row-1{
+            height: 100%;
+            width: 50px;
+            // border: 1px solid yellow;
+            position: absolute;
+            z-index: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            top: 0;
+
+           
+
+            .laser{
+                height: 100%;
+                width: 40%;
+                justify-content: center;
+                margin: 50px 0 50px 0;
+
+                &::after{
+                    height: 100%;
+                    width: 40%;
+                }
+            }
+
+
+            .laser-box{
+                &:nth-child(1){
+                    @include bossLaser(0deg);
+                    top: 0;
+                    
+                }
+                &:nth-child(2){
+                    @include bossLaser(180deg);
+                    bottom: 0;
+                }
+                
+            }
+        }
+
+        .laser-row-2{
+            width: 100%;
+            height: 50px;
+            // border: 1px solid yellow;
+            position: absolute;
+            z-index: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+
+            .laser{
+                width: 100%;
+                margin: 0 50px 0 50px;
+            }
+
+            .laser-box{
+                &:nth-child(1){
+                    @include bossLaser(-90deg);
+                    left: 0;
+                    
+                }
+                &:nth-child(2){
+                    @include bossLaser(90deg);
+                    right: 0;
+                }
+                
+            }
+        }
+    }
+
+    .no-lights{
+        .boss-shield {
+            &-red {
+                &::after{background-color: rgb(14, 15, 48)!important;}
+            }
+
+            &-yellow {
+                &::after{background-color: rgb(14, 15, 48)!important;}
+            }
+
+            &-green {
+                &::after{background-color: rgb(14, 15, 48)!important;}
+            }
+
+            &-blue {
+                &::after{background-color: rgb(14, 15, 48)!important;}
+            }
+        }
+    }
+
+    .boss-shield-container {
+        width: 55%;
+        height: 55%;
+        // border: 1px solid rgb(0, 140, 255);
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // animation: rotateBossShield 15s ease-in infinite;
+
+        @mixin bossShield ($color){
+            width: 60px;
+            height: 60px;
+            background-color: darken($bg, 30%);
+            position: absolute;
+            clip-path: polygon(0 100%, 0 0, 100% 0, 62% 39%, 70% 74%, 35% 67%);
+
+            
+            &::after{
+                content: '';
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                background-color: $color;
+                top: 0;
+                clip-path: polygon(0 0, 0 70%, 70% 0);
+                animation: turningLightsOn 0.4s both;
+                animation-delay: 10s;
+            }
+        }
+
+        .boss-shield {
+            &-red {
+                @include bossShield($red);
+                top: 0;
+                left: 0;
+
+  
+            }
+
+            &-yellow {
+                @include bossShield($yellow);
+                top: 0;
+                right: 0;
+                transform: rotate(90deg);
+            }
+
+            &-green {
+                @include bossShield($green);
+                bottom: 0;
+                left: 0;
+                transform: rotate(-90deg);
+            }
+
+            &-blue {
+                @include bossShield($blue);
+                bottom: 0;
+                right: 0;
+                transform: rotate(180deg);
+            }
+        }
+    }
+}
+
+
+.boss-damage{
+    background-color: white!important;
+
+    &::after{
+        background-color: white!important;
+    }
+}
+
+.shield-broken{
+    animation: brokenShield 0.4s both;
+}
