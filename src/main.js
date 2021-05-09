@@ -53,7 +53,19 @@ function boss() {
     
 }
 
+function bossDestroyed() {
+    var laserRow1 = container.querySelector('.laser-row-1');
+    var laserRow2 = container.querySelector('.laser-row-2');
+    var bossContainer = document.querySelector('.boss-container')
 
+    bossContainer.classList.add('boss-destroyed');
+    laserRow1.classList.remove('laser-move-1', 'laser-open-1')
+    laserRow2.classList.remove('laser-move-2', 'laser-open-2')
+
+    setTimeout(() => {
+        bossContainer.remove();
+    }, 4750);
+}
  
 var ballsHud = hud.querySelectorAll('.hud-color-ball');
 // clearAndChangeHud();
@@ -255,7 +267,7 @@ function shootCollider(shoot) {
 
                 // console.log('colidiu');
                 var shieldsBroken = document.querySelectorAll('.shield-broken');
-                var bossContainer = document.querySelector('.boss-container');
+                ;
 
 
 
@@ -288,7 +300,7 @@ function shootCollider(shoot) {
 
 
                 if (shieldsBroken.length == 4) {
-                    bossContainer.style.display = 'none';
+                   bossDestroyed();
                 }
 
             }

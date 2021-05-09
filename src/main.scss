@@ -283,6 +283,57 @@
     }
 
 }
+
+
+@keyframes laserClose1{
+    0%{
+        height: 100%;
+    }
+    100%{
+        height: 10%;
+    }
+}
+
+@keyframes laserClose2{
+    0%{
+        width: 100%;
+    }
+    100%{
+        width: 10%;
+    }
+}
+
+@keyframes bossXplode1{
+    0%{
+        width: 0%;
+        height: 0%;
+        opacity: 1;
+    }
+    80%{
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+    }
+    100%{
+        width: 700%;
+        height: 700%;
+        opacity: 0;
+    }
+}
+
+@keyframes bossXplode2{
+    0%{
+        width: 0%;
+        height: 0%;
+        opacity: 1;
+    }
+
+    100%{
+        width: 300%;
+        height: 30%;
+        opacity: 0;
+    }
+}
  
 $bg: #2d2d47;
 $ship: rgb(202, 202, 202);
@@ -372,7 +423,6 @@ html[color="green"] {
     // transform: rotate(135deg);
     animation: appearsBoss 10s both;
 
-
     .boss-center {
         width: 100px;
         height: 100px;
@@ -380,7 +430,6 @@ html[color="green"] {
         background-color: darken($bg, 30%);
         z-index: 3;
     }
-  
 
     .boss-lasers-container {
         width: 100%;
@@ -390,7 +439,6 @@ html[color="green"] {
         display: flex;
         justify-content: center;
         align-items: center;
-       
 
         @mixin bossLaser($angle) {
             width: 50px;
@@ -403,10 +451,9 @@ html[color="green"] {
             z-index: 2;
             display: flex;
             justify-content: center;
-            
 
-            &::after{
-                content: '';
+            &::after {
+                content: "";
                 width: 55%;
                 height: 5px;
                 position: absolute;
@@ -415,27 +462,25 @@ html[color="green"] {
             }
         }
 
+        .laser-move-1 {
+            height: 94vh !important;
+            animation: laserMove1 15s linear infinite !important;
+        }
 
-.laser-move-1{
-    height: 94vh!important;
-    animation: laserMove1 15s linear infinite !important;
-}
+        .laser-move-2 {
+            width: 100vw !important;
+            animation: laserMove2 15s linear infinite !important;
+        }
 
-.laser-move-2{
-    width: 100vw!important;
-    animation: laserMove2 15s linear infinite !important;
-}
+        .laser-open-1 {
+            animation: laserOpen1 7s both;
+        }
 
-.laser-open-1{
- animation: laserOpen1 7s both;
-}
+        .laser-open-2 {
+            animation: laserOpen2 7s both;
+        }
 
-.laser-open-2{
-    animation: laserOpen2 7s both;
-   }
-   
-
-        .laser-row-1{
+        .laser-row-1 {
             height: 100%;
             width: 50px;
             // border: 1px solid yellow;
@@ -447,36 +492,31 @@ html[color="green"] {
             flex-direction: column;
             top: 0;
 
-           
-
-            .laser{
+            .laser {
                 height: 100%;
                 width: 40%;
                 justify-content: center;
                 margin: 50px 0 50px 0;
 
-                &::after{
+                &::after {
                     height: 100%;
                     width: 40%;
                 }
             }
 
-
-            .laser-box{
-                &:nth-child(1){
+            .laser-box {
+                &:nth-child(1) {
                     @include bossLaser(0deg);
                     top: 0;
-                    
                 }
-                &:nth-child(2){
+                &:nth-child(2) {
                     @include bossLaser(180deg);
                     bottom: 0;
                 }
-                
             }
         }
 
-        .laser-row-2{
+        .laser-row-2 {
             width: 100%;
             height: 50px;
             // border: 1px solid yellow;
@@ -485,44 +525,49 @@ html[color="green"] {
             display: flex;
             align-items: center;
             justify-content: center;
-            
 
-            .laser{
+            .laser {
                 width: 100%;
                 margin: 0 50px 0 50px;
             }
 
-            .laser-box{
-                &:nth-child(1){
+            .laser-box {
+                &:nth-child(1) {
                     @include bossLaser(-90deg);
                     left: 0;
-                    
                 }
-                &:nth-child(2){
+                &:nth-child(2) {
                     @include bossLaser(90deg);
                     right: 0;
                 }
-                
             }
         }
     }
 
-    .no-lights{
+    .no-lights {
         .boss-shield {
             &-red {
-                &::after{background-color: rgb(14, 15, 48)!important;}
+                &::after {
+                    background-color: rgb(14, 15, 48) !important;
+                }
             }
 
             &-yellow {
-                &::after{background-color: rgb(14, 15, 48)!important;}
+                &::after {
+                    background-color: rgb(14, 15, 48) !important;
+                }
             }
 
             &-green {
-                &::after{background-color: rgb(14, 15, 48)!important;}
+                &::after {
+                    background-color: rgb(14, 15, 48) !important;
+                }
             }
 
             &-blue {
-                &::after{background-color: rgb(14, 15, 48)!important;}
+                &::after {
+                    background-color: rgb(14, 15, 48) !important;
+                }
             }
         }
     }
@@ -537,16 +582,15 @@ html[color="green"] {
         align-items: center;
         // animation: rotateBossShield 15s ease-in infinite;
 
-        @mixin bossShield ($color){
+        @mixin bossShield($color) {
             width: 60px;
             height: 60px;
             background-color: darken($bg, 30%);
             position: absolute;
             clip-path: polygon(0 100%, 0 0, 100% 0, 62% 39%, 70% 74%, 35% 67%);
 
-            
-            &::after{
-                content: '';
+            &::after {
+                content: "";
                 width: 100%;
                 height: 100%;
                 position: absolute;
@@ -563,8 +607,6 @@ html[color="green"] {
                 @include bossShield($red);
                 top: 0;
                 left: 0;
-
-  
             }
 
             &-yellow {
@@ -591,18 +633,62 @@ html[color="green"] {
     }
 }
 
+.boss-damage {
+    background-color: white !important;
 
-.boss-damage{
-    background-color: white!important;
-
-    &::after{
-        background-color: white!important;
+    &::after {
+        background-color: white !important;
     }
 }
 
-.shield-broken{
+.shield-broken {
     animation: brokenShield 0.4s both;
 }
+
+.boss-destroyed {
+    .boss-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+
+        &::after {
+            content: '';
+            height: 0%;
+            width: 0%;
+            border-radius: 500px;
+            background-color: white;
+            position: absolute;
+            animation: bossXplode1 2s ease-out both;
+            animation-delay: 3s;
+        }
+
+        &::before {
+            content: '';
+            height: 0%;
+            width: 0%;
+            border-radius: 500px;
+            background-color: white;
+            position: absolute;
+            animation: bossXplode2 1s linear both;
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            animation-delay: 2.7s;
+        }
+    }
+
+    .laser-row-1 {
+        animation: laserClose1 1s both;
+        animation-delay: 2s;
+        transition: all 1s !important;
+        top: auto !important;
+    }
+    .laser-row-2 {
+        animation: laserClose2 1s both;
+        animation-delay: 2s;
+        transition: all 1s !important;
+    }
+}
+
  
 .meteorite {
     width: 50px;

@@ -141,6 +141,38 @@
     clip-path: polygon(0 100%, 0 54%, 31% 67%, 0% 32%, 1% 1%, 15% 10%, 0 31%, 23% 45%, 57% 54%, 20% 24%, 51% 15%, 34% 0, 77% 0%, 63% 22%, 49% 13%, 46% 33%, 54% 53%, 77% 58%, 90% 61%, 93% 82%, 82% 69%, 76% 84%, 60% 92%, 54% 83%, 76% 83%, 56% 50%, 29% 66%, 27% 84%, 13% 79%);
     height: 80px;
     width: 80px; } }
+@keyframes laserClose1 {
+  0% {
+    height: 100%; }
+  100% {
+    height: 10%; } }
+@keyframes laserClose2 {
+  0% {
+    width: 100%; }
+  100% {
+    width: 10%; } }
+@keyframes bossXplode1 {
+  0% {
+    width: 0%;
+    height: 0%;
+    opacity: 1; }
+  80% {
+    width: 100%;
+    height: 100%;
+    opacity: 1; }
+  100% {
+    width: 700%;
+    height: 700%;
+    opacity: 0; } }
+@keyframes bossXplode2 {
+  0% {
+    width: 0%;
+    height: 0%;
+    opacity: 1; }
+  100% {
+    width: 300%;
+    height: 30%;
+    opacity: 0; } }
 :root {
   --ship-shadow: darken(rgb(202, 202, 202), 10%); }
 
@@ -289,7 +321,7 @@ html[color="green"] .shoot::before {
         justify-content: center;
         top: 0; }
         .boss-container .boss-lasers-container .laser-row-1 .laser-box:nth-child(1)::after {
-          content: '';
+          content: "";
           width: 55%;
           height: 5px;
           position: absolute;
@@ -307,7 +339,7 @@ html[color="green"] .shoot::before {
         justify-content: center;
         bottom: 0; }
         .boss-container .boss-lasers-container .laser-row-1 .laser-box:nth-child(2)::after {
-          content: '';
+          content: "";
           width: 55%;
           height: 5px;
           position: absolute;
@@ -336,7 +368,7 @@ html[color="green"] .shoot::before {
         justify-content: center;
         left: 0; }
         .boss-container .boss-lasers-container .laser-row-2 .laser-box:nth-child(1)::after {
-          content: '';
+          content: "";
           width: 55%;
           height: 5px;
           position: absolute;
@@ -354,7 +386,7 @@ html[color="green"] .shoot::before {
         justify-content: center;
         right: 0; }
         .boss-container .boss-lasers-container .laser-row-2 .laser-box:nth-child(2)::after {
-          content: '';
+          content: "";
           width: 55%;
           height: 5px;
           position: absolute;
@@ -384,7 +416,7 @@ html[color="green"] .shoot::before {
       top: 0;
       left: 0; }
       .boss-container .boss-shield-container .boss-shield-red::after {
-        content: '';
+        content: "";
         width: 100%;
         height: 100%;
         position: absolute;
@@ -403,7 +435,7 @@ html[color="green"] .shoot::before {
       right: 0;
       transform: rotate(90deg); }
       .boss-container .boss-shield-container .boss-shield-yellow::after {
-        content: '';
+        content: "";
         width: 100%;
         height: 100%;
         position: absolute;
@@ -422,7 +454,7 @@ html[color="green"] .shoot::before {
       left: 0;
       transform: rotate(-90deg); }
       .boss-container .boss-shield-container .boss-shield-green::after {
-        content: '';
+        content: "";
         width: 100%;
         height: 100%;
         position: absolute;
@@ -441,7 +473,7 @@ html[color="green"] .shoot::before {
       right: 0;
       transform: rotate(180deg); }
       .boss-container .boss-shield-container .boss-shield-blue::after {
-        content: '';
+        content: "";
         width: 100%;
         height: 100%;
         position: absolute;
@@ -458,6 +490,40 @@ html[color="green"] .shoot::before {
 
 .shield-broken {
   animation: brokenShield 0.4s both; }
+
+.boss-destroyed .boss-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute; }
+  .boss-destroyed .boss-center::after {
+    content: '';
+    height: 0%;
+    width: 0%;
+    border-radius: 500px;
+    background-color: white;
+    position: absolute;
+    animation: bossXplode1 2s ease-out both;
+    animation-delay: 3s; }
+  .boss-destroyed .boss-center::before {
+    content: '';
+    height: 0%;
+    width: 0%;
+    border-radius: 500px;
+    background-color: white;
+    position: absolute;
+    animation: bossXplode2 1s linear both;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    animation-delay: 2.7s; }
+.boss-destroyed .laser-row-1 {
+  animation: laserClose1 1s both;
+  animation-delay: 2s;
+  transition: all 1s !important;
+  top: auto !important; }
+.boss-destroyed .laser-row-2 {
+  animation: laserClose2 1s both;
+  animation-delay: 2s;
+  transition: all 1s !important; }
 
 .meteorite {
   width: 50px;

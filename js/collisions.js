@@ -110,7 +110,7 @@ function shootCollider(shoot) {
 
                 // console.log('colidiu');
                 var shieldsBroken = document.querySelectorAll('.shield-broken');
-                var bossContainer = document.querySelector('.boss-container');
+                ;
 
 
 
@@ -143,7 +143,7 @@ function shootCollider(shoot) {
 
 
                 if (shieldsBroken.length == 4) {
-                    bossContainer.style.display = 'none';
+                   bossDestroyed();
                 }
 
             }

@@ -283,3 +283,54 @@
     }
 
 }
+
+
+@keyframes laserClose1{
+    0%{
+        height: 100%;
+    }
+    100%{
+        height: 10%;
+    }
+}
+
+@keyframes laserClose2{
+    0%{
+        width: 100%;
+    }
+    100%{
+        width: 10%;
+    }
+}
+
+@keyframes bossXplode1{
+    0%{
+        width: 0%;
+        height: 0%;
+        opacity: 1;
+    }
+    80%{
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+    }
+    100%{
+        width: 700%;
+        height: 700%;
+        opacity: 0;
+    }
+}
+
+@keyframes bossXplode2{
+    0%{
+        width: 0%;
+        height: 0%;
+        opacity: 1;
+    }
+
+    100%{
+        width: 300%;
+        height: 30%;
+        opacity: 0;
+    }
+}
