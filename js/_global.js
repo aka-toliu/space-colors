@@ -22,11 +22,13 @@ var game = {
 
 shipSound = new Audio("./audio/ship_loop2.wav");
 shipSound.loop = true;
+shipSound.preload
 shipSound.volume = 0.3;
 shipSound.play();
 
 
 musicSound = new Audio("./audio/music1.mp3");
 musicSound.loop = true;
+musicSound.preload
 musicSound.volume = 0.4;
 musicSound.play();
