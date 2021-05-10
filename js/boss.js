@@ -18,11 +18,11 @@ function boss() {
         laserRow1.classList.add('laser-open-1');
         laserRow2.classList.add('laser-open-2');
 
-        openLights = new Audio("./audio/open_lights.mp3");
+
         openLights.play();
 
         setTimeout(() => {
-            openLasers = new Audio("./audio/open_lasers.mp3");
+
             openLasers.play();
             setTimeout(() => {
                 laserBossMove.play();
@@ -49,7 +49,7 @@ function bossDestroyed() {
     laserRow1.classList.remove('laser-move-1', 'laser-open-1')
     laserRow2.classList.remove('laser-move-2', 'laser-open-2')
 
-    bossXplode = new Audio("./audio/boss_xplode2.mp3");
+
     bossXplode.play();
     musicBoss.pause();
     laserBossMove.pause();

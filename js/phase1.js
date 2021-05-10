@@ -36,9 +36,9 @@ function phase1() {
 
                         setTimeout(() => {
 
-                            musicBoss = new Audio("./audio/music_boss.mp3");
+
                             musicBoss.loop = true;
-                            musicSound.pause();
+                            // musicSound.pause();
                             musicBoss.play();
                             boss();
                         }, 10000);

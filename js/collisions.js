@@ -125,7 +125,7 @@ function shootCollider(shoot) {
                         element.id = element.id - 1;
                     } else {
                         element.classList.add('shield-broken');
-                        broken = new Audio("./audio/broken_shield.mp3");
+
                         broken.play();
 
 

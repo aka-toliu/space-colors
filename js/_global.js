@@ -19,7 +19,16 @@ var game = {
 
 }
 
-
+select = new Audio("./audio/select.mp3");
+select = new Audio("./audio/select.mp3");
+startSound = new Audio("./audio/start_game.mp3");
+openLights = new Audio("./audio/open_lights.mp3");
+openLasers = new Audio("./audio/open_lasers.mp3");
+bossXplode = new Audio("./audio/boss_xplode2.mp3");
+broken = new Audio("./audio/broken_shield.mp3");7
+musicBoss = new Audio("./audio/music_boss.mp3");
+soundLife = new Audio("./audio/life_up.wav");
+shipXplode = new Audio("./audio/ship_xplode.mp3");
 
 // shipSound = new Audio("./audio/ship_loop2.wav");
 // shipSound.loop = true;

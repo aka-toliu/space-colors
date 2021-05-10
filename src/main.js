@@ -19,7 +19,16 @@ var game = {
 
 }
 
-
+select = new Audio("./audio/select.mp3");
+select = new Audio("./audio/select.mp3");
+startSound = new Audio("./audio/start_game.mp3");
+openLights = new Audio("./audio/open_lights.mp3");
+openLasers = new Audio("./audio/open_lasers.mp3");
+bossXplode = new Audio("./audio/boss_xplode2.mp3");
+broken = new Audio("./audio/broken_shield.mp3");7
+musicBoss = new Audio("./audio/music_boss.mp3");
+soundLife = new Audio("./audio/life_up.wav");
+shipXplode = new Audio("./audio/ship_xplode.mp3");
 
 // shipSound = new Audio("./audio/ship_loop2.wav");
 // shipSound.loop = true;
@@ -53,11 +62,11 @@ function boss() {
         laserRow1.classList.add('laser-open-1');
         laserRow2.classList.add('laser-open-2');
 
-        openLights = new Audio("./audio/open_lights.mp3");
+
         openLights.play();
 
         setTimeout(() => {
-            openLasers = new Audio("./audio/open_lasers.mp3");
+
             openLasers.play();
             setTimeout(() => {
                 laserBossMove.play();
@@ -84,7 +93,7 @@ function bossDestroyed() {
     laserRow1.classList.remove('laser-move-1', 'laser-open-1')
     laserRow2.classList.remove('laser-move-2', 'laser-open-2')
 
-    bossXplode = new Audio("./audio/boss_xplode2.mp3");
+
     bossXplode.play();
     musicBoss.pause();
     laserBossMove.pause();
@@ -319,7 +328,7 @@ function shootCollider(shoot) {
                         element.id = element.id - 1;
                     } else {
                         element.classList.add('shield-broken');
-                        broken = new Audio("./audio/broken_shield.mp3");
+
                         broken.play();
 
 
@@ -858,7 +867,7 @@ function closeTelaInicial() {
     telaInicial.style.display = 'none'
     tutorial.style.display = 'flex'
 
-    select = new Audio("./audio/select.mp3");
+
     select.play();
     // shipSound.play();
     // musicSound.play();
@@ -870,14 +879,14 @@ function closeTutorial() {
 
     tutorial.style.display = 'none'
     hud.style.display = 'flex'
-    startSound = new Audio("./audio/start_game.mp3");
+
     startSound.play();
     phase1();
 }
 
 
 function retry() {
-    select = new Audio("./audio/select.mp3");
+    
     select.play();
     document.location.reload(true);
     
@@ -1129,9 +1138,9 @@ function phase1() {
 
                         setTimeout(() => {
 
-                            musicBoss = new Audio("./audio/music_boss.mp3");
+
                             musicBoss.loop = true;
-                            musicSound.pause();
+                            // musicSound.pause();
                             musicBoss.play();
                             boss();
                         }, 10000);
@@ -1181,7 +1190,7 @@ function life(num) {
         var modal = document.querySelector('.modal');
         var deadModal = modal.querySelector('.dead');
         ship.classList.add('ship-dead');
-        shipXplode = new Audio("./audio/ship_xplode.mp3");
+
         shipXplode.play();
         shipXplode.volume = 0.5;
  
@@ -1197,7 +1206,7 @@ function life(num) {
         var newLife = document.createElement('DIV');
         newLife.classList.add('hud-life-piece');
         lifeHud.appendChild(newLife)
-        soundLife = new Audio("./audio/life_up.wav");
+
         soundLife.volume = 0.3;
         soundLife.play();
 
