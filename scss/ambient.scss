@@ -1,3 +1,7 @@
+body{
+    overflow: hidden;
+}
+
 .game-container {
     background-color: $bg;
     display: flex;
@@ -200,6 +204,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    z-index: 10;
 
     button {
         height: 40px;
@@ -382,4 +387,40 @@
         align-items: center;
         justify-content: center;
     }
+}
+
+
+
+
+.stars-1{
+    z-index: -7;
+    width: 200vw;
+    height: 200vh;
+    background-image: radial-gradient(white, #a1a1 3px, transparent 30px);
+    background-repeat: repeat;
+    background-size: 320px 320px;
+    animation: stars1 10s linear infinite;
+    transform: rotate(15deg); 
+}
+
+.stars-2{
+    z-index: -10;
+    width: 150vw;
+    height: 150vh;
+    background-image: radial-gradient(white, #a1a1 1px, transparent 20px);
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    animation: stars2 20s linear infinite;
+    position: absolute;
+}
+
+.stars-3{
+    z-index: -7;
+    width: 150vw;
+    height: 150vh;
+    opacity: 0.5;
+    background-image: radial-gradient(white, #a1a1 1px, transparent 10px);
+    background-repeat: repeat;
+    background-size: 100px 100px;
+    animation: stars3 30s linear infinite;
 }

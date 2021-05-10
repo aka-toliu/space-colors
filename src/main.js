@@ -32,7 +32,9 @@ musicSound.volume = 0.4;
 musicSound.play();
  
 // boss();
-
+var laserBossMove = new Audio("./audio/laser-boss2.mp3");
+laserBossMove.volume = 0.4;
+laserBossMove.loop = true;
 
 function boss() {
 
@@ -55,6 +57,9 @@ function boss() {
         setTimeout(() => {
             openLasers = new Audio("./audio/open_lasers.mp3");
             openLasers.play();
+            setTimeout(() => {
+                laserBossMove.play();
+            }, 5000);
         }, 500);
 
         setTimeout(() => {
@@ -77,10 +82,10 @@ function bossDestroyed() {
     laserRow1.classList.remove('laser-move-1', 'laser-open-1')
     laserRow2.classList.remove('laser-move-2', 'laser-open-2')
 
-    bossXplode = new Audio("./audio/boss_xplode.mp3");
+    bossXplode = new Audio("./audio/boss_xplode2.mp3");
     bossXplode.play();
     musicBoss.pause();
-
+    laserBossMove.pause();
 
     setTimeout(() => {
         bossContainer.remove();
@@ -297,7 +302,7 @@ function shootCollider(shoot) {
 
                 // console.log('colidiu');
                 var shieldsBroken = document.querySelectorAll('.shield-broken');
-                ;
+                
 
 
 
@@ -312,6 +317,9 @@ function shootCollider(shoot) {
                         element.id = element.id - 1;
                     } else {
                         element.classList.add('shield-broken');
+                        broken = new Audio("./audio/broken_shield.mp3");
+                        broken.play();
+
 
                         setTimeout(() => {
                             element.style.display = 'none';
@@ -847,6 +855,9 @@ function closeTelaInicial() {
 
     telaInicial.style.display = 'none'
     tutorial.style.display = 'flex'
+
+    select = new Audio("./audio/select.mp3");
+    select.play();
 }
 
 
@@ -854,14 +865,17 @@ function closeTutorial() {
 
     tutorial.style.display = 'none'
     hud.style.display = 'flex'
-
+    startSound = new Audio("./audio/start_game.mp3");
+    startSound.play();
     phase1();
 }
 
 
 function retry() {
-
+    select = new Audio("./audio/select.mp3");
+    select.play();
     document.location.reload(true);
+    
     // container.style.display = 'none';
     
     // var meteorites = document.querySelectorAll('.meteorite')
@@ -1162,10 +1176,15 @@ function life(num) {
         var modal = document.querySelector('.modal');
         var deadModal = modal.querySelector('.dead');
         ship.classList.add('ship-dead');
+        shipXplode = new Audio("./audio/ship_xplode.mp3");
+        shipXplode.play();
+        shipXplode.volume = 0.5;
+ 
 
         setTimeout(() => {
             modal.style.display = 'flex';
             deadModal.style.display = 'flex';
+            shipXplode.remove();
         }, 1000);
     }
 

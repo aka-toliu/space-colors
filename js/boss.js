@@ -1,5 +1,7 @@
 // boss();
-
+var laserBossMove = new Audio("./audio/laser-boss2.mp3");
+laserBossMove.volume = 0.4;
+laserBossMove.loop = true;
 
 function boss() {
 
@@ -22,6 +24,9 @@ function boss() {
         setTimeout(() => {
             openLasers = new Audio("./audio/open_lasers.mp3");
             openLasers.play();
+            setTimeout(() => {
+                laserBossMove.play();
+            }, 5000);
         }, 500);
 
         setTimeout(() => {
@@ -44,10 +49,10 @@ function bossDestroyed() {
     laserRow1.classList.remove('laser-move-1', 'laser-open-1')
     laserRow2.classList.remove('laser-move-2', 'laser-open-2')
 
-    bossXplode = new Audio("./audio/boss_xplode.mp3");
+    bossXplode = new Audio("./audio/boss_xplode2.mp3");
     bossXplode.play();
     musicBoss.pause();
-
+    laserBossMove.pause();
 
     setTimeout(() => {
         bossContainer.remove();

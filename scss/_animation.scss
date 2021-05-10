@@ -366,3 +366,31 @@
         opacity: 0;
     }
 }
+
+
+@keyframes stars1 {
+    form{
+        background-position: 0px 0px
+    }
+    to{
+        background-position: 0px 320px
+    }
+}
+
+@keyframes stars2 {
+    form{
+        background-position: 0% 0px
+    }
+    to{
+        background-position: 0% 200px
+    }
+    }
+
+@keyframes stars3 {
+    form{
+        background-position: 0% 0px
+    }
+    to{
+        background-position: 0% 100px
+    }
+}

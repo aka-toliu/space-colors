@@ -33,10 +33,15 @@ function life(num) {
         var modal = document.querySelector('.modal');
         var deadModal = modal.querySelector('.dead');
         ship.classList.add('ship-dead');
+        shipXplode = new Audio("./audio/ship_xplode.mp3");
+        shipXplode.play();
+        shipXplode.volume = 0.5;
+ 
 
         setTimeout(() => {
             modal.style.display = 'flex';
             deadModal.style.display = 'flex';
+            shipXplode.remove();
         }, 1000);
     }
 
