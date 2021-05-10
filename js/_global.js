@@ -20,7 +20,8 @@ var game = {
 }
 
 
-shipSound = new Audio("./audio/ship_loop2.wav");
+setTimeout(() => {
+    shipSound = new Audio("./audio/ship_loop2.wav");
 shipSound.loop = true;
 shipSound.preload
 shipSound.volume = 0.3;
@@ -32,3 +33,4 @@ musicSound.loop = true;
 musicSound.preload
 musicSound.volume = 0.4;
 musicSound.play();
+}, 1000);
