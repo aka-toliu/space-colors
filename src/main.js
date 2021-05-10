@@ -21,15 +21,15 @@ var game = {
 
 
 
-shipSound = new Audio("./audio/ship_loop2.wav");
-shipSound.loop = true;
-shipSound.volume = 0.3;
+// shipSound = new Audio("./audio/ship_loop2.wav");
+// shipSound.loop = true;
+// shipSound.volume = 0.3;
 
 
 
-musicSound = new Audio("./audio/music1.mp3");
-musicSound.loop = true;
-musicSound.volume = 0.4;
+// musicSound = new Audio("./audio/music1.mp3");
+// musicSound.loop = true;
+// musicSound.volume = 0.4;
 
 
  
