@@ -31,9 +31,3 @@ musicSound = new Audio("./audio/music1.mp3");
 musicSound.loop = true;
 musicSound.volume = 0.4;
 
-
-document.addEventListener("mouseover", event => {
-    shipSound.play();
-    musicSound.play();
-    
-});

@@ -32,11 +32,6 @@ musicSound.loop = true;
 musicSound.volume = 0.4;
 
 
-document.addEventListener("mouseover", event => {
-    shipSound.play();
-    musicSound.play();
-    
-});
  
 // boss();
 var laserBossMove = new Audio("./audio/laser-boss2.mp3");
@@ -865,6 +860,8 @@ function closeTelaInicial() {
 
     select = new Audio("./audio/select.mp3");
     select.play();
+    shipSound.play();
+    musicSound.play();
 
 }
 

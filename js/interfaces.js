@@ -6,6 +6,8 @@ function closeTelaInicial() {
 
     select = new Audio("./audio/select.mp3");
     select.play();
+    shipSound.play();
+    musicSound.play();
 
 }
 
