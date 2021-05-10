@@ -3,6 +3,8 @@ var hud = document.querySelector('#hud');
 var container = document.querySelector('.game-container');
 var points = hud.querySelector('.hud-score');
 var lifeHud = hud.querySelector('.hud-life');
+var telaInicial = document.querySelector('.tela-inicial');
+var tutorial = document.querySelector('.tutorial');
 
 var colors = ['red', 'yellow', 'blue', 'green']
 
@@ -18,25 +20,28 @@ var game = {
 }
 
 
-// shipSound = new Audio("./audio/ship_loop2.wav");
-// shipSound.loop = true;
-// shipSound.volume = 0.3;
-// shipSound.play();
+shipSound = new Audio("./audio/ship_loop2.wav");
+shipSound.loop = true;
+shipSound.volume = 0.3;
+shipSound.play();
 
 
-// musicSound = new Audio("./audio/music1.mp3");
-// musicSound.loop = true;
-// musicSound.volume = 0.4;
-// musicSound.play();
+musicSound = new Audio("./audio/music1.mp3");
+musicSound.loop = true;
+musicSound.volume = 0.4;
+musicSound.play();
  
-boss();
+// boss();
 
 
 function boss() {
 
+    var bossContainer = document.querySelector('.boss-container')
     var shieldContainer = container.querySelector('.boss-shield-container');
     var laserRow1 = container.querySelector('.laser-row-1');
     var laserRow2 = container.querySelector('.laser-row-2');
+
+    bossContainer.style.display = 'flex';
 
     setTimeout(() => {
         shieldContainer.style.animation ='rotateBossShield 15s ease-in infinite';
@@ -44,9 +49,19 @@ function boss() {
         laserRow1.classList.add('laser-open-1');
         laserRow2.classList.add('laser-open-2');
 
+        openLights = new Audio("./audio/open_lights.mp3");
+        openLights.play();
+
+        setTimeout(() => {
+            openLasers = new Audio("./audio/open_lasers.mp3");
+            openLasers.play();
+        }, 500);
+
         setTimeout(() => {
             laserRow1.classList.add('laser-move-1');
             laserRow2.classList.add('laser-move-2');
+
+
         }, 7000);
 
     }, 10000);
@@ -62,8 +77,23 @@ function bossDestroyed() {
     laserRow1.classList.remove('laser-move-1', 'laser-open-1')
     laserRow2.classList.remove('laser-move-2', 'laser-open-2')
 
+    bossXplode = new Audio("./audio/boss_xplode.mp3");
+    bossXplode.play();
+    musicBoss.pause();
+
+
     setTimeout(() => {
         bossContainer.remove();
+
+        setTimeout(() => {
+            var modal = document.querySelector('.modal');
+            var highscoreModal = modal.querySelector('.finish');
+            var scoreFinal = modal.querySelector('.final-score');
+
+            modal.style.display = 'flex';
+            highscoreModal.style.display = 'flex';
+            scoreFinal.textContent = game.points + 'pts'
+        }, 200);
     }, 4750);
 }
  
@@ -252,7 +282,7 @@ function shootCollider(shoot) {
             { x: shieldsCollider.left, y: shieldsCollider.top + shieldsCollider.heigt }
         ]
 
-        
+
 
         for (let i = 0; i < 3; i++) {
             if ((pontos_shoot[i].x >= shieldsCollider.left &&
@@ -294,13 +324,13 @@ function shootCollider(shoot) {
                         element.classList.remove('boss-damage');
                     }, 100);
 
-                    pointsUP(10);
+                    pointsUP(1);
 
                 }
 
 
                 if (shieldsBroken.length == 4) {
-                   bossDestroyed();
+                    bossDestroyed();
                 }
 
             }
@@ -316,7 +346,6 @@ setInterval(shipCollider, 30);
 function shipCollider() {
     var meteorites = document.querySelectorAll('.meteorite');
     var lasers = document.querySelectorAll('.laser');
-    var lasersBoss = document.querySelectorAll('.laser-light');
     var osbtacules = document.querySelectorAll('.ob');
 
 
@@ -345,7 +374,7 @@ function shipCollider() {
             ]
 
 
-            if (!element.classList.contains('explode-meteorite')) {
+            if (!element.classList.contains('explode-meteorite') && !ship.classList.contains('damage')) {
 
 
                 for (let i = 0; i < 3; i++) {
@@ -370,12 +399,13 @@ function shipCollider() {
 
                         ship.classList.add('damage');
                         life(-1);
+            
 
 
                         setTimeout(() => {
                             ship.classList.remove('damage');
                             damageSound.remove();
-                        }, 2000);
+                        }, 2100);
 
 
 
@@ -394,7 +424,7 @@ function shipCollider() {
 
     }
 
-    //-------------------------------------------------------------------------------------------
+    //----------------------------------- Dano por lasers ----------------------------------
 
     if (!ship.classList.contains('damage')) {
 
@@ -524,79 +554,142 @@ function shipCollider() {
 
     //-------------------------- Lasers Boss -----------------------------
 
-    if (!ship.classList.contains('damage')) {
+    // if (!ship.classList.contains('damage')) {
 
-        lasersBoss.forEach(element => {
+    //     lasersBoss.forEach(element => {
 
-            var laserCollider = element.getBoundingClientRect();
-            var shipCollider = ship.getBoundingClientRect();
-
-
-            var pontos_ship = [
-
-                { x: shipCollider.left, y: shipCollider.top },
-                { x: shipCollider.left + shipCollider.width, y: shipCollider.top },
-                { x: shipCollider.left + shipCollider.width, y: shipCollider.top + shipCollider.height },
-                { x: shipCollider.left, y: shipCollider.top + shipCollider.heigt }
-            ]
-
-            var pontos_laser = [
-
-                { x: laserCollider.left, y: laserCollider.top },
-                { x: laserCollider.left + laserCollider.width, y: laserCollider.top },
-                { x: laserCollider.left + laserCollider.width, y: laserCollider.top + laserCollider.height },
-                { x: laserCollider.left, y: laserCollider.top + laserCollider.heigt }
-            ]
+    //         var laserCollider = element.getBoundingClientRect();
+    //         var shipCollider = ship.getBoundingClientRect();
 
 
+    //         var pontos_ship = [
+
+    //             { x: shipCollider.left, y: shipCollider.top },
+    //             { x: shipCollider.left + shipCollider.width, y: shipCollider.top },
+    //             { x: shipCollider.left + shipCollider.width, y: shipCollider.top + shipCollider.height },
+    //             { x: shipCollider.left, y: shipCollider.top + shipCollider.heigt }
+    //         ]
+
+    //         var pontos_laser = [
+
+    //             { x: laserCollider.left, y: laserCollider.top },
+    //             { x: laserCollider.left + laserCollider.width, y: laserCollider.top },
+    //             { x: laserCollider.left + laserCollider.width, y: laserCollider.top + laserCollider.height },
+    //             { x: laserCollider.left, y: laserCollider.top + laserCollider.heigt }
+    //         ]
+
+
+
+
+
+    //         for (let i = 0; i < 3; i++) {
+    //             if ((pontos_ship[i].x >= laserCollider.left &&
+    //                 pontos_ship[i].x <= laserCollider.left + laserCollider.width &&
+    //                 pontos_ship[i].y >= laserCollider.top &&
+    //                 pontos_ship[i].y <= laserCollider.top + laserCollider.height) ||
+
+    //                 (pontos_laser[i].x >= shipCollider.left &&
+    //                     pontos_laser[i].x <= shipCollider.left + shipCollider.width &&
+    //                     pontos_laser[i].y >= shipCollider.top &&
+    //                     pontos_laser[i].y <= shipCollider.top + shipCollider.height)
+    //                 && !ship.classList.contains('damage')) {
+
+
+
+    //                 if (!element.classList.contains('laser-light-' + colors[game.color])) {
+    //                     ship.classList.add('damage');
+    //                     life(-1);
+
+    //                     var damageSound = document.createElement("audio");
+    //                     damageSound.src = "./audio/damage_ship.mp3";
+    //                     damageSound.play();
+
+    //                     setTimeout(() => {
+    //                         ship.classList.remove('damage');
+    //                         damageSound.remove();
+    //                     }, 2000);
+
+    //                 }
+    //             }
+    //         }
+
+    //     });
+
+    // }
+
+
+    var lifeUP = document.querySelectorAll('.life-up');
+
+    lifeUP.forEach(element => {
+
+        var lifeCollider = element.getBoundingClientRect();
+        var shipCollider = ship.getBoundingClientRect();
+
+
+        var pontos_ship = [
+
+            { x: shipCollider.left, y: shipCollider.top },
+            { x: shipCollider.left + shipCollider.width, y: shipCollider.top },
+            { x: shipCollider.left + shipCollider.width, y: shipCollider.top + shipCollider.height },
+            { x: shipCollider.left, y: shipCollider.top + shipCollider.heigt }
+        ]
+
+        var pontos_life = [
+
+            { x: lifeCollider.left, y: lifeCollider.top },
+            { x: lifeCollider.left + lifeCollider.width, y: lifeCollider.top },
+            { x: lifeCollider.left + lifeCollider.width, y: lifeCollider.top + lifeCollider.height },
+            { x: lifeCollider.left, y: lifeCollider.top + lifeCollider.heigt }
+        ]
 
 
 
             for (let i = 0; i < 3; i++) {
-                if ((pontos_ship[i].x >= laserCollider.left &&
-                    pontos_ship[i].x <= laserCollider.left + laserCollider.width &&
-                    pontos_ship[i].y >= laserCollider.top &&
-                    pontos_ship[i].y <= laserCollider.top + laserCollider.height) ||
+                if ((pontos_ship[i].x >= lifeCollider.left &&
+                    pontos_ship[i].x <= lifeCollider.left + lifeCollider.width &&
+                    pontos_ship[i].y >= lifeCollider.top &&
+                    pontos_ship[i].y <= lifeCollider.top + lifeCollider.height) ||
 
-                    (pontos_laser[i].x >= shipCollider.left &&
-                        pontos_laser[i].x <= shipCollider.left + shipCollider.width &&
-                        pontos_laser[i].y >= shipCollider.top &&
-                        pontos_laser[i].y <= shipCollider.top + shipCollider.height)
-                    && !ship.classList.contains('damage')) {
-
+                    (pontos_life[i].x >= shipCollider.left &&
+                        pontos_life[i].x <= shipCollider.left + shipCollider.width &&
+                        pontos_life[i].y >= shipCollider.top &&
+                        pontos_life[i].y <= shipCollider.top + shipCollider.height)) {
 
 
-                    if (!element.classList.contains('laser-light-' + colors[game.color])) {
-                        ship.classList.add('damage');
-                        life(-1);
+                  
+                    element.remove();
 
-                        var damageSound = document.createElement("audio");
-                        damageSound.src = "./audio/damage_ship.mp3";
-                        damageSound.play();
 
-                        setTimeout(() => {
-                            ship.classList.remove('damage');
-                            damageSound.remove();
-                        }, 2000);
+                    setTimeout(() => {
+                        life(1);
+                    }, 100);
 
-                    }
+
+
+
+
+
+
                 }
+
+
+
             }
+        
 
-        });
-
-    }
+    });
 
 }
  
 // setInterval(createMeteorites, 2000);
 // setInterval(createLasers, 15000);
+// setInterval(createLaserRotate, 15000);
 
 
 
 function createMeteorites() {
     var posX = Math.round(Math.random() * (10 - 1)) * 10 + "%";
-    var size = Math.round(Math.random() * (7 - 3)) + 5  + "0px";
+    var size = Math.round(Math.random() * (6 - 3)) + 5  + "0px";
 
     var numColor = Math.round(Math.random() * (3 - 0));
 
@@ -715,6 +808,75 @@ function createLasers() {
         laserContainer.remove();
         laserSound.remove();
     }, 12000);
+}
+
+
+
+function createLaserRotate() {
+    var laserRotateContainer = document.createElement('DIV');
+
+
+    container.appendChild(laserRotateContainer);
+    laserRotateContainer.classList.add('rotate-laser-container');
+
+    var laserRotateL = document.createElement('DIV');
+    laserRotateL.classList.add('rotate-laser-L');
+    laserRotateContainer.appendChild(laserRotateL);
+
+
+    var numColor = Math.round(Math.random() * (3 - 0));
+    var laser = document.createElement('DIV');
+    laser.classList.add('laser', colors[numColor]);
+    laserRotateContainer.appendChild(laser);
+    var laserFX = document.createElement('DIV');
+    laser.appendChild(laserFX);
+    laser.appendChild(laserFX);
+
+    var laserRotateR = document.createElement('DIV');
+    laserRotateR.classList.add('rotate-laser-R');
+    laserRotateContainer.appendChild(laserRotateR);
+
+
+    setTimeout(() => {
+        laserRotateContainer.remove();
+    }, 25000);
+}
+ 
+function closeTelaInicial() {
+
+
+    telaInicial.style.display = 'none'
+    tutorial.style.display = 'flex'
+}
+
+
+function closeTutorial() {
+
+    tutorial.style.display = 'none'
+    hud.style.display = 'flex'
+
+    phase1();
+}
+
+
+function retry() {
+
+    document.location.reload(true);
+    // container.style.display = 'none';
+    
+    // var meteorites = document.querySelectorAll('.meteorite')
+    // var meteorites = document.querySelectorAll('.meteorite')
+    // var meteorites = document.querySelectorAll('.meteorite')
+
+    // clearInterval(habemusLasers);
+    // clearInterval(habemusMeteorites);
+    // clearInterval(habemusLaserRotate);
+
+    // setTimeout(() => {
+    //     container.style.display = 'flex';
+    //     phase1();
+    // }, 2000);
+   
 }
  
 var side = 'idle';
@@ -910,13 +1072,73 @@ function moveShip() {
 // });
 
  
+var habemusMeteorites;
+var habemusLasers;
+var habemusLaserRotate;
+
+
+function phase1() {
+    habemusMeteorites = setInterval(createMeteorites, 2000);
+    
+
+    setTimeout(() => {
+        habemusLasers = setInterval(createLasers, 15000);
+
+
+
+        setTimeout(() => {
+            clearInterval(habemusLasers);
+            clearInterval(habemusMeteorites);
+            habemusLasers = setInterval(createLasers, 10000);
+            habemusMeteorites = setInterval(createMeteorites, 1500);
+
+
+            setTimeout(() => {
+
+                habemusLaserRotate = setInterval(createLaserRotate, 25000);
+
+                setTimeout(() => {
+                    clearInterval(habemusLasers);
+                    habemusLasers = setInterval(createLasers, 7000);
+
+
+                    setTimeout(() => {
+                        clearInterval(habemusLasers);
+                        clearInterval(habemusMeteorites);
+                        clearInterval(habemusLaserRotate);
+
+
+                        setTimeout(() => {
+
+                            musicBoss = new Audio("./audio/music_boss.mp3");
+                            musicBoss.loop = true;
+                            musicSound.pause();
+                            musicBoss.play();
+                            boss();
+                        }, 10000);
+                    }, 30000);
+
+                }, 60000);
+
+            }, 30000);
+
+        }, 45000);
+
+    }, 30000);
+}
+ 
 
 pointsUP(0);
-
+var pointsForLife = 1;
 
 function pointsUP(num) {
     game.points += num;
     points.textContent = game.points + 'pts';
+
+    if (game.points == pointsForLife * 100) {
+        createLifeUP();
+        pointsForLife += 1;
+    }
 }
 
 
@@ -926,17 +1148,59 @@ function life(num) {
     var dangerDIV = ship.querySelector('.danger');
 
     game.life += num;
-    
+
     if (game.life <= 1 && dangerDIV == null) {
-      var danger =  document.createElement('DIV')
-      danger.classList.add('danger');
+        var danger = document.createElement('DIV')
+        danger.classList.add('danger');
         ship.appendChild(danger);
     }
-
-    if(num == -1 && game.life > 0){
+    if (num == -1 && game.life > 0 ) {
         lifeHud.removeChild(lifePiece)
     }
-    
+
+    if (game.life < 1) {
+        var modal = document.querySelector('.modal');
+        var deadModal = modal.querySelector('.dead');
+        ship.classList.add('ship-dead');
+
+        setTimeout(() => {
+            modal.style.display = 'flex';
+            deadModal.style.display = 'flex';
+        }, 1000);
+    }
+
+    if (num == 1) {
+        var newLife = document.createElement('DIV');
+        newLife.classList.add('hud-life-piece');
+        lifeHud.appendChild(newLife)
+        soundLife = new Audio("./audio/life_up.wav");
+        soundLife.volume = 0.3;
+        soundLife.play();
+
+        setTimeout(() => {
+            soundLife.remove();
+        }, 1000);
+
+        if (game.life > 1 && dangerDIV !== null) {
+            dangerDIV.remove();
+        }
+
+    }
+
+}
+
+
+function createLifeUP() {
+    var posX = Math.round(Math.random() * (10 - 1)) * 10 + "%";
+    var lifeUP = document.createElement('DIV');
+    container.appendChild(lifeUP);
+    lifeUP.classList.add('life-up');
+    lifeUP.style.left = posX;
+
+    setTimeout(() => {
+        lifeUP.remove();
+    }, 30000);
+
 }
  
 // shootSound = new Audio("./audio/shoot.mp3");

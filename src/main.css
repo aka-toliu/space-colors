@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @keyframes fire {
   from {
     transform: scaleY(1); }
@@ -78,7 +79,7 @@
     clip-path: polygon(100% 19%, 66% 0, 85% 18%, 0 0, 69% 20%, 0 19%, 85% 26%, 53% 32%, 81% 35%, 20% 48%, 81% 41%, 0 67%, 85% 50%, 28% 74%, 85% 57%, 20% 100%, 81% 73%, 65% 100%, 90% 70%, 82% 100%, 92% 81%, 100% 100%); }
   100% {
     clip-path: polygon(100% 19%, 86% 0, 98% 26%, 61% 9%, 91% 29%, 57% 20%, 94% 35%, 71% 33%, 100% 43%, 67% 41%, 94% 47%, 78% 51%, 94% 58%, 71% 64%, 88% 64%, 68% 76%, 81% 73%, 65% 88%, 94% 68%, 80% 91%, 96% 76%, 100% 100%); } }
-@keyframes enemyLaser {
+@keyframes rotateLaser {
   0% {
     left: -50vw;
     transform: rotate(0deg); }
@@ -173,6 +174,33 @@
     width: 300%;
     height: 30%;
     opacity: 0; } }
+@keyframes titleColor {
+  0% {
+    color: #ff4747; }
+  30% {
+    color: #f1d951; }
+  60% {
+    color: #4eeb5b; }
+  100% {
+    color: #47bbff; } }
+@keyframes altColor {
+  0% {
+    background-color: #ff4747; }
+  30% {
+    background-color: #f1d951; }
+  60% {
+    background-color: #4eeb5b; }
+  100% {
+    background-color: #47bbff; } }
+@keyframes shipFall {
+  0% {
+    width: 80px;
+    height: 120px;
+    opacity: 1; }
+  100% {
+    width: 40px;
+    height: 60px;
+    opacity: 0; } }
 :root {
   --ship-shadow: darken(rgb(202, 202, 202), 10%); }
 
@@ -254,10 +282,298 @@ html[color="green"] .shoot::before {
   z-index: -5;
   overflow: hidden;
   box-sizing: border-box; }
+  @media screen and (max-width: 768px) {
+    .game-container::after {
+      content: "A tela está pequena demais para o funcionamento do jogo.";
+      text-align: center;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background-color: darkgray;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10; } }
 
 * {
   margin: 0;
   padding: 0; }
+
+.life-up {
+  width: 20px;
+  height: 50px;
+  background-color: #18ffff;
+  position: absolute;
+  top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0px 0px 12px rgba(255, 255, 255, 0.555));
+  animation: meteor 30s; }
+  .life-up::after {
+    content: "";
+    width: 150%;
+    height: 10px;
+    background-color: #001818;
+    position: absolute;
+    top: 0;
+    box-shadow: 0px 40px 0 0 #001818; }
+  .life-up::before {
+    width: 15px;
+    height: 15px;
+    color: white;
+    content: "\f004";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900; }
+
+.modal {
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  opacity: 0.8;
+  position: fixed;
+  z-index: 6;
+  display: none;
+  align-items: center;
+  justify-content: center; }
+  .modal .dead {
+    width: 40vw;
+    height: 30vh;
+    background-color: #ff2e2e;
+    position: fixed;
+    top: 20vh;
+    border-radius: 10px;
+    z-index: 7;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    flex-direction: column; }
+    .modal .dead h1 {
+      color: white;
+      font-size: 3em; }
+    .modal .dead button {
+      height: 50px;
+      width: 150px;
+      background-color: white;
+      border-radius: 10px;
+      outline: none;
+      border: none;
+      font-size: 1em;
+      font-weight: 700;
+      margin-top: 10px;
+      cursor: pointer; }
+  .modal .finish {
+    width: 50vh;
+    height: 45vh;
+    background-color: #232337;
+    position: fixed;
+    top: 10vh;
+    border-radius: 10px;
+    z-index: 7;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    flex-direction: column; }
+    .modal .finish a {
+      color: white; }
+    .modal .finish h1 {
+      color: white;
+      text-align: center;
+      top: 0px;
+      position: absolute;
+      width: 100%;
+      background-color: #191928;
+      height: 20%;
+      border-radius: 10px 10px 0px 0; }
+    .modal .finish button {
+      height: 50px;
+      width: 150px;
+      background-color: white;
+      border-radius: 10px;
+      outline: none;
+      border: none;
+      font-size: 1em;
+      font-weight: 700;
+      margin-top: 10px;
+      cursor: pointer; }
+    .modal .finish .credits {
+      width: 100%;
+      color: darkgray;
+      text-align: center; }
+      .modal .finish .credits span {
+        font-weight: 700; }
+    .modal .finish .social-links {
+      position: absolute;
+      bottom: 20px; }
+      .modal .finish .social-links .social-github::after {
+        content: "\f126";
+        font-family: "Font Awesome 5 Free";
+        font-size: 1.1em;
+        font-weight: 900;
+        color: white;
+        position: absolute;
+        left: -20px; }
+    .modal .finish .highscore {
+      width: 100%;
+      background-color: #1f1f31;
+      text-align: center;
+      margin-bottom: 10px; }
+      .modal .finish .highscore p {
+        color: darkgray; }
+      .modal .finish .highscore span {
+        color: #18ffff;
+        font-size: 1.5em;
+        font-weight: 700; }
+
+.tela-inicial {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; }
+  .tela-inicial button {
+    height: 40px;
+    width: 80px;
+    border-radius: 10px;
+    background-color: white;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    border: none;
+    cursor: pointer; }
+  .tela-inicial h1 {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 4em;
+    color: darkgray; }
+    .tela-inicial h1 span {
+      animation: titleColor 5s alternate infinite; }
+  .tela-inicial .version {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: darkgray; }
+  .tela-inicial a {
+    color: white;
+    position: absolute;
+    bottom: 20px; }
+    .tela-inicial a::after {
+      content: "\f126";
+      font-family: "Font Awesome 5 Free";
+      font-size: 1.1em;
+      font-weight: 900;
+      color: white;
+      position: absolute;
+      left: -20px; }
+
+.tutorial {
+  height: 55vh;
+  width: 60vw;
+  margin-top: 15px;
+  background-color: #191928;
+  border-radius: 10px;
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  justify-content: center;
+  position: absolute;
+  display: none; }
+  .tutorial .btn-close-tuto {
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    bottom: -55px;
+    border-radius: 10px;
+    border: none;
+    font-size: 1em;
+    color: black;
+    cursor: pointer;
+    font-weight: 700; }
+  .tutorial h1 {
+    text-align: center; }
+  .tutorial .tutorial-control {
+    width: 50%;
+    height: 100%;
+    border-right: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0 10px 0 10px; }
+    .tutorial .tutorial-control .control-row {
+      height: 33%;
+      width: 100%;
+      border-bottom: 1px solid #2d2d47;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column; }
+  .tutorial .tutorial-enemy {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0 10px 0 10px; }
+    .tutorial .tutorial-enemy .tuto-enemy-row {
+      width: 100%;
+      height: 50%;
+      border-bottom: 1px solid #2d2d47;
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+    .tutorial .tutorial-enemy .metor-tuto {
+      width: 80px;
+      height: 80px;
+      clip-path: polygon(46% 0, 88% 10%, 100% 39%, 96% 84%, 58% 99%, 15% 91%, 0 57%, 6% 19%);
+      animation: altColor 5s alternate infinite; }
+    .tutorial .tutorial-enemy .laser-tuto {
+      width: 150px;
+      height: 20px;
+      animation: altColor 5s alternate infinite;
+      display: flex;
+      align-items: center;
+      position: relative;
+      margin: 20px 0 20px 0; }
+      .tutorial .tutorial-enemy .laser-tuto .laser-fx:nth-child(1) {
+        left: 0;
+        transform: scaleX(-1); }
+      .tutorial .tutorial-enemy .laser-tuto .laser-fx:nth-child(2) {
+        right: 0; }
+      .tutorial .tutorial-enemy .laser-tuto::after {
+        content: "";
+        width: 100%;
+        height: 40%;
+        background-color: white;
+        position: absolute; }
+  .tutorial .btn-container {
+    display: flex; }
+    .tutorial .btn-container .btn-tuto {
+      width: 50px;
+      height: 50px;
+      border: 2px solid #81739b;
+      font-size: 3em;
+      border-radius: 5px;
+      margin: 2px;
+      color: #81739b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: titleColor 5s alternate infinite; }
+  .tutorial .btn-tuto-SPACE {
+    width: 200px;
+    height: 50px;
+    color: #81739b;
+    border: 2px solid #81739b;
+    font-size: 1em;
+    font-weight: 700;
+    border-radius: 5px;
+    margin: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
 
 .boss-container {
   height: 40vh;
@@ -309,6 +625,16 @@ html[color="green"] .shoot::before {
         .boss-container .boss-lasers-container .laser-row-1 .laser::after {
           height: 100%;
           width: 40%; }
+        .boss-container .boss-lasers-container .laser-row-1 .laser .laser-fx:nth-child(1) {
+          height: 50px !important;
+          width: 150% !important;
+          top: -10px;
+          transform: rotate(-90deg); }
+        .boss-container .boss-lasers-container .laser-row-1 .laser .laser-fx:nth-child(2) {
+          height: 50px !important;
+          width: 150% !important;
+          bottom: -10px;
+          transform: rotate(90deg); }
       .boss-container .boss-lasers-container .laser-row-1 .laser-box:nth-child(1) {
         width: 50px;
         height: 50px;
@@ -356,6 +682,11 @@ html[color="green"] .shoot::before {
       .boss-container .boss-lasers-container .laser-row-2 .laser {
         width: 100%;
         margin: 0 50px 0 50px; }
+        .boss-container .boss-lasers-container .laser-row-2 .laser .laser-fx:nth-child(1) {
+          left: 0px;
+          transform: rotate(180deg); }
+        .boss-container .boss-lasers-container .laser-row-2 .laser .laser-fx:nth-child(2) {
+          right: 0px; }
       .boss-container .boss-lasers-container .laser-row-2 .laser-box:nth-child(1) {
         width: 50px;
         height: 50px;
@@ -529,7 +860,7 @@ html[color="green"] .shoot::before {
   width: 50px;
   height: 50px;
   top: 10vh;
-  animation: meteor 10s;
+  animation: meteor 12s;
   position: absolute;
   display: flex;
   align-items: center;
@@ -623,7 +954,7 @@ html[color="green"] .shoot::before {
   clip-path: polygon(100% 19%, 66% 0, 85% 18%, 0 0, 69% 20%, 0 19%, 85% 26%, 53% 32%, 81% 35%, 20% 48%, 81% 41%, 0 67%, 85% 50%, 28% 74%, 85% 57%, 20% 100%, 81% 73%, 65% 100%, 90% 70%, 82% 100%, 92% 81%, 100% 100%);
   animation: laser1 0.1s infinite; }
 
-.enemy-laser-container {
+.rotate-laser-container {
   width: 40%;
   height: 50px;
   position: absolute;
@@ -632,18 +963,23 @@ html[color="green"] .shoot::before {
   align-items: center;
   display: flex;
   justify-content: center;
-  animation: enemyLaser 25s linear infinite;
+  animation: rotateLaser 25s linear infinite;
   transform-origin: center center; }
-  .enemy-laser-container .laser {
+  .rotate-laser-container .laser {
     width: 90%; }
+    .rotate-laser-container .laser .laser-fx:nth-child(1) {
+      left: 0px;
+      transform: rotate(180deg); }
+    .rotate-laser-container .laser .laser-fx:nth-child(2) {
+      right: 0px; }
 
-.enemy-laser-L {
+.rotate-laser-L {
   height: 100%;
   width: 5%;
   background-color: black;
   position: absolute;
   left: 0; }
-  .enemy-laser-L::after {
+  .rotate-laser-L::after {
     content: "";
     width: 100%;
     height: 50%;
@@ -652,14 +988,14 @@ html[color="green"] .shoot::before {
     top: -50%;
     clip-path: polygon(100% 0, 0% 100%, 100% 100%); }
 
-.enemy-laser-R {
+.rotate-laser-R {
   height: 100%;
   width: 5%;
   background-color: black;
   position: absolute;
   right: 0;
   transform: scaleY(-1); }
-  .enemy-laser-R::after {
+  .rotate-laser-R::after {
     content: "";
     width: 100%;
     height: 50%;
@@ -675,10 +1011,10 @@ html[color="green"] .shoot::before {
   height: 40px;
   width: 100%;
   background-color: #0f0f18;
-  display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 5; }
+  z-index: 5;
+  display: none; }
 
 .hud-life {
   height: 60%;
@@ -997,5 +1333,8 @@ html[color="green"] .shoot::before {
   position: absolute;
   box-shadow: 7px 14px 0 -4px #383737, -5px 21px 0 -5px #383737,  -5px 46px 0px -8px #383737,  1px 34px 1px -5px #383737,  1px 55px 0 -10px #383737;
   animation: smoke 0.3s infinite linear; }
+
+.ship-dead {
+  animation: shipFall 1s both; }
 
 /*# sourceMappingURL=main.css.map */

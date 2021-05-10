@@ -2,7 +2,7 @@
     width: 50px;
     height: 50px;
     top: 10vh;
-    animation: meteor 10s;
+    animation: meteor 12s;
     position: absolute;
     display: flex;
     align-items: center;
@@ -244,7 +244,7 @@
     animation: laser1 0.1s infinite;
 }
 
-.enemy-laser-container {
+.rotate-laser-container {
     width: 40%;
     height: 50px;
     position: absolute;
@@ -253,15 +253,29 @@
     align-items: center;
     display: flex;
     justify-content: center;
-    animation: enemyLaser 25s linear infinite;
+    animation: rotateLaser 25s linear infinite;
     transform-origin: center center;
 
     .laser {
         width: 90%;
+
+
+        .laser-fx{
+            &:nth-child(1){
+
+                left: 0px;
+                transform: rotate(180deg); 
+            }
+            &:nth-child(2){
+
+                right: 0px;
+
+            }
+        }
     }
 }
 
-@mixin enemyLaser {
+@mixin rotateLaser {
     height: 100%;
     width: 5%;
     background-color: darken($bg, 30%);
@@ -278,13 +292,13 @@
     }
 }
 
-.enemy-laser-L {
-    @include enemyLaser();
+.rotate-laser-L {
+    @include rotateLaser();
     left: 0;
 }
 
-.enemy-laser-R {
-    @include enemyLaser();
+.rotate-laser-R {
+    @include rotateLaser();
     right: 0;
     transform: scaleY(-1);
 }

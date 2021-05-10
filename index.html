@@ -14,63 +14,63 @@
 </head>
 
 <body>
+
+
+
+
+
+
     <div class="game-container">
 
-        <div class="boss-container">
+        <div class="tela-inicial">
+            <h1>Space <span>Colors</span></h1>
+            <span class="version">v.1.0</span>
+
+
+            <button onclick="closeTelaInicial()">Iniciar</button>
+
+
+            <a href="https://github.com/aka-toliu/SpaceCollors" target="_blank"> github.com/aka-toliu/SpaceCollors</a>
+
+        </div>
+
+
+        <div class="boss-container" style="display: none;">
 
             <div class="boss-center"></div>
 
             <div class="boss-lasers-container">
-               <div class="laser-row-1">
-                   <div class="laser-box"></div>
-                   <div class="laser-box"></div>
-                   <div class="laser yellow"></div>
-                   
-               </div>
-               <div class="laser-row-2">
-                <div class="laser-box"></div>
-                <div class="laser-box"></div>
-                <div class="laser red"></div>
+                <div class="laser-row-1">
+                    <div class="laser-box"></div>
+                    <div class="laser-box"></div>
+                    <div class="laser yellow">
+                        <div class="laser-fx"></div>
+                        <div class="laser-fx"></div>
+                    </div>
 
-               </div>
+
+                </div>
+                <div class="laser-row-2">
+                    <div class="laser-box"></div>
+                    <div class="laser-box"></div>
+                    <div class="laser red">
+                        <div class="laser-fx"></div>
+                        <div class="laser-fx"></div>
+                    </div>
+
+                </div>
             </div>
 
             <div class="boss-shield-container no-lights">
-                <div class="boss-shield boss-shield-red" id="10"></div>
-                <div class="boss-shield boss-shield-yellow" id="10"></div>
-                <div class="boss-shield boss-shield-green" id="10"></div>
-                <div class="boss-shield boss-shield-blue" id="10"></div>
+                <div class="boss-shield boss-shield-red" id="80"></div>
+                <div class="boss-shield boss-shield-yellow" id="80"></div>
+                <div class="boss-shield boss-shield-green" id="80"></div>
+                <div class="boss-shield boss-shield-blue" id="80"></div>
             </div>
         </div>
 
-        <!-- <div class="enemy-laser-container">
-        <div class="enemy-laser-L"></div>
-        
-        <div class="laser yellow">
-            <div class="laser-fx"></div>
-        </div>
-        <div class="enemy-laser-R"></div>
-    </div> -->
-
-        <!-- <div class="laser-container">
-        <div class="laser yellow">
-            <div class="laser-fx"></div>
-        </div>
-        <div class="obstacle-70"></div>
-    </div> -->
-
-        <!-- <div class="laser-container">
-        <div class="obstacle-30-L"></div>
-        <div class="laser yellow">
-        </div>
-        <div class="obstacle-30-R"></div>
-    </div> -->
-
-
 
         <div id="ship">
-            <!-- <div class="ship-collision-area"></div> -->
-            <!-- <div class="danger"></div> -->
             <div class="ship-body"></div>
             <div class="ship-cockpit"></div>
             <div class="ship-L-wing"></div>
@@ -93,6 +93,81 @@
             </div>
             <div class="hud-score">
                 0 pts
+            </div>
+        </div>
+
+
+
+
+        <div class="modal">
+            <div class="dead">
+                <h1>GAME OVER</h1>
+                <button onclick="retry()">Try again</button>
+            </div>
+            <div class="finish">
+                <h1>Thanks for playing!</h1>
+
+                <div class="highscore">
+                    <p>Highscore: </p><span class="final-score">1000pts</span>
+                </div>
+                <div class="credits">
+                    <p>Developed by: </p>
+                    <span>Túlio Santos</span><br><br>
+                    <p>Music and SFX by: </p>
+                    <span>freesound.org</span><br>
+                </div>
+
+                <div class="social-links">
+                    <div class="social-github">
+                        <a href="https://github.com/aka-toliu/SpaceCollors" target="_blank">
+                            github.com/aka-toliu/SpaceCollors</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="tutorial" style="display: none;">
+            <button class="btn-close-tuto" onclick="closeTutorial()">Ok, ready!</button>
+            <div class="tutorial-control">
+                <h1>Controles</h1>
+                <div class="control-row">
+                    Utilize as setas ESQUERDA e DIREITA do teclado para movimentar a nave.
+                    <div class="btn-container">
+                        <div class="btn-tuto" style="animation: none;">◂</div>
+                        <div class="btn-tuto" style="animation: none;">▸</div>
+                    </div>
+                </div>
+                <div class="control-row">
+                    Utilize as setas para CIMA e para BAIXO do teclado para mudar as cor da nave.
+                    <div class="btn-container">
+                        <div class="btn-tuto">▴</div>
+                        <div class="btn-tuto">▾</div>
+                    </div>
+                </div>
+                <div class="control-row">
+                    Utilize a tecla ESPAÇO do teclado para atirar
+                    <div class="btn-tuto-SPACE">SPACE</div>
+                </div>
+            </div>
+            <div class="tutorial-enemy">
+                <h1>Gameplay</h1>
+                
+                <div class="tuto-enemy-row">
+                    <div class="metor-tuto"></div>
+                    Para destruir objetos, basta alterar a cor da nave para a cor equivalente ao objeto
+                     e atirar nele.
+                </div>
+                <div class="tuto-enemy-row">
+                    <div class="laser-tuto">
+                            <div class="laser-fx"></div>
+                            <div class="laser-fx"></div>
+                    </div>
+                   Lasers não podem ser destruídos, ao invés disso você pode alterar a cor
+                   da nave para a cor equivalente do laser e ela não sofrerá dano no contato.
+                </div>
             </div>
         </div>
     </div>

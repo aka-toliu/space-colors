@@ -213,7 +213,7 @@
 
 
 
-@keyframes enemyLaser{
+@keyframes rotateLaser{
     0%{
         left: -50vw;
         transform: rotate(0deg);
@@ -331,6 +331,38 @@
     100%{
         width: 300%;
         height: 30%;
+        opacity: 0;
+    }
+}
+
+@keyframes titleColor{
+    0%{color: rgb(255, 71, 71);}
+    30%{color: rgb(241, 217, 81);}
+    60%{color: rgb(78, 235, 91);}
+    100%{color: rgb(71, 187, 255)}
+}
+
+
+@keyframes altColor{
+    0%{background-color: rgb(255, 71, 71);}
+    30%{background-color: rgb(241, 217, 81);}
+    60%{background-color: rgb(78, 235, 91);}
+    100%{background-color: rgb(71, 187, 255)}
+}
+
+
+@keyframes shipFall{
+    0%{
+        width: 80px;
+        height: 120px;
+        opacity: 1;
+       
+}
+
+    100%{
+       
+        width: 40px;
+        height: 60px;
         opacity: 0;
     }
 }

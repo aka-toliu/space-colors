@@ -95,7 +95,7 @@ function shootCollider(shoot) {
             { x: shieldsCollider.left, y: shieldsCollider.top + shieldsCollider.heigt }
         ]
 
-        
+
 
         for (let i = 0; i < 3; i++) {
             if ((pontos_shoot[i].x >= shieldsCollider.left &&
@@ -137,13 +137,13 @@ function shootCollider(shoot) {
                         element.classList.remove('boss-damage');
                     }, 100);
 
-                    pointsUP(10);
+                    pointsUP(1);
 
                 }
 
 
                 if (shieldsBroken.length == 4) {
-                   bossDestroyed();
+                    bossDestroyed();
                 }
 
             }
@@ -159,7 +159,6 @@ setInterval(shipCollider, 30);
 function shipCollider() {
     var meteorites = document.querySelectorAll('.meteorite');
     var lasers = document.querySelectorAll('.laser');
-    var lasersBoss = document.querySelectorAll('.laser-light');
     var osbtacules = document.querySelectorAll('.ob');
 
 
@@ -188,7 +187,7 @@ function shipCollider() {
             ]
 
 
-            if (!element.classList.contains('explode-meteorite')) {
+            if (!element.classList.contains('explode-meteorite') && !ship.classList.contains('damage')) {
 
 
                 for (let i = 0; i < 3; i++) {
@@ -213,12 +212,13 @@ function shipCollider() {
 
                         ship.classList.add('damage');
                         life(-1);
+            
 
 
                         setTimeout(() => {
                             ship.classList.remove('damage');
                             damageSound.remove();
-                        }, 2000);
+                        }, 2100);
 
 
 
@@ -237,7 +237,7 @@ function shipCollider() {
 
     }
 
-    //-------------------------------------------------------------------------------------------
+    //----------------------------------- Dano por lasers ----------------------------------
 
     if (!ship.classList.contains('damage')) {
 
@@ -367,67 +367,129 @@ function shipCollider() {
 
     //-------------------------- Lasers Boss -----------------------------
 
-    if (!ship.classList.contains('damage')) {
+    // if (!ship.classList.contains('damage')) {
 
-        lasersBoss.forEach(element => {
+    //     lasersBoss.forEach(element => {
 
-            var laserCollider = element.getBoundingClientRect();
-            var shipCollider = ship.getBoundingClientRect();
-
-
-            var pontos_ship = [
-
-                { x: shipCollider.left, y: shipCollider.top },
-                { x: shipCollider.left + shipCollider.width, y: shipCollider.top },
-                { x: shipCollider.left + shipCollider.width, y: shipCollider.top + shipCollider.height },
-                { x: shipCollider.left, y: shipCollider.top + shipCollider.heigt }
-            ]
-
-            var pontos_laser = [
-
-                { x: laserCollider.left, y: laserCollider.top },
-                { x: laserCollider.left + laserCollider.width, y: laserCollider.top },
-                { x: laserCollider.left + laserCollider.width, y: laserCollider.top + laserCollider.height },
-                { x: laserCollider.left, y: laserCollider.top + laserCollider.heigt }
-            ]
+    //         var laserCollider = element.getBoundingClientRect();
+    //         var shipCollider = ship.getBoundingClientRect();
 
 
+    //         var pontos_ship = [
+
+    //             { x: shipCollider.left, y: shipCollider.top },
+    //             { x: shipCollider.left + shipCollider.width, y: shipCollider.top },
+    //             { x: shipCollider.left + shipCollider.width, y: shipCollider.top + shipCollider.height },
+    //             { x: shipCollider.left, y: shipCollider.top + shipCollider.heigt }
+    //         ]
+
+    //         var pontos_laser = [
+
+    //             { x: laserCollider.left, y: laserCollider.top },
+    //             { x: laserCollider.left + laserCollider.width, y: laserCollider.top },
+    //             { x: laserCollider.left + laserCollider.width, y: laserCollider.top + laserCollider.height },
+    //             { x: laserCollider.left, y: laserCollider.top + laserCollider.heigt }
+    //         ]
+
+
+
+
+
+    //         for (let i = 0; i < 3; i++) {
+    //             if ((pontos_ship[i].x >= laserCollider.left &&
+    //                 pontos_ship[i].x <= laserCollider.left + laserCollider.width &&
+    //                 pontos_ship[i].y >= laserCollider.top &&
+    //                 pontos_ship[i].y <= laserCollider.top + laserCollider.height) ||
+
+    //                 (pontos_laser[i].x >= shipCollider.left &&
+    //                     pontos_laser[i].x <= shipCollider.left + shipCollider.width &&
+    //                     pontos_laser[i].y >= shipCollider.top &&
+    //                     pontos_laser[i].y <= shipCollider.top + shipCollider.height)
+    //                 && !ship.classList.contains('damage')) {
+
+
+
+    //                 if (!element.classList.contains('laser-light-' + colors[game.color])) {
+    //                     ship.classList.add('damage');
+    //                     life(-1);
+
+    //                     var damageSound = document.createElement("audio");
+    //                     damageSound.src = "./audio/damage_ship.mp3";
+    //                     damageSound.play();
+
+    //                     setTimeout(() => {
+    //                         ship.classList.remove('damage');
+    //                         damageSound.remove();
+    //                     }, 2000);
+
+    //                 }
+    //             }
+    //         }
+
+    //     });
+
+    // }
+
+
+    var lifeUP = document.querySelectorAll('.life-up');
+
+    lifeUP.forEach(element => {
+
+        var lifeCollider = element.getBoundingClientRect();
+        var shipCollider = ship.getBoundingClientRect();
+
+
+        var pontos_ship = [
+
+            { x: shipCollider.left, y: shipCollider.top },
+            { x: shipCollider.left + shipCollider.width, y: shipCollider.top },
+            { x: shipCollider.left + shipCollider.width, y: shipCollider.top + shipCollider.height },
+            { x: shipCollider.left, y: shipCollider.top + shipCollider.heigt }
+        ]
+
+        var pontos_life = [
+
+            { x: lifeCollider.left, y: lifeCollider.top },
+            { x: lifeCollider.left + lifeCollider.width, y: lifeCollider.top },
+            { x: lifeCollider.left + lifeCollider.width, y: lifeCollider.top + lifeCollider.height },
+            { x: lifeCollider.left, y: lifeCollider.top + lifeCollider.heigt }
+        ]
 
 
 
             for (let i = 0; i < 3; i++) {
-                if ((pontos_ship[i].x >= laserCollider.left &&
-                    pontos_ship[i].x <= laserCollider.left + laserCollider.width &&
-                    pontos_ship[i].y >= laserCollider.top &&
-                    pontos_ship[i].y <= laserCollider.top + laserCollider.height) ||
+                if ((pontos_ship[i].x >= lifeCollider.left &&
+                    pontos_ship[i].x <= lifeCollider.left + lifeCollider.width &&
+                    pontos_ship[i].y >= lifeCollider.top &&
+                    pontos_ship[i].y <= lifeCollider.top + lifeCollider.height) ||
 
-                    (pontos_laser[i].x >= shipCollider.left &&
-                        pontos_laser[i].x <= shipCollider.left + shipCollider.width &&
-                        pontos_laser[i].y >= shipCollider.top &&
-                        pontos_laser[i].y <= shipCollider.top + shipCollider.height)
-                    && !ship.classList.contains('damage')) {
-
+                    (pontos_life[i].x >= shipCollider.left &&
+                        pontos_life[i].x <= shipCollider.left + shipCollider.width &&
+                        pontos_life[i].y >= shipCollider.top &&
+                        pontos_life[i].y <= shipCollider.top + shipCollider.height)) {
 
 
-                    if (!element.classList.contains('laser-light-' + colors[game.color])) {
-                        ship.classList.add('damage');
-                        life(-1);
+                  
+                    element.remove();
 
-                        var damageSound = document.createElement("audio");
-                        damageSound.src = "./audio/damage_ship.mp3";
-                        damageSound.play();
 
-                        setTimeout(() => {
-                            ship.classList.remove('damage');
-                            damageSound.remove();
-                        }, 2000);
+                    setTimeout(() => {
+                        life(1);
+                    }, 100);
 
-                    }
+
+
+
+
+
+
                 }
+
+
+
             }
+        
 
-        });
-
-    }
+    });
 
 }

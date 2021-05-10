@@ -5,10 +5,11 @@
     height: 40px;
     width: 100%;
     background-color: darken($bg, 15%);
-    display: flex;
+    // display: flex;
     align-items: center;
     justify-content: center;
     z-index: 5;
+    display: none;
 }
 
 

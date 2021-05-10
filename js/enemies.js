@@ -1,11 +1,12 @@
 // setInterval(createMeteorites, 2000);
 // setInterval(createLasers, 15000);
+// setInterval(createLaserRotate, 15000);
 
 
 
 function createMeteorites() {
     var posX = Math.round(Math.random() * (10 - 1)) * 10 + "%";
-    var size = Math.round(Math.random() * (7 - 3)) + 5  + "0px";
+    var size = Math.round(Math.random() * (6 - 3)) + 5  + "0px";
 
     var numColor = Math.round(Math.random() * (3 - 0));
 
@@ -124,4 +125,36 @@ function createLasers() {
         laserContainer.remove();
         laserSound.remove();
     }, 12000);
+}
+
+
+
+function createLaserRotate() {
+    var laserRotateContainer = document.createElement('DIV');
+
+
+    container.appendChild(laserRotateContainer);
+    laserRotateContainer.classList.add('rotate-laser-container');
+
+    var laserRotateL = document.createElement('DIV');
+    laserRotateL.classList.add('rotate-laser-L');
+    laserRotateContainer.appendChild(laserRotateL);
+
+
+    var numColor = Math.round(Math.random() * (3 - 0));
+    var laser = document.createElement('DIV');
+    laser.classList.add('laser', colors[numColor]);
+    laserRotateContainer.appendChild(laser);
+    var laserFX = document.createElement('DIV');
+    laser.appendChild(laserFX);
+    laser.appendChild(laserFX);
+
+    var laserRotateR = document.createElement('DIV');
+    laserRotateR.classList.add('rotate-laser-R');
+    laserRotateContainer.appendChild(laserRotateR);
+
+
+    setTimeout(() => {
+        laserRotateContainer.remove();
+    }, 25000);
 }

@@ -89,6 +89,21 @@
                     height: 100%;
                     width: 40%;
                 }
+
+                .laser-fx{
+                    &:nth-child(1){
+                        height: 50px!important;
+                        width: 150%!important;
+                        top: -10px;
+                        transform: rotate(-90deg); 
+                    }
+                    &:nth-child(2){
+                        height: 50px!important;
+                        width: 150%!important;
+                        bottom: -10px;
+                        transform: rotate(90deg); 
+                    }
+                }
             }
 
             .laser-box {
@@ -116,6 +131,20 @@
             .laser {
                 width: 100%;
                 margin: 0 50px 0 50px;
+
+                
+                .laser-fx{
+                    &:nth-child(1){
+
+                        left: 0px;
+                        transform: rotate(180deg); 
+                    }
+                    &:nth-child(2){
+
+                        right: 0px;
+
+                    }
+                }
             }
 
             .laser-box {
@@ -262,13 +291,19 @@
             animation-delay: 2.7s;
         }
     }
+    
+
+        
 
     .laser-row-1 {
         animation: laserClose1 1s both;
         animation-delay: 2s;
         transition: all 1s !important;
         top: auto !important;
-    }
+
+        }
+
+    
     .laser-row-2 {
         animation: laserClose2 1s both;
         animation-delay: 2s;
