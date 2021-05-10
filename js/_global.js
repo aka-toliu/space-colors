@@ -30,13 +30,14 @@ musicBoss = new Audio("./audio/music_boss.mp3");
 soundLife = new Audio("./audio/life_up.wav");
 shipXplode = new Audio("./audio/ship_xplode.mp3");
 
-// shipSound = new Audio("./audio/ship_loop2.wav");
-// shipSound.loop = true;
-// shipSound.volume = 0.3;
+shipSound = new Audio("./audio/ship_loop2.wav");
+shipSound.loop = true;
+shipSound.volume = 0.3;
+shipSound.play();
 
 
-
-// musicSound = new Audio("./audio/music1.mp3");
-// musicSound.loop = true;
-// musicSound.volume = 0.4;
+musicSound = new Audio("./audio/music1.mp3");
+musicSound.loop = true;
+musicSound.volume = 0.4;
+musicSound.play();
 

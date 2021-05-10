@@ -53,6 +53,7 @@ function bossDestroyed() {
     bossXplode.play();
     musicBoss.pause();
     laserBossMove.pause();
+    musicSound.pause();
 
     setTimeout(() => {
         bossContainer.remove();

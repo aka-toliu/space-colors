@@ -6,8 +6,10 @@ function closeTelaInicial() {
 
 
     select.play();
-    // shipSound.play();
-    // musicSound.play();
+    shipSound.pause();
+    musicSound.pause();
+    shipSound.play();
+    musicSound.play();
 
 }
 
