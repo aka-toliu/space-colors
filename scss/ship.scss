@@ -7,23 +7,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
-
 }
 
-.damage{
+.damage {
     // filter: brightness(20);
     animation: damage 0.2s infinite alternate;
 }
-.ship-collision-area{
-
+.ship-collision-area {
     width: 200%;
     height: 100%;
     position: absolute;
     top: 0;
     border: 1px solid red;
 }
-
 
 .ship-body {
     height: 100%;
@@ -33,8 +29,8 @@
     // box-shadow: inset 45px 2px 0px -4px var(--ship-shadow);
     transition: all 0.4s;
 
-    &::after{
-        content: '';
+    &::after {
+        content: "";
         height: 100%;
         width: 50%;
         background-color: darken($ship, 10%);
@@ -172,7 +168,7 @@
         // box-shadow: inset 30px 2px 0px -4px var(--ship-shadow);
         clip-path: polygon(40% 0%, 100% 85%, 76% 100%, 35% 115%, 10% 80%);
         transition: all 0.4s;
-        &::after{
+        &::after {
             width: 35%;
             transition: all 0.4s;
         }
@@ -239,7 +235,7 @@
         // clip-path: polygon(50% 0%, 100% 85%, 76% 100%, 35% 115%, 10% 80%);
         transition: all 0.4s;
 
-        &::after{
+        &::after {
             width: 70%;
             transition: all 0.4s;
         }
@@ -284,10 +280,7 @@
     }
 }
 
-
-
-
-.danger{
+.danger {
     width: 30px;
     height: 30px;
     background-color: #1b1a1a;
@@ -295,21 +288,14 @@
     z-index: -1;
     left: 10px;
     bottom: 0px;
-   position: absolute;
+    position: absolute;
     // box-shadow: 14px ​19px 0 -6px $smoke;
-    box-shadow: 
-    7px 14px 0 -4px #383737, 
-    -5px 21px 0 -5px #383737, 
-    -5px 46px 0px -8px #383737, 
-    1px 34px 1px -5px #383737, 
-    1px 55px 0 -10px #383737;
-
+    box-shadow: 7px 14px 0 -4px #383737, -5px 21px 0 -5px #383737, -5px 46px 0px -8px #383737, 1px 34px 1px -5px #383737,
+        1px 55px 0 -10px #383737;
 
     animation: smoke 0.3s infinite linear;
 }
 
-
-
-.ship-dead{
+.ship-dead {
     animation: shipFall 1s both;
 }

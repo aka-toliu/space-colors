@@ -13,7 +13,7 @@ function boss() {
     bossContainer.style.display = 'flex';
 
     setTimeout(() => {
-        shieldContainer.style.animation ='rotateBossShield 15s ease-in infinite';
+        shieldContainer.style.animation = 'rotateBossShield 15s ease-in infinite';
         shieldContainer.classList.remove('no-lights')
         laserRow1.classList.add('laser-open-1');
         laserRow2.classList.add('laser-open-2');
@@ -37,7 +37,7 @@ function boss() {
         }, 7000);
 
     }, 10000);
-    
+
 }
 
 function bossDestroyed() {

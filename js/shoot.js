@@ -4,29 +4,29 @@
 
 document.addEventListener("keydown", event => {
 
-if (event.keyCode === 32 && event.repeat == false) {
+    if (event.keyCode === 32 && event.repeat == false) {
 
-    var shipInfo = ship.getBoundingClientRect();
-    var shootPosX = shipInfo.left + 30;
+        var shipInfo = ship.getBoundingClientRect();
+        var shootPosX = shipInfo.left + 30;
 
-    var shoot = document.createElement('DIV');
-    shoot.classList.add('shoot', 'shoot-' + colors[game.color]);
-    container.appendChild(shoot);
-    shoot.style.transform = 'translateX(' + shootPosX + 'px)';
+        var shoot = document.createElement('DIV');
+        shoot.classList.add('shoot', 'shoot-' + colors[game.color]);
+        container.appendChild(shoot);
+        shoot.style.transform = 'translateX(' + shootPosX + 'px)';
 
-    shootMove(shoot);
+        shootMove(shoot);
 
-    var shootSound = document.createElement("audio");
-    shootSound.src = "./audio/shoot.mp3";
-    shootSound.play();
-    
-    setTimeout(() => {
-        shoot.remove();
-        shootSound.remove();
-    }, 450);
+        var shootSound = document.createElement("audio");
+        shootSound.src = "./audio/shoot.mp3";
+        shootSound.play();
+
+        setTimeout(() => {
+            shoot.remove();
+            shootSound.remove();
+        }, 450);
 
 
-  }
+    }
 
 });
 
@@ -36,7 +36,7 @@ function shootMove(shoot) {
 
     var init = 25;
 
-  var shootUpdate =  setInterval(() => {
+    var shootUpdate = setInterval(() => {
         init += 5;
 
         shoot.style.bottom = init + 'vh';
@@ -49,5 +49,5 @@ function shootMove(shoot) {
     setTimeout(() => {
         clearInterval(shootUpdate);
     }, 450);
-    
+
 }

@@ -25,12 +25,12 @@ function closeTutorial() {
 
 
 function retry() {
-    
+
     select.play();
     document.location.reload(true);
-    
+
     // container.style.display = 'none';
-    
+
     // var meteorites = document.querySelectorAll('.meteorite')
     // var meteorites = document.querySelectorAll('.meteorite')
     // var meteorites = document.querySelectorAll('.meteorite')
@@ -43,5 +43,5 @@ function retry() {
     //     container.style.display = 'flex';
     //     phase1();
     // }, 2000);
-   
+
 }

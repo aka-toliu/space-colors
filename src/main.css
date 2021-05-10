@@ -64,11 +64,11 @@
     bottom: 14vh; } }
 @keyframes smoke {
   0% {
-    box-shadow: 0px 0px 0 0px #383737, 0px 0px 0 0px #383737, 0px 0px 0px 0px #383737, 0px 0px 1px 0px #383737,  0px 0px 0 0px #383737; }
+    box-shadow: 0px 0px 0 0px #383737, 0px 0px 0 0px #383737, 0px 0px 0px 0px #383737, 0px 0px 1px 0px #383737, 0px 0px 0 0px #383737; }
   70% {
-    box-shadow: 6px 14px 0 -4px #1b1a1a, -4px 21px 0 -5px #1b1a1a,  -4px 46px 0px -8px #1b1a1a, -2px 34px 1px -5px #1b1a1a,  1px 55px 0 -10px #1b1a1a; }
+    box-shadow: 6px 14px 0 -4px #1b1a1a, -4px 21px 0 -5px #1b1a1a, -4px 46px 0px -8px #1b1a1a, -2px 34px 1px -5px #1b1a1a, 1px 55px 0 -10px #1b1a1a; }
   100% {
-    box-shadow: 7px 24px 0 -14px #1b1a1a, -5px 31px 0 -10px #1b1a1a,  -5px 56px 0px -18px #1b1a1a, 1px 44px 1px -10px #1b1a1a,  1px 65px 0 -20px #1b1a1a; } }
+    box-shadow: 7px 24px 0 -14px #1b1a1a, -5px 31px 0 -10px #1b1a1a, -5px 56px 0px -18px #1b1a1a, 1px 44px 1px -10px #1b1a1a, 1px 65px 0 -20px #1b1a1a; } }
 @keyframes laserContainer {
   0% {
     top: -20vh; }
@@ -228,7 +228,7 @@ html[color="red"] .ship-R-wing {
 html[color="red"] .ship-L-wing {
   background-color: #ff1414 !important; }
 html[color="red"] .ship-fire {
-  background-color: #00DB36; }
+  background-color: #00db36; }
   html[color="red"] .ship-fire::after {
     background-color: #0fff4a; }
 html[color="red"] .shoot::after {
@@ -245,7 +245,7 @@ html[color="yellow"] .ship-R-wing {
 html[color="yellow"] .ship-L-wing {
   background-color: #edcf22 !important; }
 html[color="yellow"] .ship-fire {
-  background-color: #00A8DB; }
+  background-color: #00a8db; }
   html[color="yellow"] .ship-fire::after {
     background-color: #0fc7ff; }
 html[color="yellow"] .shoot::after {
@@ -279,7 +279,7 @@ html[color="green"] .ship-R-wing {
 html[color="green"] .ship-L-wing {
   background-color: #20e631 !important; }
 html[color="green"] .ship-fire {
-  background-color: #FF1962; }
+  background-color: #ff1962; }
   html[color="green"] .ship-fire::after {
     background-color: #ff4c85; }
 html[color="green"] .shoot::after {
@@ -877,7 +877,7 @@ body {
   justify-content: center;
   position: absolute; }
   .boss-destroyed .boss-center::after {
-    content: '';
+    content: "";
     height: 0%;
     width: 0%;
     border-radius: 500px;
@@ -886,7 +886,7 @@ body {
     animation: bossXplode1 2s ease-out both;
     animation-delay: 3s; }
   .boss-destroyed .boss-center::before {
-    content: '';
+    content: "";
     height: 0%;
     width: 0%;
     border-radius: 500px;
@@ -1077,7 +1077,7 @@ body {
   justify-content: left;
   align-items: center; }
   .hud-life::after {
-    content: '\f004';
+    content: "\f004";
     font-family: "Font Awesome 5 Free";
     font-size: 1.1em;
     font-weight: 900;
@@ -1132,12 +1132,12 @@ body {
   right: 3%;
   border-radius: 5px;
   color: white;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   align-items: center;
   justify-content: center; }
   .hud-score::after {
-    content: '\f091';
+    content: "\f091";
     font-family: "Font Awesome 5 Free";
     font-size: 1.2em;
     font-weight: 900;
@@ -1171,7 +1171,7 @@ body {
   clip-path: polygon(50% 0%, 100% 85%, 82% 100%, 18% 100%, 0 85%);
   transition: all 0.4s; }
   .ship-body::after {
-    content: '';
+    content: "";
     height: 100%;
     width: 50%;
     background-color: #b1b1b1;
@@ -1380,7 +1380,7 @@ body {
   left: 10px;
   bottom: 0px;
   position: absolute;
-  box-shadow: 7px 14px 0 -4px #383737, -5px 21px 0 -5px #383737,  -5px 46px 0px -8px #383737,  1px 34px 1px -5px #383737,  1px 55px 0 -10px #383737;
+  box-shadow: 7px 14px 0 -4px #383737, -5px 21px 0 -5px #383737, -5px 46px 0px -8px #383737, 1px 34px 1px -5px #383737, 1px 55px 0 -10px #383737;
   animation: smoke 0.3s infinite linear; }
 
 .ship-dead {

@@ -25,7 +25,7 @@ function life(num) {
         danger.classList.add('danger');
         ship.appendChild(danger);
     }
-    if (num == -1 && game.life > 0 ) {
+    if (num == -1 && game.life > 0) {
         lifeHud.removeChild(lifePiece)
     }
 
@@ -36,7 +36,7 @@ function life(num) {
 
         shipXplode.play();
         shipXplode.volume = 0.5;
- 
+
 
         setTimeout(() => {
             modal.style.display = 'flex';

@@ -5,7 +5,7 @@ var posX = 0;
 
 document.addEventListener("keydown", event => {
 
-  if(event.isTrusted == false){
+  if (event.isTrusted == false) {
     clearTimeout(moving);
   }
 
@@ -62,7 +62,7 @@ document.addEventListener("keyup", event => {
 
 function moveShip() {
 
-  
+
   let widthScreen = document.body.clientWidth;
 
   if (side == 'R' && move == true && posX < (widthScreen / 2 - 50)) {
@@ -71,9 +71,9 @@ function moveShip() {
 
     var newPosR = posX += 15;
     ship.style.transform = "translateX(" + newPosR + "px)";
-  }else{
+  } else {
     ship.classList.remove("turn-R");
-    
+
   }
 
   if (side == 'L' && move == true && posX > (widthScreen / 2 - 50) * -1) {
@@ -82,7 +82,7 @@ function moveShip() {
 
     var newPosL = posX += -15;
     ship.style.transform = "translateX(" + newPosL + "px)";
-  }else{
+  } else {
     ship.classList.remove("turn-L");
   }
 

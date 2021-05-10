@@ -32,26 +32,25 @@ $smoke: rgb(56, 55, 55);
         }
     }
 
-    .shoot{
-        &::after{
+    .shoot {
+        &::after {
             background-color: lighten($main, 5%);
         }
-        &::before{
+        &::before {
             background-color: lighten($main, 5%);
         }
     }
 }
 
 html[color="red"] {
-    @include colorShip($red, #00DB36);
+    @include colorShip($red, #00db36);
 }
 html[color="yellow"] {
-    @include colorShip($yellow, #00A8DB);
+    @include colorShip($yellow, #00a8db);
 }
 html[color="blue"] {
     @include colorShip($blue, $fire);
 }
 html[color="green"] {
-    @include colorShip($green, #FF1962);
-    
+    @include colorShip($green, #ff1962);
 }

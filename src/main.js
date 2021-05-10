@@ -25,7 +25,7 @@ startSound = new Audio("./audio/start_game.mp3");
 openLights = new Audio("./audio/open_lights.mp3");
 openLasers = new Audio("./audio/open_lasers.mp3");
 bossXplode = new Audio("./audio/boss_xplode2.mp3");
-broken = new Audio("./audio/broken_shield.mp3");7
+broken = new Audio("./audio/broken_shield.mp3"); 7
 musicBoss = new Audio("./audio/music_boss.mp3");
 soundLife = new Audio("./audio/life_up.wav");
 shipXplode = new Audio("./audio/ship_xplode.mp3");
@@ -58,7 +58,7 @@ function boss() {
     bossContainer.style.display = 'flex';
 
     setTimeout(() => {
-        shieldContainer.style.animation ='rotateBossShield 15s ease-in infinite';
+        shieldContainer.style.animation = 'rotateBossShield 15s ease-in infinite';
         shieldContainer.classList.remove('no-lights')
         laserRow1.classList.add('laser-open-1');
         laserRow2.classList.add('laser-open-2');
@@ -82,7 +82,7 @@ function boss() {
         }, 7000);
 
     }, 10000);
-    
+
 }
 
 function bossDestroyed() {
@@ -890,12 +890,12 @@ function closeTutorial() {
 
 
 function retry() {
-    
+
     select.play();
     document.location.reload(true);
-    
+
     // container.style.display = 'none';
-    
+
     // var meteorites = document.querySelectorAll('.meteorite')
     // var meteorites = document.querySelectorAll('.meteorite')
     // var meteorites = document.querySelectorAll('.meteorite')
@@ -908,7 +908,7 @@ function retry() {
     //     container.style.display = 'flex';
     //     phase1();
     // }, 2000);
-   
+
 }
  
 var side = 'idle';
@@ -918,7 +918,7 @@ var posX = 0;
 
 document.addEventListener("keydown", event => {
 
-  if(event.isTrusted == false){
+  if (event.isTrusted == false) {
     clearTimeout(moving);
   }
 
@@ -975,7 +975,7 @@ document.addEventListener("keyup", event => {
 
 function moveShip() {
 
-  
+
   let widthScreen = document.body.clientWidth;
 
   if (side == 'R' && move == true && posX < (widthScreen / 2 - 50)) {
@@ -984,9 +984,9 @@ function moveShip() {
 
     var newPosR = posX += 15;
     ship.style.transform = "translateX(" + newPosR + "px)";
-  }else{
+  } else {
     ship.classList.remove("turn-R");
-    
+
   }
 
   if (side == 'L' && move == true && posX > (widthScreen / 2 - 50) * -1) {
@@ -995,7 +995,7 @@ function moveShip() {
 
     var newPosL = posX += -15;
     ship.style.transform = "translateX(" + newPosL + "px)";
-  }else{
+  } else {
     ship.classList.remove("turn-L");
   }
 
@@ -1111,7 +1111,7 @@ var habemusLaserRotate;
 
 function phase1() {
     habemusMeteorites = setInterval(createMeteorites, 2000);
-    
+
 
     setTimeout(() => {
         habemusLasers = setInterval(createLasers, 15000);
@@ -1186,7 +1186,7 @@ function life(num) {
         danger.classList.add('danger');
         ship.appendChild(danger);
     }
-    if (num == -1 && game.life > 0 ) {
+    if (num == -1 && game.life > 0) {
         lifeHud.removeChild(lifePiece)
     }
 
@@ -1197,7 +1197,7 @@ function life(num) {
 
         shipXplode.play();
         shipXplode.volume = 0.5;
- 
+
 
         setTimeout(() => {
             modal.style.display = 'flex';
@@ -1246,29 +1246,29 @@ function createLifeUP() {
 
 document.addEventListener("keydown", event => {
 
-if (event.keyCode === 32 && event.repeat == false) {
+    if (event.keyCode === 32 && event.repeat == false) {
 
-    var shipInfo = ship.getBoundingClientRect();
-    var shootPosX = shipInfo.left + 30;
+        var shipInfo = ship.getBoundingClientRect();
+        var shootPosX = shipInfo.left + 30;
 
-    var shoot = document.createElement('DIV');
-    shoot.classList.add('shoot', 'shoot-' + colors[game.color]);
-    container.appendChild(shoot);
-    shoot.style.transform = 'translateX(' + shootPosX + 'px)';
+        var shoot = document.createElement('DIV');
+        shoot.classList.add('shoot', 'shoot-' + colors[game.color]);
+        container.appendChild(shoot);
+        shoot.style.transform = 'translateX(' + shootPosX + 'px)';
 
-    shootMove(shoot);
+        shootMove(shoot);
 
-    var shootSound = document.createElement("audio");
-    shootSound.src = "./audio/shoot.mp3";
-    shootSound.play();
-    
-    setTimeout(() => {
-        shoot.remove();
-        shootSound.remove();
-    }, 450);
+        var shootSound = document.createElement("audio");
+        shootSound.src = "./audio/shoot.mp3";
+        shootSound.play();
+
+        setTimeout(() => {
+            shoot.remove();
+            shootSound.remove();
+        }, 450);
 
 
-  }
+    }
 
 });
 
@@ -1278,7 +1278,7 @@ function shootMove(shoot) {
 
     var init = 25;
 
-  var shootUpdate =  setInterval(() => {
+    var shootUpdate = setInterval(() => {
         init += 5;
 
         shoot.style.bottom = init + 'vh';
@@ -1291,5 +1291,5 @@ function shootMove(shoot) {
     setTimeout(() => {
         clearInterval(shootUpdate);
     }, 450);
-    
+
 }

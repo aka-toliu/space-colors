@@ -1,4 +1,4 @@
-body{
+body {
     overflow: hidden;
 }
 
@@ -389,10 +389,7 @@ body{
     }
 }
 
-
-
-
-.stars-1{
+.stars-1 {
     z-index: -7;
     width: 200vw;
     height: 200vh;
@@ -400,10 +397,10 @@ body{
     background-repeat: repeat;
     background-size: 320px 320px;
     animation: stars1 10s linear infinite;
-    transform: rotate(15deg); 
+    transform: rotate(15deg);
 }
 
-.stars-2{
+.stars-2 {
     z-index: -10;
     width: 150vw;
     height: 150vh;
@@ -414,7 +411,7 @@ body{
     position: absolute;
 }
 
-.stars-3{
+.stars-3 {
     z-index: -7;
     width: 150vw;
     height: 150vh;

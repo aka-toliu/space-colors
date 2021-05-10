@@ -168,232 +168,340 @@
 
 @keyframes smoke {
     0% {
-        box-shadow: 
-        0px 0px 0 0px #383737,
-        0px 0px 0 0px #383737, 
-        0px 0px 0px 0px #383737,
-        0px 0px 1px 0px #383737, 
-        0px 0px 0 0px #383737;
+        box-shadow: 0px 0px 0 0px #383737, 0px 0px 0 0px #383737, 0px 0px 0px 0px #383737, 0px 0px 1px 0px #383737,
+            0px 0px 0 0px #383737;
     }
 
     70% {
-        box-shadow: 
-        6px 14px 0 -4px #1b1a1a, 
-        -4px 21px 0 -5px #1b1a1a, 
-        -4px 46px 0px -8px #1b1a1a,
-        -2px 34px 1px -5px #1b1a1a, 
-        1px 55px 0 -10px #1b1a1a;
+        box-shadow: 6px 14px 0 -4px #1b1a1a, -4px 21px 0 -5px #1b1a1a, -4px 46px 0px -8px #1b1a1a,
+            -2px 34px 1px -5px #1b1a1a, 1px 55px 0 -10px #1b1a1a;
     }
     100% {
-        box-shadow: 
-        7px 24px 0 -14px #1b1a1a, 
-        -5px 31px 0 -10px #1b1a1a, 
-        -5px 56px 0px -18px #1b1a1a,
-        1px 44px 1px -10px #1b1a1a, 
-        1px 65px 0 -20px #1b1a1a;
+        box-shadow: 7px 24px 0 -14px #1b1a1a, -5px 31px 0 -10px #1b1a1a, -5px 56px 0px -18px #1b1a1a,
+            1px 44px 1px -10px #1b1a1a, 1px 65px 0 -20px #1b1a1a;
     }
 }
-
-
 
 @keyframes laserContainer {
-    0%{top: -20vh;}
-    100%{top: 110vh;}
-}
-
-
-@keyframes laser1{
-    0%{
-        clip-path: polygon(100% 19%, 66% 0, 85% 18%, 0 0, 69% 20%, 0 19%, 85% 26%, 53% 32%, 81% 35%, 20% 48%, 81% 41%, 0 67%, 85% 50%, 28% 74%, 85% 57%, 20% 100%, 81% 73%, 65% 100%, 90% 70%, 82% 100%, 92% 81%, 100% 100%);
+    0% {
+        top: -20vh;
     }
-    100%{
-        clip-path: polygon(100% 19%, 86% 0, 98% 26%, 61% 9%, 91% 29%, 57% 20%, 94% 35%, 71% 33%, 100% 43%, 67% 41%, 94% 47%, 78% 51%, 94% 58%, 71% 64%, 88% 64%, 68% 76%, 81% 73%, 65% 88%, 94% 68%, 80% 91%, 96% 76%, 100% 100%);
+    100% {
+        top: 110vh;
     }
 }
 
+@keyframes laser1 {
+    0% {
+        clip-path: polygon(
+            100% 19%,
+            66% 0,
+            85% 18%,
+            0 0,
+            69% 20%,
+            0 19%,
+            85% 26%,
+            53% 32%,
+            81% 35%,
+            20% 48%,
+            81% 41%,
+            0 67%,
+            85% 50%,
+            28% 74%,
+            85% 57%,
+            20% 100%,
+            81% 73%,
+            65% 100%,
+            90% 70%,
+            82% 100%,
+            92% 81%,
+            100% 100%
+        );
+    }
+    100% {
+        clip-path: polygon(
+            100% 19%,
+            86% 0,
+            98% 26%,
+            61% 9%,
+            91% 29%,
+            57% 20%,
+            94% 35%,
+            71% 33%,
+            100% 43%,
+            67% 41%,
+            94% 47%,
+            78% 51%,
+            94% 58%,
+            71% 64%,
+            88% 64%,
+            68% 76%,
+            81% 73%,
+            65% 88%,
+            94% 68%,
+            80% 91%,
+            96% 76%,
+            100% 100%
+        );
+    }
+}
 
-
-@keyframes rotateLaser{
-    0%{
+@keyframes rotateLaser {
+    0% {
         left: -50vw;
         transform: rotate(0deg);
     }
-    100%{
+    100% {
         left: 150vw;
         transform: rotate(720deg);
     }
 }
 
-
-@keyframes appearsBoss{
-    0%{top:-50vh;}
-    100%{top:6vh;}
-}
-
-@keyframes turningLightsOn{
-    0%{opacity: 1;}
-    60%{opacity: 0;}
-    70%{opacity: 1;}
-    80%{opacity: 0;}
-    100%{opacity: 1;}
-}
-
-@keyframes laserOpen1{
-    0%{height: 100%;}
-    100%{height: 94vh;}
-}
-@keyframes laserOpen2{
-    0%{width: 100%;}
-    100%{width: 100vw;}
-}
-
-@keyframes laserMove1{
-    0%{transform: translateX(0vw);}
-    20%{transform: translateX(-50vw);}
-    80%{transform: translateX(50vw);}
-    100%{transform: translateX(0vw);}
-}
-
-@keyframes laserMove2{
-    0%{transform: translateY(0vh);}
-    10%{transform: translateY(-20vh);}
-    60%{transform: translateY(80vh);}
-    100%{transform: translateY(0vh);}
-}
-
-@keyframes rotateBossShield{
-    0%{transform: rotate(0deg);}
-    100%{transform: rotate(360deg);}
-}
-
-
-
-
-
-
-@keyframes brokenShield{
-    0%{
-        clip-path: polygon(0 100%, 0 0, 100% 0, 62% 39%, 70% 74%, 35% 67%);
-        
+@keyframes appearsBoss {
+    0% {
+        top: -50vh;
     }
-    99%{
-        clip-path: polygon(0 100%, 0 54%, 31% 67%, 0% 32%, 1% 1%, 15% 10%, 0 31%, 23% 45%, 57% 54%, 20% 24%, 51% 15%, 34% 0, 77% 0%, 63% 22%, 49% 13%, 46% 33%, 54% 53%, 77% 58%, 90% 61%, 93% 82%, 82% 69%, 76% 84%, 60% 92%, 54% 83%, 76% 83%, 56% 50%, 29% 66%, 27% 84%, 13% 79%);
+    100% {
+        top: 6vh;
+    }
+}
+
+@keyframes turningLightsOn {
+    0% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 0;
+    }
+    70% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes laserOpen1 {
+    0% {
+        height: 100%;
+    }
+    100% {
+        height: 94vh;
+    }
+}
+@keyframes laserOpen2 {
+    0% {
+        width: 100%;
+    }
+    100% {
+        width: 100vw;
+    }
+}
+
+@keyframes laserMove1 {
+    0% {
+        transform: translateX(0vw);
+    }
+    20% {
+        transform: translateX(-50vw);
+    }
+    80% {
+        transform: translateX(50vw);
+    }
+    100% {
+        transform: translateX(0vw);
+    }
+}
+
+@keyframes laserMove2 {
+    0% {
+        transform: translateY(0vh);
+    }
+    10% {
+        transform: translateY(-20vh);
+    }
+    60% {
+        transform: translateY(80vh);
+    }
+    100% {
+        transform: translateY(0vh);
+    }
+}
+
+@keyframes rotateBossShield {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes brokenShield {
+    0% {
+        clip-path: polygon(0 100%, 0 0, 100% 0, 62% 39%, 70% 74%, 35% 67%);
+    }
+    99% {
+        clip-path: polygon(
+            0 100%,
+            0 54%,
+            31% 67%,
+            0% 32%,
+            1% 1%,
+            15% 10%,
+            0 31%,
+            23% 45%,
+            57% 54%,
+            20% 24%,
+            51% 15%,
+            34% 0,
+            77% 0%,
+            63% 22%,
+            49% 13%,
+            46% 33%,
+            54% 53%,
+            77% 58%,
+            90% 61%,
+            93% 82%,
+            82% 69%,
+            76% 84%,
+            60% 92%,
+            54% 83%,
+            76% 83%,
+            56% 50%,
+            29% 66%,
+            27% 84%,
+            13% 79%
+        );
         height: 80px;
         width: 80px;
     }
-
 }
 
-
-@keyframes laserClose1{
-    0%{
+@keyframes laserClose1 {
+    0% {
         height: 100%;
     }
-    100%{
+    100% {
         height: 10%;
     }
 }
 
-@keyframes laserClose2{
-    0%{
+@keyframes laserClose2 {
+    0% {
         width: 100%;
     }
-    100%{
+    100% {
         width: 10%;
     }
 }
 
-@keyframes bossXplode1{
-    0%{
+@keyframes bossXplode1 {
+    0% {
         width: 0%;
         height: 0%;
         opacity: 1;
     }
-    80%{
+    80% {
         width: 100%;
         height: 100%;
         opacity: 1;
     }
-    100%{
+    100% {
         width: 700%;
         height: 700%;
         opacity: 0;
     }
 }
 
-@keyframes bossXplode2{
-    0%{
+@keyframes bossXplode2 {
+    0% {
         width: 0%;
         height: 0%;
         opacity: 1;
     }
 
-    100%{
+    100% {
         width: 300%;
         height: 30%;
         opacity: 0;
     }
 }
 
-@keyframes titleColor{
-    0%{color: rgb(255, 71, 71);}
-    30%{color: rgb(241, 217, 81);}
-    60%{color: rgb(78, 235, 91);}
-    100%{color: rgb(71, 187, 255)}
+@keyframes titleColor {
+    0% {
+        color: rgb(255, 71, 71);
+    }
+    30% {
+        color: rgb(241, 217, 81);
+    }
+    60% {
+        color: rgb(78, 235, 91);
+    }
+    100% {
+        color: rgb(71, 187, 255);
+    }
 }
 
-
-@keyframes altColor{
-    0%{background-color: rgb(255, 71, 71);}
-    30%{background-color: rgb(241, 217, 81);}
-    60%{background-color: rgb(78, 235, 91);}
-    100%{background-color: rgb(71, 187, 255)}
+@keyframes altColor {
+    0% {
+        background-color: rgb(255, 71, 71);
+    }
+    30% {
+        background-color: rgb(241, 217, 81);
+    }
+    60% {
+        background-color: rgb(78, 235, 91);
+    }
+    100% {
+        background-color: rgb(71, 187, 255);
+    }
 }
 
-
-@keyframes shipFall{
-    0%{
+@keyframes shipFall {
+    0% {
         width: 80px;
         height: 120px;
         opacity: 1;
-       
-}
+    }
 
-    100%{
-       
+    100% {
         width: 40px;
         height: 60px;
         opacity: 0;
     }
 }
 
-
 @keyframes stars1 {
-    form{
-        background-position: 0px 0px
+    form {
+        background-position: 0px 0px;
     }
-    to{
-        background-position: 0px 320px
+    to {
+        background-position: 0px 320px;
     }
 }
 
 @keyframes stars2 {
-    form{
-        background-position: 0% 0px
+    form {
+        background-position: 0% 0px;
     }
-    to{
-        background-position: 0% 200px
-    }
-    }
-
-@keyframes stars3 {
-    form{
-        background-position: 0% 0px
-    }
-    to{
-        background-position: 0% 100px
+    to {
+        background-position: 0% 200px;
     }
 }
+
+@keyframes stars3 {
+    form {
+        background-position: 0% 0px;
+    }
+    to {
+        background-position: 0% 100px;
+    }
+}
+
  
 $bg: #2d2d47;
 $ship: rgb(202, 202, 202);
@@ -429,32 +537,31 @@ $smoke: rgb(56, 55, 55);
         }
     }
 
-    .shoot{
-        &::after{
+    .shoot {
+        &::after {
             background-color: lighten($main, 5%);
         }
-        &::before{
+        &::before {
             background-color: lighten($main, 5%);
         }
     }
 }
 
 html[color="red"] {
-    @include colorShip($red, #00DB36);
+    @include colorShip($red, #00db36);
 }
 html[color="yellow"] {
-    @include colorShip($yellow, #00A8DB);
+    @include colorShip($yellow, #00a8db);
 }
 html[color="blue"] {
     @include colorShip($blue, $fire);
 }
 html[color="green"] {
-    @include colorShip($green, #FF1962);
-    
+    @include colorShip($green, #ff1962);
 }
 
  
-body{
+body {
     overflow: hidden;
 }
 
@@ -845,10 +952,7 @@ body{
     }
 }
 
-
-
-
-.stars-1{
+.stars-1 {
     z-index: -7;
     width: 200vw;
     height: 200vh;
@@ -856,10 +960,10 @@ body{
     background-repeat: repeat;
     background-size: 320px 320px;
     animation: stars1 10s linear infinite;
-    transform: rotate(15deg); 
+    transform: rotate(15deg);
 }
 
-.stars-2{
+.stars-2 {
     z-index: -10;
     width: 150vw;
     height: 150vh;
@@ -870,7 +974,7 @@ body{
     position: absolute;
 }
 
-.stars-3{
+.stars-3 {
     z-index: -7;
     width: 150vw;
     height: 150vh;
@@ -880,6 +984,7 @@ body{
     background-size: 100px 100px;
     animation: stars3 30s linear infinite;
 }
+
  
 .boss-container {
     height: 40vh;
@@ -973,18 +1078,18 @@ body{
                     width: 40%;
                 }
 
-                .laser-fx{
-                    &:nth-child(1){
-                        height: 50px!important;
-                        width: 150%!important;
+                .laser-fx {
+                    &:nth-child(1) {
+                        height: 50px !important;
+                        width: 150% !important;
                         top: -10px;
-                        transform: rotate(-90deg); 
+                        transform: rotate(-90deg);
                     }
-                    &:nth-child(2){
-                        height: 50px!important;
-                        width: 150%!important;
+                    &:nth-child(2) {
+                        height: 50px !important;
+                        width: 150% !important;
                         bottom: -10px;
-                        transform: rotate(90deg); 
+                        transform: rotate(90deg);
                     }
                 }
             }
@@ -1015,17 +1120,13 @@ body{
                 width: 100%;
                 margin: 0 50px 0 50px;
 
-                
-                .laser-fx{
-                    &:nth-child(1){
-
+                .laser-fx {
+                    &:nth-child(1) {
                         left: 0px;
-                        transform: rotate(180deg); 
+                        transform: rotate(180deg);
                     }
-                    &:nth-child(2){
-
+                    &:nth-child(2) {
                         right: 0px;
-
                     }
                 }
             }
@@ -1152,7 +1253,7 @@ body{
         position: absolute;
 
         &::after {
-            content: '';
+            content: "";
             height: 0%;
             width: 0%;
             border-radius: 500px;
@@ -1163,7 +1264,7 @@ body{
         }
 
         &::before {
-            content: '';
+            content: "";
             height: 0%;
             width: 0%;
             border-radius: 500px;
@@ -1174,19 +1275,14 @@ body{
             animation-delay: 2.7s;
         }
     }
-    
-
-        
 
     .laser-row-1 {
         animation: laserClose1 1s both;
         animation-delay: 2s;
         transition: all 1s !important;
         top: auto !important;
+    }
 
-        }
-
-    
     .laser-row-2 {
         animation: laserClose2 1s both;
         animation-delay: 2s;
@@ -1456,17 +1552,13 @@ body{
     .laser {
         width: 90%;
 
-
-        .laser-fx{
-            &:nth-child(1){
-
+        .laser-fx {
+            &:nth-child(1) {
                 left: 0px;
-                transform: rotate(180deg); 
+                transform: rotate(180deg);
             }
-            &:nth-child(2){
-
+            &:nth-child(2) {
                 right: 0px;
-
             }
         }
     }
@@ -1501,7 +1593,7 @@ body{
 }
 
  
-#hud{
+#hud {
     position: fixed;
     top: 0;
     left: 0;
@@ -1515,8 +1607,7 @@ body{
     display: none;
 }
 
-
-.hud-life{
+.hud-life {
     height: 60%;
     min-width: 50px;
     background-color: $bg;
@@ -1528,20 +1619,18 @@ body{
     justify-content: left;
     align-items: center;
 
-    &::after{
-        content: '\f004';
+    &::after {
+        content: "\f004";
         font-family: "Font Awesome 5 Free";
         font-size: 1.1em;
         font-weight: 900;
         color: white;
         position: absolute;
         left: -23px;
-
     }
-   
 }
 
-.hud-life-piece{
+.hud-life-piece {
     height: 60%;
     width: 10px;
     border-radius: 2px;
@@ -1549,7 +1638,7 @@ body{
     margin: 3px;
 }
 
-.hud-color{
+.hud-color {
     height: 60%;
     width: 7%;
     background-color: $bg;
@@ -1558,31 +1647,35 @@ body{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-   
 }
 
+.red {
+    background-color: $red;
+}
+.yellow {
+    background-color: $yellow;
+}
+.green {
+    background-color: $green;
+}
+.blue {
+    background-color: $blue;
+}
 
-.red{background-color: $red;}
-.yellow{background-color: $yellow;}
-.green{background-color: $green;}
-.blue{background-color: $blue;}
-
-.hud-color-ball{
+.hud-color-ball {
     width: 10px;
     height: 7px;
     border-radius: 20px;
-    
 }
 
-.hud-color-ball--selected{
+.hud-color-ball--selected {
     width: 15px;
     height: 15px;
     animation: ballSelected 0.4s;
     // transition: all 0.2s;
 }
 
-
-.hud-score{
+.hud-score {
     height: 60%;
     min-width: 7%;
     background-color: $bg;
@@ -1590,20 +1683,19 @@ body{
     right: 3%;
     border-radius: 5px;
     color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
 
-    &::after{
-        content: '\f091';
+    &::after {
+        content: "\f091";
         font-family: "Font Awesome 5 Free";
         font-size: 1.2em;
         font-weight: 900;
         color: white;
         position: absolute;
         left: 105%;
-
     }
 }
 
@@ -1617,23 +1709,19 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-
-
 }
 
-.damage{
+.damage {
     // filter: brightness(20);
     animation: damage 0.2s infinite alternate;
 }
-.ship-collision-area{
-
+.ship-collision-area {
     width: 200%;
     height: 100%;
     position: absolute;
     top: 0;
     border: 1px solid red;
 }
-
 
 .ship-body {
     height: 100%;
@@ -1643,8 +1731,8 @@ body{
     // box-shadow: inset 45px 2px 0px -4px var(--ship-shadow);
     transition: all 0.4s;
 
-    &::after{
-        content: '';
+    &::after {
+        content: "";
         height: 100%;
         width: 50%;
         background-color: darken($ship, 10%);
@@ -1782,7 +1870,7 @@ body{
         // box-shadow: inset 30px 2px 0px -4px var(--ship-shadow);
         clip-path: polygon(40% 0%, 100% 85%, 76% 100%, 35% 115%, 10% 80%);
         transition: all 0.4s;
-        &::after{
+        &::after {
             width: 35%;
             transition: all 0.4s;
         }
@@ -1849,7 +1937,7 @@ body{
         // clip-path: polygon(50% 0%, 100% 85%, 76% 100%, 35% 115%, 10% 80%);
         transition: all 0.4s;
 
-        &::after{
+        &::after {
             width: 70%;
             transition: all 0.4s;
         }
@@ -1894,10 +1982,7 @@ body{
     }
 }
 
-
-
-
-.danger{
+.danger {
     width: 30px;
     height: 30px;
     background-color: #1b1a1a;
@@ -1905,21 +1990,14 @@ body{
     z-index: -1;
     left: 10px;
     bottom: 0px;
-   position: absolute;
+    position: absolute;
     // box-shadow: 14px ​19px 0 -6px $smoke;
-    box-shadow: 
-    7px 14px 0 -4px #383737, 
-    -5px 21px 0 -5px #383737, 
-    -5px 46px 0px -8px #383737, 
-    1px 34px 1px -5px #383737, 
-    1px 55px 0 -10px #383737;
-
+    box-shadow: 7px 14px 0 -4px #383737, -5px 21px 0 -5px #383737, -5px 46px 0px -8px #383737, 1px 34px 1px -5px #383737,
+        1px 55px 0 -10px #383737;
 
     animation: smoke 0.3s infinite linear;
 }
 
-
-
-.ship-dead{
+.ship-dead {
     animation: shipFall 1s both;
 }

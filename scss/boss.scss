@@ -90,18 +90,18 @@
                     width: 40%;
                 }
 
-                .laser-fx{
-                    &:nth-child(1){
-                        height: 50px!important;
-                        width: 150%!important;
+                .laser-fx {
+                    &:nth-child(1) {
+                        height: 50px !important;
+                        width: 150% !important;
                         top: -10px;
-                        transform: rotate(-90deg); 
+                        transform: rotate(-90deg);
                     }
-                    &:nth-child(2){
-                        height: 50px!important;
-                        width: 150%!important;
+                    &:nth-child(2) {
+                        height: 50px !important;
+                        width: 150% !important;
                         bottom: -10px;
-                        transform: rotate(90deg); 
+                        transform: rotate(90deg);
                     }
                 }
             }
@@ -132,17 +132,13 @@
                 width: 100%;
                 margin: 0 50px 0 50px;
 
-                
-                .laser-fx{
-                    &:nth-child(1){
-
+                .laser-fx {
+                    &:nth-child(1) {
                         left: 0px;
-                        transform: rotate(180deg); 
+                        transform: rotate(180deg);
                     }
-                    &:nth-child(2){
-
+                    &:nth-child(2) {
                         right: 0px;
-
                     }
                 }
             }
@@ -269,7 +265,7 @@
         position: absolute;
 
         &::after {
-            content: '';
+            content: "";
             height: 0%;
             width: 0%;
             border-radius: 500px;
@@ -280,7 +276,7 @@
         }
 
         &::before {
-            content: '';
+            content: "";
             height: 0%;
             width: 0%;
             border-radius: 500px;
@@ -291,19 +287,14 @@
             animation-delay: 2.7s;
         }
     }
-    
-
-        
 
     .laser-row-1 {
         animation: laserClose1 1s both;
         animation-delay: 2s;
         transition: all 1s !important;
         top: auto !important;
+    }
 
-        }
-
-    
     .laser-row-2 {
         animation: laserClose2 1s both;
         animation-delay: 2s;

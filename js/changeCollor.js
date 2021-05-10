@@ -17,12 +17,12 @@ function changeShipColor() {
 
     // for (let i = 0; i < ballsHud.length; i++) {
     //     // ship.classList.remove('ship-' + colors[i]);
-        
-        
+
+
     // }
     document.documentElement.setAttribute('color', colors[game.color]);
     // ship.classList.add('ship-' + colors[game.color]);
-    
+
 }
 
 
@@ -48,12 +48,12 @@ document.addEventListener("keydown", event => {
         console.log('up');
 
 
-        if(game.color < ballsHud.length - 1){
+        if (game.color < ballsHud.length - 1) {
             game.color += 1;
-           
-        }else{
+
+        } else {
             game.color = 0;
-           
+
         }
         clearAndChangeHud();
         changeShipColor();
@@ -73,10 +73,10 @@ document.addEventListener("keydown", event => {
             colorSound.remove();
         }, 1000);
 
-        if(game.color > 0){
+        if (game.color > 0) {
             game.color += -1;
-           
-        }else{
+
+        } else {
             game.color = ballsHud.length - 1;
         }
         clearAndChangeHud();

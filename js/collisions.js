@@ -110,7 +110,7 @@ function shootCollider(shoot) {
 
                 // console.log('colidiu');
                 var shieldsBroken = document.querySelectorAll('.shield-broken');
-                
+
 
 
 
@@ -215,7 +215,7 @@ function shipCollider() {
 
                         ship.classList.add('damage');
                         life(-1);
-            
+
 
 
                         setTimeout(() => {
@@ -460,38 +460,38 @@ function shipCollider() {
 
 
 
-            for (let i = 0; i < 3; i++) {
-                if ((pontos_ship[i].x >= lifeCollider.left &&
-                    pontos_ship[i].x <= lifeCollider.left + lifeCollider.width &&
-                    pontos_ship[i].y >= lifeCollider.top &&
-                    pontos_ship[i].y <= lifeCollider.top + lifeCollider.height) ||
+        for (let i = 0; i < 3; i++) {
+            if ((pontos_ship[i].x >= lifeCollider.left &&
+                pontos_ship[i].x <= lifeCollider.left + lifeCollider.width &&
+                pontos_ship[i].y >= lifeCollider.top &&
+                pontos_ship[i].y <= lifeCollider.top + lifeCollider.height) ||
 
-                    (pontos_life[i].x >= shipCollider.left &&
-                        pontos_life[i].x <= shipCollider.left + shipCollider.width &&
-                        pontos_life[i].y >= shipCollider.top &&
-                        pontos_life[i].y <= shipCollider.top + shipCollider.height)) {
-
-
-                  
-                    element.remove();
+                (pontos_life[i].x >= shipCollider.left &&
+                    pontos_life[i].x <= shipCollider.left + shipCollider.width &&
+                    pontos_life[i].y >= shipCollider.top &&
+                    pontos_life[i].y <= shipCollider.top + shipCollider.height)) {
 
 
-                    setTimeout(() => {
-                        life(1);
-                    }, 100);
+
+                element.remove();
 
 
+                setTimeout(() => {
+                    life(1);
+                }, 100);
 
 
 
 
-
-                }
 
 
 
             }
-        
+
+
+
+        }
+
 
     });
 

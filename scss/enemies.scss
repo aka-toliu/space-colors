@@ -259,17 +259,13 @@
     .laser {
         width: 90%;
 
-
-        .laser-fx{
-            &:nth-child(1){
-
+        .laser-fx {
+            &:nth-child(1) {
                 left: 0px;
-                transform: rotate(180deg); 
+                transform: rotate(180deg);
             }
-            &:nth-child(2){
-
+            &:nth-child(2) {
                 right: 0px;
-
             }
         }
     }

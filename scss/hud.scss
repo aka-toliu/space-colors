@@ -1,4 +1,4 @@
-#hud{
+#hud {
     position: fixed;
     top: 0;
     left: 0;
@@ -12,8 +12,7 @@
     display: none;
 }
 
-
-.hud-life{
+.hud-life {
     height: 60%;
     min-width: 50px;
     background-color: $bg;
@@ -25,20 +24,18 @@
     justify-content: left;
     align-items: center;
 
-    &::after{
-        content: '\f004';
+    &::after {
+        content: "\f004";
         font-family: "Font Awesome 5 Free";
         font-size: 1.1em;
         font-weight: 900;
         color: white;
         position: absolute;
         left: -23px;
-
     }
-   
 }
 
-.hud-life-piece{
+.hud-life-piece {
     height: 60%;
     width: 10px;
     border-radius: 2px;
@@ -46,7 +43,7 @@
     margin: 3px;
 }
 
-.hud-color{
+.hud-color {
     height: 60%;
     width: 7%;
     background-color: $bg;
@@ -55,31 +52,35 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-   
 }
 
+.red {
+    background-color: $red;
+}
+.yellow {
+    background-color: $yellow;
+}
+.green {
+    background-color: $green;
+}
+.blue {
+    background-color: $blue;
+}
 
-.red{background-color: $red;}
-.yellow{background-color: $yellow;}
-.green{background-color: $green;}
-.blue{background-color: $blue;}
-
-.hud-color-ball{
+.hud-color-ball {
     width: 10px;
     height: 7px;
     border-radius: 20px;
-    
 }
 
-.hud-color-ball--selected{
+.hud-color-ball--selected {
     width: 15px;
     height: 15px;
     animation: ballSelected 0.4s;
     // transition: all 0.2s;
 }
 
-
-.hud-score{
+.hud-score {
     height: 60%;
     min-width: 7%;
     background-color: $bg;
@@ -87,19 +88,18 @@
     right: 3%;
     border-radius: 5px;
     color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
 
-    &::after{
-        content: '\f091';
+    &::after {
+        content: "\f091";
         font-family: "Font Awesome 5 Free";
         font-size: 1.2em;
         font-weight: 900;
         color: white;
         position: absolute;
         left: 105%;
-
     }
 }

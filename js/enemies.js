@@ -6,7 +6,7 @@
 
 function createMeteorites() {
     var posX = Math.round(Math.random() * (10 - 1)) * 10 + "%";
-    var size = Math.round(Math.random() * (6 - 3)) + 5  + "0px";
+    var size = Math.round(Math.random() * (6 - 3)) + 5 + "0px";
 
     var numColor = Math.round(Math.random() * (3 - 0));
 
@@ -50,7 +50,7 @@ function createLasers() {
 
     container.appendChild(laserContainer);
     laserContainer.classList.add('laser-container');
-    
+
 
     var laser = document.createElement('DIV');
     laser.classList.add('laser');
@@ -84,13 +84,13 @@ function createLasers() {
         var ObstacleR = document.createElement('DIV');
         ObstacleR.classList.add('obstacle-30-R', 'ob');
         laserContainer.appendChild(ObstacleR);
-    } 
+    }
     else if (position == 1) {
         var Obstacle = document.createElement('DIV');
         Obstacle.classList.add('obstacle-70', 'ob');
         laserContainer.appendChild(Obstacle);
 
-        
+
 
 
         var laserFXL = document.createElement('DIV');
@@ -108,7 +108,7 @@ function createLasers() {
         laserContainer.appendChild(Obstacle);
         laserContainer.style.transform = 'scaleX(-1)';
 
-        
+
 
         var laserFXR = document.createElement('DIV');
         laserFXR.classList.add('laser-fx');
@@ -117,7 +117,7 @@ function createLasers() {
 
         laserContainer.appendChild(laser);
         laser.appendChild(laserFXR);
- 
+
 
     }
 

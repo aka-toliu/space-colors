@@ -5,7 +5,7 @@ var habemusLaserRotate;
 
 function phase1() {
     habemusMeteorites = setInterval(createMeteorites, 2000);
-    
+
 
     setTimeout(() => {
         habemusLasers = setInterval(createLasers, 15000);
