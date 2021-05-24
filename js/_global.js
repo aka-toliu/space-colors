@@ -10,7 +10,7 @@ var colors = ['red', 'yellow', 'blue', 'green']
 
 var game = {
 
-    life: 4,
+    life: 3,
     color: -1,
     points: 0,
     powerUp: 0,
