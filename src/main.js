@@ -10,7 +10,7 @@ var colors = ['red', 'yellow', 'blue', 'green']
 
 var game = {
 
-    life: 3,
+    life: 5,
     color: -1,
     points: 0,
     powerUp: 0,
@@ -134,12 +134,12 @@ function changeShipColor() {
 
     // for (let i = 0; i < ballsHud.length; i++) {
     //     // ship.classList.remove('ship-' + colors[i]);
-        
-        
+
+
     // }
     document.documentElement.setAttribute('color', colors[game.color]);
     // ship.classList.add('ship-' + colors[game.color]);
-    
+
 }
 
 
@@ -165,12 +165,12 @@ document.addEventListener("keydown", event => {
         console.log('up');
 
 
-        if(game.color < ballsHud.length - 1){
+        if (game.color < ballsHud.length - 1) {
             game.color += 1;
-           
-        }else{
+
+        } else {
             game.color = 0;
-           
+
         }
         clearAndChangeHud();
         changeShipColor();
@@ -190,10 +190,10 @@ document.addEventListener("keydown", event => {
             colorSound.remove();
         }, 1000);
 
-        if(game.color > 0){
+        if (game.color > 0) {
             game.color += -1;
-           
-        }else{
+
+        } else {
             game.color = ballsHud.length - 1;
         }
         clearAndChangeHud();
@@ -315,7 +315,7 @@ function shootCollider(shoot) {
 
                 // console.log('colidiu');
                 var shieldsBroken = document.querySelectorAll('.shield-broken');
-                
+
 
 
 
@@ -420,7 +420,7 @@ function shipCollider() {
 
                         ship.classList.add('damage');
                         life(-1);
-            
+
 
 
                         setTimeout(() => {
@@ -665,38 +665,38 @@ function shipCollider() {
 
 
 
-            for (let i = 0; i < 3; i++) {
-                if ((pontos_ship[i].x >= lifeCollider.left &&
-                    pontos_ship[i].x <= lifeCollider.left + lifeCollider.width &&
-                    pontos_ship[i].y >= lifeCollider.top &&
-                    pontos_ship[i].y <= lifeCollider.top + lifeCollider.height) ||
+        for (let i = 0; i < 3; i++) {
+            if ((pontos_ship[i].x >= lifeCollider.left &&
+                pontos_ship[i].x <= lifeCollider.left + lifeCollider.width &&
+                pontos_ship[i].y >= lifeCollider.top &&
+                pontos_ship[i].y <= lifeCollider.top + lifeCollider.height) ||
 
-                    (pontos_life[i].x >= shipCollider.left &&
-                        pontos_life[i].x <= shipCollider.left + shipCollider.width &&
-                        pontos_life[i].y >= shipCollider.top &&
-                        pontos_life[i].y <= shipCollider.top + shipCollider.height)) {
-
-
-                  
-                    element.remove();
+                (pontos_life[i].x >= shipCollider.left &&
+                    pontos_life[i].x <= shipCollider.left + shipCollider.width &&
+                    pontos_life[i].y >= shipCollider.top &&
+                    pontos_life[i].y <= shipCollider.top + shipCollider.height)) {
 
 
-                    setTimeout(() => {
-                        life(1);
-                    }, 100);
+
+                element.remove();
 
 
+                setTimeout(() => {
+                    life(1);
+                }, 100);
 
 
 
 
-
-                }
 
 
 
             }
-        
+
+
+
+        }
+
 
     });
 
@@ -710,7 +710,7 @@ function shipCollider() {
 
 function createMeteorites() {
     var posX = Math.round(Math.random() * (10 - 1)) * 10 + "%";
-    var size = Math.round(Math.random() * (6 - 3)) + 5  + "0px";
+    var size = Math.round(Math.random() * (6 - 3)) + 5 + "0px";
 
     var numColor = Math.round(Math.random() * (3 - 0));
 
@@ -754,7 +754,7 @@ function createLasers() {
 
     container.appendChild(laserContainer);
     laserContainer.classList.add('laser-container');
-    
+
 
     var laser = document.createElement('DIV');
     laser.classList.add('laser');
@@ -788,13 +788,13 @@ function createLasers() {
         var ObstacleR = document.createElement('DIV');
         ObstacleR.classList.add('obstacle-30-R', 'ob');
         laserContainer.appendChild(ObstacleR);
-    } 
+    }
     else if (position == 1) {
         var Obstacle = document.createElement('DIV');
         Obstacle.classList.add('obstacle-70', 'ob');
         laserContainer.appendChild(Obstacle);
 
-        
+
 
 
         var laserFXL = document.createElement('DIV');
@@ -812,7 +812,7 @@ function createLasers() {
         laserContainer.appendChild(Obstacle);
         laserContainer.style.transform = 'scaleX(-1)';
 
-        
+
 
         var laserFXR = document.createElement('DIV');
         laserFXR.classList.add('laser-fx');
@@ -821,7 +821,7 @@ function createLasers() {
 
         laserContainer.appendChild(laser);
         laser.appendChild(laserFXR);
- 
+
 
     }
 
@@ -1127,11 +1127,11 @@ function phase1() {
 
             setTimeout(() => {
 
-                habemusLaserRotate = setInterval(createLaserRotate, 25000);
+                habemusLaserRotate = setInterval(createLaserRotate, 30000);
 
                 setTimeout(() => {
                     clearInterval(habemusLasers);
-                    habemusLasers = setInterval(createLasers, 7000);
+                    habemusLasers = setInterval(createLasers, 9500);
 
 
                     setTimeout(() => {

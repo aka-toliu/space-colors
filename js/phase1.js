@@ -21,11 +21,11 @@ function phase1() {
 
             setTimeout(() => {
 
-                habemusLaserRotate = setInterval(createLaserRotate, 25000);
+                habemusLaserRotate = setInterval(createLaserRotate, 30000);
 
                 setTimeout(() => {
                     clearInterval(habemusLasers);
-                    habemusLasers = setInterval(createLasers, 7000);
+                    habemusLasers = setInterval(createLasers, 9500);
 
 
                     setTimeout(() => {
