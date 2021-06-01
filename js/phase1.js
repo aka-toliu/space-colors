@@ -16,16 +16,19 @@ function phase1() {
             clearInterval(habemusLasers);
             clearInterval(habemusMeteorites);
             habemusLasers = setInterval(createLasers, 10000);
-            habemusMeteorites = setInterval(createMeteorites, 1500);
+            habemusMeteorites = setInterval(createMeteorites, 1800);
 
 
             setTimeout(() => {
 
-                habemusLaserRotate = setInterval(createLaserRotate, 30000);
+                clearInterval(habemusLasers);
+                habemusLasers = setInterval(createLasers, 12000);
+                habemusLaserRotate = setInterval(createLaserRotate, 25000);
+                clearInterval(habemusMeteorites);
+                habemusMeteorites = setInterval(createMeteorites, 3000);
 
-                setTimeout(() => {
-                    clearInterval(habemusLasers);
-                    habemusLasers = setInterval(createLasers, 9500);
+
+
 
 
                     setTimeout(() => {
@@ -38,17 +41,17 @@ function phase1() {
 
 
                             musicBoss.loop = true;
-                            // musicSound.pause();
+                            musicSound.pause();
                             musicBoss.play();
                             boss();
                         }, 10000);
                     }, 30000);
 
-                }, 60000);
 
-            }, 30000);
 
-        }, 45000);
+            }, 10000);
 
-    }, 30000);
+        }, 30000);
+
+    }, 18000);
 }
