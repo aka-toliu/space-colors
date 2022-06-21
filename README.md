@@ -1,3 +1,6 @@
+![Preview](https://www.behance.net/gallery/140842509/Space-Colors-Game-with-pure-JavaScript-CSS-SASS/modules/795828409)
+
+
 ## how to init the app:
 
 1. **Install Node JS local**
